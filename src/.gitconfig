@@ -1,0 +1,78 @@
+[user]
+  email = laspavel@gmail.com
+  name = laspavel
+  
+[core]
+  editor = $EDITOR
+#  autocrlf=true
+  pager = less -niSFX
+  filemode = true
+  mergeoptions = --no-edit
+  excludesfile= ~/.gitignore
+
+[status]
+  showUntrackedFiles = all
+
+[fetch]
+  prune = true
+
+[rebase]
+  autostash = true
+
+[pull]
+  rebase=false
+
+[init]
+  defaultBranch = master
+
+[diff]
+  noprefix = true
+  renames = true
+  colorMoved = default
+
+[grep]
+  lineNumber = true
+  patternType = extended
+
+[http]
+  sslVerify = false
+
+[color]
+  ui = auto
+  interactive = auto
+
+[color "branch"]
+  current = yellow bold
+  local   = green bold
+  remote  = cyan bold
+
+[color "diff"]
+  meta       = yellow bold
+  frag       = magenta bold
+  old        = red bold
+  new        = green bold
+  whitespace = red reverse
+
+[color "status"]
+  added     = green bold
+  changed   = yellow bold
+  untracked = red bold
+
+[alias]
+  today = log --since=midnight --color --graph --abbrev-commit --pretty=format:'%C(blue)%h%C(red)%d %C(white)%s - %C(cyan)%cn, %C(green)%cr'
+  yesterday = log --since yesterday --until=midnight --color --graph --pretty=format:'%C(blue)%h%C(red)%d %C(white)%s - %C(cyan)%cn, %C(green)%cr' 
+  l = log --until=midnight --color --graph --abbrev-commit --pretty=format:'%C(blue)%h%C(red)%d %C(white)%s - %C(cyan)%cn, %C(green)%cr'
+  s = status -s
+  a = add '.
+  c = !git add --all && git commit -a -m
+  ps = push
+  pl = pull
+  up = push origin master
+  down = pull origin master
+  branches = branch -avv --list
+  remotes  = remote -v
+
+[help]
+  autocorrect = 1
+
+
