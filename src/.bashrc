@@ -259,12 +259,14 @@ alias most10='du -hsx * | sort -rh | head -10'
 # Estimate file space usage to maximum depth
 alias dud="du -d 1"
 
-# Utils from Internet
+# Wine Utils
 alias winbox='wine64 "$HOME/.wine/drive_c/winbox.exe"'
 alias winrar='wine64 "$HOME/.wine/drive_c/Program Files/WinRAR/WinRAR.exe"'
 
 # Utils from Internet
 alias weather="curl wttr.in/Dnepr"
+alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
+alias dnsinfo="dig $1 @resolver1.opendns.com"
 ipinfo() { curl ipinfo.io/$1; echo "";}
 
 #open vscode
