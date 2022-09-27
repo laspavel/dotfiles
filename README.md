@@ -1,5 +1,3 @@
-![GitHub](https://img.shields.io/github/license/laspavel/dotfiles)
-
 # dotfiles
 
 Dotfiles for my start.
