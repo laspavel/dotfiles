@@ -1,4 +1,4 @@
-![GitHub](https://img.shields.io/github/license/laspavel/dotfiles) 
+![GitHub](https://img.shields.io/github/license/laspavel/dotfiles)
 
 # dotfiles
 
