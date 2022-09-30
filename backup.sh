@@ -42,7 +42,6 @@ cd $STARTDIR
 
 git add .
 git commit -a -m "new backup $DATE"
-ssh -vvv git@github.com
 git push origin master
 git push --tags
 
