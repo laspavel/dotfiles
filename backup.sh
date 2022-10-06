@@ -14,7 +14,7 @@ dconf dump / > $STARTDIR/src/dump_gnome_settings
 
 mkdir -p $STARTDIR/src/.config/mc
 cp -rf ~/.config/mc/ini $STARTDIR/src/.config/mc/ini
-cp -rf ~/.config/mc/panels $STARTDIR/src/.config/mc/panels
+cp -rf ~/.config/mc/panels.ini $STARTDIR/src/.config/mc/panels.ini
 mkdir -p $STARTDIR/src/.config/htop
 cp -rf ~/.config/htop/htoprc $STARTDIR/src/.config/htop/htoprc
 cp -rf ~/.vimrc $STARTDIR/src
