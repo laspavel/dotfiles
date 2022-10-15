@@ -17,6 +17,9 @@ then
 fi
 export PATH
 
+# temporary files directory
+export TMPDIR="${HOME}/tmp"
+
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
