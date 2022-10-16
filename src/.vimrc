@@ -146,9 +146,9 @@ vnoremap <F2> <Esc>:w<CR>
 " vnoremap <C-с> <Esc>:q<CR>
 
 " Ctrl+End для закрытия текущего файла
-nnoremap <C-End> :q<CR>
-inoremap <C-End> <Esc>:q<CR>
-vnoremap <C-End> <Esc>:q<CR>
+nnoremap <C-End> :q!<CR>
+inoremap <C-End> <Esc>:q!<CR>
+vnoremap <C-End> <Esc>:q!<CR>
 
 
 " Ctrl+z для отмены изменений и Ctrl+x для возврата к изменениям
