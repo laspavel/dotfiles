@@ -7,8 +7,6 @@ fi
 
 # ########## MY CONFIGURATION ############
 
-alias home_route="$HOME/.local/route_dns_add_ppp0.sh"
-
 # ######### FUNCTION #########
 
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
