@@ -33,7 +33,7 @@ idna==3.3
 invoke==1.7.0
 Jinja2==3.0.3
 jmespath==1.0.0
-koji==1.30.0
+koji==1.30.1
 langtable==0.0.60
 lexicon==2.0.1
 libcomps==0.1.18
@@ -81,7 +81,7 @@ python-augeas==1.1.0
 python-dateutil==2.8.1
 python-meh==0.50
 python-utils==2.5.6
-pytz==2022.2
+pytz==2022.4
 pyudev==0.22.0
 pywinrm==0.4.1
 pyxdg==0.27
@@ -95,7 +95,7 @@ requests-ntlm==1.1.0
 resolvelib==0.5.5
 rpm==4.17.1
 rpmautospec==0.3.0
-rpmconf==1.1.4
+rpmconf==1.1.7
 selinux==3.3
 sepolicy==3.3
 setools==4.4.0
@@ -110,4 +110,5 @@ systemd-python==234
 Tempita==0.5.2
 toml==0.10.2
 urllib3==1.26.12
+vboxapi==1.0
 xmltodict==0.12.0

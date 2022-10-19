@@ -120,21 +120,12 @@ noremap П G
 
 " Ctrl+s для сохранения файла и возврата в нормальный режим (NORMAL)
 "   из NORMAL
-nnoremap <C-s> :w<CR>
-nnoremap <C-ы> :w<CR>
-nnoremap <C-і> :w<CR>
 nnoremap <F2> :w<CR>
 
 "   из INSERT
-inoremap <C-s> <Esc>:w<CR>
-inoremap <C-ы> <Esc>:w<CR>
-inoremap <C-і> <Esc>:w<CR>
 inoremap <F2> <Esc>:w<CR>
 
 "   из VISUAL
-vnoremap <C-s> <Esc>:w<CR>
-vnoremap <C-ы> <Esc>:w<CR>
-vnoremap <C-і> <Esc>:w<CR>
 vnoremap <F2> <Esc>:w<CR>
 
 " Ctrl+c для закрытия текущего файла
