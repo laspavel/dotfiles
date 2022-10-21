@@ -226,6 +226,7 @@ alias s='stat'
 alias rm='rm -i'
 alias n='nano '
 alias vi='vim'
+alias v='vim'
 alias cls='clear'
 alias r='reset'
 alias df='df -h'
@@ -271,7 +272,7 @@ alias dnsinfo="dig $1 @resolver1.opendns.com"
 ipinfo() { curl ipinfo.io/$1; echo "";}
 
 #open vscode
-alias v="code $1"
+alias vv="code $1"
 alias ?="calc -d $1"
 
 # Monitor run
