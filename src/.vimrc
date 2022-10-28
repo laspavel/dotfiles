@@ -55,6 +55,8 @@ set ffs=unix,dos,mac
 call plug#begin()
   Plug 'altercation/solarized'
   Plug 'itchyny/lightline.vim'
+  Plug 'valloric/youcompleteme'
+  Plug 'scrooloose/nerdtree'
 call plug#end()
 set background=dark
 
@@ -150,6 +152,11 @@ inoremap <C-z> <Esc>:undo<CR>i
 nnoremap <C-x> :redo<CR>
 vnoremap <C-x> <Esc>:redo<CR>
 inoremap <C-x> <Esc>:redo<CR>i
+
+
+nnoremap <F3> :NERDTreeToggle<CR>
+vnoremap <F3> <Esc>:NERDTreeToggle<CR>
+inoremap <F3> <Esc>:NERDTreeToggle<CR>
 
 " Отключение бэкапных файлов Vim, ведь скорее всего,
 " весь код уже в какой-нибудь VCS: mercury или git
