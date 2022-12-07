@@ -20,5 +20,4 @@
 "lavdopts
 "-lavdopts
 "delete
-.search
 "ignore-failed-read
