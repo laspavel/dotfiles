@@ -1,8 +1,12 @@
 [/]
 animate-app-switch=false
-animate-appicon-hover=false
+animate-appicon-hover=true
+animate-appicon-hover-animation-convexity={'RIPPLE': 2.0, 'PLANK': 1.0, 'SIMPLE': 0.0}
 animate-appicon-hover-animation-extent={'RIPPLE': 4, 'PLANK': 4, 'SIMPLE': 1}
-animate-appicon-hover-animation-zoom={'SIMPLE': 1.49, 'RIPPLE': 1.25, 'PLANK': 2.0}
+animate-appicon-hover-animation-rotation={'SIMPLE': 0, 'RIPPLE': 10, 'PLANK': 0}
+animate-appicon-hover-animation-travel={'SIMPLE': 0.14999999999999999, 'RIPPLE': 0.40000000000000002, 'PLANK': 0.0}
+animate-appicon-hover-animation-type='SIMPLE'
+animate-appicon-hover-animation-zoom={'SIMPLE': 1.1000000000000001, 'RIPPLE': 1.25, 'PLANK': 2.0}
 animate-show-apps=false
 animate-window-launch=false
 app-ctrl-hotkey-1=['1']
