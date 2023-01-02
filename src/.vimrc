@@ -55,7 +55,6 @@ set ffs=unix,dos,mac
 call plug#begin()
   Plug 'altercation/solarized'
   Plug 'itchyny/lightline.vim'
-  Plug 'valloric/youcompleteme'
   Plug 'scrooloose/nerdtree'
 call plug#end()
 set background=dark
