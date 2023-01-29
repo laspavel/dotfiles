@@ -102,4 +102,5 @@ soupsieve==2.3.2.post1
 systemd-python==235
 Tempita==0.5.2
 urllib3==1.26.12
+XlsxWriter==3.0.7
 xmltodict==0.12.0
