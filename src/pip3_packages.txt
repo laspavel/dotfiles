@@ -9,6 +9,7 @@ beautifulsoup4==4.11.0
 blivet==3.5.0
 blivet-gui==2.4.0
 Brlapi==0.8.4
+bullet==2.2.0
 cached-property==1.5.2
 cffi==1.15.1
 chardet==5.0.0
@@ -40,7 +41,9 @@ lexicon==2.0.1
 libcomps==0.1.18
 lxml==4.9.1
 Mako==1.1.4
+markdown-it-py==2.1.0
 MarkupSafe==2.1.1
+mdurl==0.1.2
 nftables==0.1
 ntlm-auth==1.5.0
 olefile==0.46
@@ -65,6 +68,7 @@ pycups==2.0.1
 pycurl==7.45.1
 pyenchant==3.2.2
 pygit2==1.7.1
+Pygments==2.14.0
 PyGObject==3.42.2
 pykickstart==3.41
 PyNaCl==1.4.0
@@ -92,6 +96,7 @@ requests-ftp==0.3.1
 requests-gssapi==1.2.3
 requests-ntlm==1.1.0
 resolvelib==0.5.5
+rich==13.3.1
 rpm==4.18.0
 rpmautospec==0.3.0
 rpmconf==1.1.7
