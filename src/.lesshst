@@ -21,3 +21,5 @@
 "-lavdopts
 "delete
 "ignore-failed-read
+.search
+"threads
