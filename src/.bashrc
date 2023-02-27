@@ -240,7 +240,7 @@ alias h='history '
 
 alias free='free -h'
 alias mkdir='mkdir -pv'
-alias passgen="echo $(head -c 11 /dev/random | base64 | sed "s:[+=/]::g" | head -c 11)"
+alias passgen="openssl rand -base64 8"
 alias urldecode='python -c "import sys, os, urllib as ul; name = ul.unquote_plus(sys.argv[1]); print name; os.rename(sys.argv[1], name)"'
 alias port='netstat -tulanp'
 alias listen="lsof -P -i -n"
@@ -276,8 +276,8 @@ alias vv="code $1"
 alias ?="calc -d $1"
 
 # Monitor run
-alias use1="xrandr --output HDMI-2 --off"
-alias use2="xrandr --output HDMI-2 --auto --rotate normal --right-of DP-1"
+#alias use1="xrandr --output HDMI-2 --off"
+#alias use2="xrandr --output HDMI-2 --auto --rotate normal --right-of DP-1"
 alias tt="tmux attach -t 0"
 
 #Docker
