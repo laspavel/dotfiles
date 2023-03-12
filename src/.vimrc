@@ -1,3 +1,12 @@
+" Отключить совместимость с vi
+set nocompatible
+
+" Включает плагины типов файлов и отступов
+filetype plugin indent on
+
+" Включение подсветки в 246 цветов.
+set t_Co=256
+
 " Длина одного таба (количество пробелов приравниваемое одному символу табуляции).
 set tabstop=4
 
@@ -129,19 +138,10 @@ inoremap <F2> <Esc>:w<CR>
 "   из VISUAL
 vnoremap <F2> <Esc>:w<CR>
 
-" Ctrl+c для закрытия текущего файла
-" nnoremap <C-c> :q<CR>
-" nnoremap <C-с> :q<CR>s
-" inoremap <C-c> <Esc>:q<CR>
-" inoremap <C-с> <Esc>:q<CR>
-" vnoremap <C-c> <Esc>:q<CR>
-" vnoremap <C-с> <Esc>:q<CR>
-
-" Ctrl+End для закрытия текущего файла
-nnoremap <C-End> :q!<CR>
-inoremap <C-End> <Esc>:q!<CR>
-vnoremap <C-End> <Esc>:q!<CR>
-
+" F10 для закрытия текущего файла
+nnoremap <F10> :q!<CR>
+inoremap <F10> <Esc>:q!<CR>
+vnoremap <F10> <Esc>:q!<CR>
 
 " Ctrl+z для отмены изменений и Ctrl+x для возврата к изменениям
 " в режимах NORMAL, VISUAL и INSERT
