@@ -281,14 +281,6 @@ alias ?="calc -d $1"
 alias tt="tmux attach -t 0"
 
 #Docker
-alias ubuntu20='docker run -it --rm --hostname ubuntu20 -v $(pwd):/data -w /data ubuntu:20.04 /bin/bash'
-alias ubuntu22='docker run -it --rm --hostname ubuntu20 -v $(pwd):/data -w /data ubuntu:22.04 /bin/bash'
-alias debian9='docker run -it --rm --hostname debian9 -v $(pwd):/data -w /data debian:stretch /bin/bash'
-alias debian10='docker run -it --rm --hostname debian10 -v $(pwd):/data -w /data debian:buster /bin/bash'
-alias centos7='docker run -it --rm --hostname centos7 -v $(pwd):/data -w /data centos:7 /bin/bash'
-alias oracle7='docker run -it --rm --hostname oracle7 -v $(pwd):/data -w /data oraclelinux:7.9 /bin/bash'
-alias oracle8='docker run -it --rm --hostname oracle8 -v $(pwd):/data -w /data oraclelinux:8.6 /bin/bash'
-alias oracle9='docker run -it --rm --hostname oracle9 -v $(pwd):/data -w /data oraclelinux:9 /bin/bash'
 alias py3='docker run -it --rm --hostname py3 -v $(pwd):/data -w /data python:3.9 /bin/bash'
 
 # Kubernetes
