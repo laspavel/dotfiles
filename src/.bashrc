@@ -265,6 +265,9 @@ alias dud="du -d 1"
 alias winbox='wine64 "$HOME/.wine/drive_c/winbox.exe"'
 alias winrar='wine64 "$HOME/.wine/drive_c/Program Files/WinRAR/WinRAR.exe"'
 
+# Teams
+alias teams='TZ="Europe/Kiev" /usr/bin/teams'
+
 # Utils from Internet
 alias weather="curl wttr.in/Dnepr"
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
