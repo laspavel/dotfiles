@@ -133,6 +133,7 @@ show-running-apps=true
 show-show-apps-button=true
 show-showdesktop-button=true
 show-showdesktop-hover=true
+show-tooltip=false
 show-window-previews=false
 showdesktop-button-width=15
 status-icon-padding=-1
