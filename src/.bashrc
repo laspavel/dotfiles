@@ -18,6 +18,9 @@ export PATH
 # temporary files directory
 export TMPDIR="${HOME}/tmp"
 
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
@@ -324,6 +327,13 @@ alias kn="kubens"
 source <(kubectl completion bash)
 complete -F __start_kubectl k
 
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# Save multi-line commands as one command
+shopt -s cmdhist
+
 # ######### EXPORT PARAMETERS ################
 export EDITOR="vim"
 
@@ -352,4 +362,5 @@ if ! echo "$PROMPT_COMMAND" | grep -q history; then
 fi
 
 ####################################
+
 
