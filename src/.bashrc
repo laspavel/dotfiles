@@ -341,7 +341,7 @@ if [ -f /usr/bin/code ]; then
     export VISUAL="code"
 fi
 
-export KUBECONFIG=$HOME/.kube/config_k3s.yml
+export KUBECONFIG=$HOME/.kube/config_k3s.yml:$HOME/.kube/kube_config_config_ASPO1.yml
 # export KUBECONFIG=~/_/Projects/StorePlus/RKE2-Playbooks/aspo1_rke2/plays/kube_config_config-cluster_rancher.yml:~/_/Projects/StorePlus/RKE2-Playbooks/aspo2_rke2/plays/kube_config_config-cluster_rancher.yml:~/_/Projects/StorePlus/RKE2-Playbooks/dev_rke2/plays/kube_config_config-cluster_rancher.yml:~/_/Projects/StorePlus/RKE2-Playbooks/prod_rke2/plays/kube_config_config-cluster_rancher.yml:~/_/Projects/StorePlus/RKE2-Playbooks/prod_rke2_efk/plays/kube_config_config-cluster_rancher.yml:~/_/Projects/StorePlus/RKE2-Playbooks/res_rke2/plays/kube_config_config-cluster_rancher.yml
 # alias lens="/opt/lens/lens"
 
