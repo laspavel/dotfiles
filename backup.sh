@@ -28,6 +28,7 @@ cp -rf ~/.lesshst $STARTDIR/src
 cp -rf ~/.gitconfig $STARTDIR/src
 cp -rf ~/.gitignore $STARTDIR/src
 cp -rf ~/.bashrc $STARTDIR/src
+cp -rf ~/.laspavelrc $STARTDIR/src
 cp -rf ~/.bash_profile $STARTDIR/src
 cp -rf ~/.bash_logout $STARTDIR/src
 cp -rf ~/.bash_history $STARTDIR/src
