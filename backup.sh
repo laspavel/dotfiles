@@ -9,6 +9,7 @@ mkdir -p $STARTDIR/src
 
 #### dconf load /org/gnome/shell/extensions/dash-to-panel/ < dash_to_panel_settings
 dconf dump /org/gnome/shell/extensions/dash-to-panel/ > $STARTDIR/src/dash_to_panel_settings
+dconf dump /org/gnome/terminal/ > $STARTDIR/src/gnome_terminal_settings
 pip3 freeze > $STARTDIR/src/pip3_packages.txt
 dconf dump / > $STARTDIR/src/dump_gnome_settings
 
