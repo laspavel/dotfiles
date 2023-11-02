@@ -5,6 +5,7 @@ ansible==7.7.0
 ansible-core==2.14.8
 argcomplete==2.0.0
 asciinema==2.3.0
+astroid==2.6.2
 async-timeout==4.0.2
 attrs==22.2.0
 Babel==2.11.0
@@ -52,6 +53,7 @@ josepy==1.13.0
 koji==1.33.0
 kubernetes==27.2.0
 langtable==0.0.63
+lazy-object-proxy==1.9.0
 lexicon==2.0.1
 libcomps==0.1.18
 lxml==4.9.2
@@ -109,6 +111,7 @@ pysmi==0.3.4
 pysnmp==4.4.12
 PySocks==1.7.1
 pysqlite3==0.5.0
+pytago==0.0.12
 python-apt==2.3.0
 python-augeas==1.1.0
 python-dateutil==2.8.2
@@ -156,6 +159,7 @@ tqdm==4.64.1
 urllib3==1.26.16
 wcwidth==0.2.6
 websocket-client==1.6.1
+wrapt==1.12.1
 XlsxWriter==3.0.7
 xmltodict==0.12.0
 yarl==1.8.2
