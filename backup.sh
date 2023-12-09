@@ -21,6 +21,7 @@ cp -rf ~/.config/htop/htoprc $STARTDIR/src/.config/htop/htoprc
 cp -rf ~/.vimrc $STARTDIR/src
 cp -rf ~/.toprc $STARTDIR/src
 cp -rf ~/.tigrc $STARTDIR/src
+cp -rf ~/.wgetrc $STARTDIR/src
 cp -rf ~/.psqlrc $STARTDIR/src
 cp -rf ~/.tmux $STARTDIR/src
 cp -rf ~/.python_history $STARTDIR/src
