@@ -2,6 +2,10 @@
 
 # ######### FUNCTION #########
 
+if [ -z "${HOME:-}" ]; then
+    export HOME=~
+fi
+
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
 then
     PATH="$HOME/.local/bin:$HOME/bin:$PATH"
@@ -320,9 +324,13 @@ alias kn="kubens"
 source <(kubectl completion bash)
 complete -F __start_kubectl k
 
+# append rather than overwrite history
+shopt -s histappend
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+shopt -s cdspell
 
 # Save multi-line commands as one command
 shopt -s cmdhist
@@ -352,6 +360,14 @@ export PYTHONIOENCODING="UTF-8"  # Make Python use UTF-8 encoding for output to 
 # Save and reload history after each command finishes
 if ! echo "$PROMPT_COMMAND" | grep -q history; then
   export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+fi
+
+if [ -d "$HOME/.local/.bash.autocomplete.d" ]; then
+    shopt -s nullglob
+    for src in "$HOME/.local/.bash.autocomplete.d/"*; do
+        . "$src"
+    done
+    shopt -u nullglob
 fi
 
 ####################################
