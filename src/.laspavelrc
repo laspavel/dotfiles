@@ -48,23 +48,6 @@ ssh() {
   tmux rename-window "bash"
 }
 
-gwget() {
-
-gURL=$1
-# match more than 26 word characters  
-ggID=$(echo "$gURL" | grep -E -o '(\w|-){26,}')
-
-ggURL='https://drive.google.com/uc?export=download'
-
-curl -sc /tmp/gcokie "${ggURL}&id=${ggID}" >/dev/null  
-getcode="$(awk '/_warning_/ {print $NF}' /tmp/gcokie)"
-
-cmd='curl --insecure -LOJb /tmp/gcokie "${ggURL}&confirm=${getcode}&id=${ggID}"'
-echo -e "Downloading from "$gURL"...\n"
-eval $cmd
-
-}
-
 man() {
     env \
 	LESS_TERMCAP_mb="$(printf '\e[1;31m')" \
@@ -356,7 +339,6 @@ export HISTSIZE=30000
 export HISTTIMEFORMAT="[%d.%m.%y %T] "
 export HISTIGNORE="&:[bf]g:c:clear:history:exit:q:pwd:* --help"
 export MANPAGER="less -X"   # Don't clear the screen after quitting a `man` page
-# export MANPAGER="most"   # Don't clear the screen after quitting a `man` page
 export PYTHONIOENCODING="UTF-8"  # Make Python use UTF-8 encoding for output to stdin/stdout/stderr.
 
 # Save and reload history after each command finishes
