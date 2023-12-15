@@ -5,13 +5,13 @@ STARTDIR="$(pwd)"
 PASS=`cat .pass`
 DATE=`date '+%Y-%m-%d %H:%M:%S'`
 
-mkdir -p $STARTDIR/src
+mkdir -p $STARTDIR/src/DOD1
 
 #### dconf load /org/gnome/shell/extensions/dash-to-panel/ < dash_to_panel_settings
-dconf dump /org/gnome/shell/extensions/dash-to-panel/ > $STARTDIR/src/dash_to_panel_settings
-dconf dump /org/gnome/terminal/ > $STARTDIR/src/gnome_terminal_settings
-pip3 freeze > $STARTDIR/src/pip3_packages.txt
-dconf dump / > $STARTDIR/src/dump_gnome_settings
+dconf dump /org/gnome/shell/extensions/dash-to-panel/ > $STARTDIR/src/DOD1/dash_to_panel_settings
+dconf dump /org/gnome/terminal/ > $STARTDIR/src/DOD1/gnome_terminal_settings
+pip3 freeze > $STARTDIR/src/DOD1/pip3_packages.txt
+dconf dump / > $STARTDIR/src/DOD1/dump_gnome_settings
 
 mkdir -p $STARTDIR/src/.config/mc
 cp -rf ~/.config/mc/ini $STARTDIR/src/.config/mc/ini
@@ -23,8 +23,8 @@ cp -rf ~/.toprc $STARTDIR/src
 cp -rf ~/.tigrc $STARTDIR/src
 cp -rf ~/.wgetrc $STARTDIR/src
 cp -rf ~/.psqlrc $STARTDIR/src
-cp -rf ~/.tmux $STARTDIR/src
-cp -rf ~/.python_history $STARTDIR/src
+cp -rf ~/.tmux $STARTDIR/src/DOD1
+cp -rf ~/.python_history $STARTDIR/src/DOD1
 cp -rf ~/.nanorc  $STARTDIR/src
 cp -rf ~/.lesshst $STARTDIR/src
 cp -rf ~/.gitconfig $STARTDIR/src
@@ -33,13 +33,14 @@ cp -rf ~/.bashrc $STARTDIR/src
 cp -rf ~/.laspavelrc $STARTDIR/src
 cp -rf ~/.bash_profile $STARTDIR/src
 cp -rf ~/.bash_logout $STARTDIR/src
-cp -rf ~/.bash_history $STARTDIR/src
-cp -rf ~/.ssh $STARTDIR/src
+cp -rf ~/.bash_history $STARTDIR/src/DOD1
+cp -rf ~/.ssh $STARTDIR/src/DOD1
 
-cd $STARTDIR/src
+cd $STARTDIR/src/DOD1
 zip -P$PASS -9 -q -r -m ./.ssh.zip ./.ssh
 zip -P$PASS -9 -q -r -m ./.tmux.zip ./.tmux
 zip -P$PASS -9 -q -r -m ./.bash_history.zip ./.bash_history
+zip -P$PASS -9 -q -r -m ./.python_history.zip ./.python_history
 zip -P$PASS -9 -q -r -m ./dump_gnome_settings.zip ./dump_gnome_settings
 
 cd $STARTDIR
