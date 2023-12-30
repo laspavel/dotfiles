@@ -1,27 +1,49 @@
-# ########## MY CONFIGURATION ############9
+# ########################### MY CONFIGURATION ###########################
 
 # Apply example (.bashrc): source $HOME/.laspavelrc
 
-# ######### FUNCTION #########
-
 if [ -z "${HOME:-}" ]; then
-    export HOME=~
+  export HOME=~
 fi
 
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
 then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+  PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH
-
-# temporary files directory
-export TMPDIR="${HOME}/tmp"
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# ################## FUNCTION ##################
+
+md5() { echo -n "$1" | md5sum; }
+ipinfo() { curl ipinfo.io/$1; echo "";}
+
+pfx2crt() {
+  fbname=$(basename "$1" .pfx)
+  openssl pkcs12 -in $fbname.pfx -clcerts -nokeys -out $fbname.crt
+  openssl pkcs12 -in $fbname.pfx -nocerts -out $fbname-encrypt.key
+  openssl rsa -in $fbname-encrypt.key -out $fbname.key
+  rm -f $fbname-encrypt.key
+}
+
+ssh_genkey() {
+  if [ -z "$1" ]; then
+    SSHF="$HOME/.ssh/temp"
+  else
+    SSHF="$HOME/.ssh/$1"
+  fi
+  ssh-keygen -t rsa -q -b 4096 -C "$2" -f "$SSHF"
+}
+
+ansi2text() {
+  cat $1 |sed s/'^'.*\\]//g > $1.tmp
+  mv $1.tmp $1
+}
+
 parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
 ssh_search() { grep "$1" ~/.ssh/config ~/.ssh/config.d/* -A 7 -B 7;} 
@@ -49,7 +71,7 @@ ssh() {
 }
 
 man() {
-    env \
+  env \
 	LESS_TERMCAP_mb="$(printf '\e[1;31m')" \
 	LESS_TERMCAP_md="$(printf '\e[1;31m')" \
 	LESS_TERMCAP_me="$(printf '\e[0m')" \
@@ -60,7 +82,7 @@ man() {
 	man "$@"
 }
 
-########## COLOR #########
+# ################## COLOR ##################
 
 TERM=xterm-256color
 
@@ -178,37 +200,14 @@ On_IPurple="\[\033[10;95m\]"  # Purple
 On_ICyan="\[\033[0;106m\]"    # Cyan
 On_IWhite="\[\033[0;107m\]"   # White
 
+# Terminal colors
 PS1="$BBlue\u@\h:$BRed\$(parse_git_branch)$Color_Off$BGreen\w$ $Color_Off"
 
 if [[ $SSH_CLIENT ]]; then
   PS1="$BBlue\u@\h:$BRed\$(parse_git_branch)$Color_Off$BGreen\w$ $Color_Off"
 fi
 
-############# Multiple functions ################
-
-md5() { echo -n "$1" | md5sum; }
-
-pfx2crt() {
-    fbname=$(basename "$1" .pfx)
-    openssl pkcs12 -in $fbname.pfx -clcerts -nokeys -out $fbname.crt
-    openssl pkcs12 -in $fbname.pfx -nocerts -out $fbname-encrypt.key
-    openssl rsa -in $fbname-encrypt.key -out $fbname.key
-    rm -f $fbname-encrypt.key
-}
-
-ssh_genkey() {
-    if [ -z "$1" ]; then
-       SSHF="$HOME/.ssh/temp"
-    else
-       SSHF="$HOME/.ssh/$1"
-    fi
-    ssh-keygen -t rsa -q -b 4096 -C "$2" -f "$SSHF"
-}
-
-ansi2text() {
-    cat $1 |sed s/'^'.*\\]//g > $1.tmp
-    mv $1.tmp $1
-}
+# ################## ALIAS ##################
 
 if [ -f /usr/bin/grc ]; then
   alias cvs="grc --colour=auto cvs"
@@ -225,14 +224,11 @@ if [ -f /usr/bin/grc ]; then
   alias wdiff="grc --colour=auto wdiff"
 fi
 
-# ######### ALIAS #########
-
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias ..='cd ../'
 alias ...='cd ../..'
-alias ~="cd ~"
 alias m='mount '
 alias u='fusermount -u -z'
 alias f='file'
@@ -251,7 +247,6 @@ alias mv='mv -i'
 alias mc='mc -x'
 alias www="watch -tn 1 '$1'"
 alias h='history '
-
 alias free='free -h'
 alias mkdir='mkdir -pv'
 alias passgen="openssl rand -base64 8"
@@ -261,6 +256,9 @@ alias listen="lsof -P -i -n"
 alias now='date +%d.%m.%Y%n%T'
 alias week='date +%V'
 alias flushdns='sudo resolvectl flush-caches'
+
+alias ?="calc -d $1"
+alias tt="tmux attach -t 0"
 
 # Get top process eating memory
 alias psmem="ps auxf | sort -nr -k 4"
@@ -272,6 +270,7 @@ alias pscpu10="ps auxf | sort -nr -k 3 | head -10"
 
 # Gives you what is using the most space. Both directories and files. Varies on current directory
 alias most10='du -hsx * | sort -rh | head -10'
+
 # Estimate file space usage to maximum depth
 alias dud="du -d 1"
 
@@ -279,24 +278,10 @@ alias dud="du -d 1"
 alias winbox='wine64 "$HOME/.wine/drive_c/winbox.exe"'
 alias winrar='wine64 "$HOME/.wine/drive_c/Program Files/WinRAR/WinRAR.exe"'
 
-# Teams
-#alias teams='TZ="Europe/Kiev" /usr/bin/teams'
-#alias teams='flatpak run com.github.IsmaelMartinez.teams_for_linux'
-
 # Utils from Internet
 alias weather="curl wttr.in/Dnepr"
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
 alias dnsinfo="dig $1 @resolver1.opendns.com"
-ipinfo() { curl ipinfo.io/$1; echo "";}
-
-#open vscode
-alias vv="code $1"
-alias ?="calc -d $1"
-
-# Monitor run
-#alias use1="xrandr --output HDMI-2 --off"
-#alias use2="xrandr --output HDMI-2 --auto --rotate normal --right-of DP-1"
-alias tt="tmux attach -t 0"
 
 #Docker
 alias py3='docker run -it --rm --hostname py3 -v $(pwd):/data -w /data python:3.9 /bin/bash'
@@ -306,6 +291,7 @@ alias k="kubectl"
 alias kx="kubectx"
 alias kn="kubens"
 
+# Kubectl autocomplete
 source <(kubectl completion bash)
 complete -F __start_kubectl k
 
@@ -320,16 +306,20 @@ shopt -s cdspell
 # Save multi-line commands as one command
 shopt -s cmdhist
 
-# ######### EXPORT PARAMETERS ################
+# ################## EXPORT PARAMETERS ##################
 export EDITOR="vim"
 
+# temporary files directory
+export TMPDIR="${HOME}/tmp"
+
+# if exists Visual Studio Code use it.
 if [ -f /usr/bin/code ]; then
-    export VISUAL="code"
+  export VISUAL="code"
+  alias vv="code $1"
 fi
 
 export KUBECONFIG=$HOME/.kube/config_k3s.yml:$HOME/.kube/kube_config_config_ASPO1.yml
 # export KUBECONFIG=~/_/Projects/StorePlus/RKE2-Playbooks/aspo1_rke2/plays/kube_config_config-cluster_rancher.yml:~/_/Projects/StorePlus/RKE2-Playbooks/aspo2_rke2/plays/kube_config_config-cluster_rancher.yml:~/_/Projects/StorePlus/RKE2-Playbooks/dev_rke2/plays/kube_config_config-cluster_rancher.yml:~/_/Projects/StorePlus/RKE2-Playbooks/prod_rke2/plays/kube_config_config-cluster_rancher.yml:~/_/Projects/StorePlus/RKE2-Playbooks/prod_rke2_efk/plays/kube_config_config-cluster_rancher.yml:~/_/Projects/StorePlus/RKE2-Playbooks/res_rke2/plays/kube_config_config-cluster_rancher.yml
-# alias lens="/opt/lens/lens"
 
 export LANG=ru_UA.UTF-8
 # export LANG=en_US.UTF-8
@@ -346,14 +336,13 @@ if ! echo "$PROMPT_COMMAND" | grep -q history; then
   export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 fi
 
+# Autocomplete
 if [ -d "$HOME/.local/.bash.autocomplete.d" ]; then
-    shopt -s nullglob
-    for src in "$HOME/.local/.bash.autocomplete.d/"*; do
-        . "$src"
-    done
-    shopt -u nullglob
+  shopt -s nullglob
+  for src in "$HOME/.local/.bash.autocomplete.d/"*; do
+    . "$src"
+  done
+  shopt -u nullglob
 fi
 
-####################################
-
-
+# ########################################################################
