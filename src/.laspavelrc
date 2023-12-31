@@ -257,6 +257,9 @@ alias now='date +%d.%m.%Y%n%T'
 alias week='date +%V'
 alias flushdns='sudo resolvectl flush-caches'
 
+# Reload the shell (i.e. invoke as a login shell)
+alias reload="exec ${SHELL} -l"
+
 alias ?="calc -d $1"
 alias tt="tmux attach -t 0"
 

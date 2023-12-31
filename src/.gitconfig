@@ -9,6 +9,17 @@
   filemode = true
   mergeoptions = --no-edit
   excludesfile= ~/.gitignore
+  
+  # Speed up commands involving untracked files such as `git status`.
+	# https://git-scm.com/docs/git-update-index#_untracked_cache
+	untrackedCache = true
+
+[init]
+	defaultBranch = master
+
+[apply]
+	# Detect whitespace errors when applying a patch.
+	whitespace = fix
 
 [status]
   showUntrackedFiles = all
@@ -58,21 +69,51 @@
   changed   = yellow bold
   untracked = red bold
 
+[branch]
+	# Show most recently changed branches first.
+	sort = -committerdate
+
 [alias]
   today = log --since=midnight --color --graph --abbrev-commit --pretty=format:'%C(blue)%h%C(red)%d %C(white)%s - %C(cyan)%cn, %C(green)%cr'
   yesterday = log --since yesterday --until=midnight --color --graph --pretty=format:'%C(blue)%h%C(red)%d %C(white)%s - %C(cyan)%cn, %C(green)%cr' 
   l = log --until=midnight --color --graph --abbrev-commit --pretty=format:'%C(blue)%h%C(red)%d %C(white)%s - %C(cyan)%cn, %C(green)%cr'
-  s = status -s
   a = add .
-  c = !git add --all && git commit -a -m
-  ps = push
-  pl = pull
+
+  # View the current working tree status using the short format.
+  s = status -s
+
+  # Commit all changes.
+  ca = !git add --all && git commit -av
+
+  # Clone a repository including all submodules.
+	c = clone --recursive
+
+  # Show the diff between the latest commit and the current state.
+	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+  
+  # Pull in remote changes for the current repository and all its submodules.
+	pl = pull --recurse-submodules
+
+  # Switch to a branch, creating it if necessary.
+	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+
   up = push origin master
   down = pull origin master
   branches = branch -avv --list
   remotes  = remote -v
+  tags = tag -l
 
+  # Switch to a branch, creating it if necessary.
+	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+
+  # List contributors with number of commits.
+	contributors = shortlog --summary --numbered
+	
 [help]
   autocorrect = 1
+
+[merge]
+	# Include summaries of merged commits in newly created merge commit messages
+	log = true
 
 
