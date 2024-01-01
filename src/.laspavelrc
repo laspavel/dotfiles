@@ -285,6 +285,7 @@ alias winrar='wine64 "$HOME/.wine/drive_c/Program Files/WinRAR/WinRAR.exe"'
 alias weather="curl wttr.in/Dnepr"
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
 alias dnsinfo="dig $1 @resolver1.opendns.com"
+alias ydl="yt-dlp --verbose -S res,ext:mp4:m4a --merge-output-format mp4 --no-mtime $1"
 
 #Docker
 alias py3='docker run -it --rm --hostname py3 -v $(pwd):/data -w /data python:3.9 /bin/bash'
