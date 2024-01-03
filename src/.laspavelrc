@@ -299,15 +299,20 @@ alias kn="kubens"
 source <(kubectl completion bash)
 complete -F __start_kubectl k
 
+# Automatically prepend `cd` to directory names.
+shopt -s autocd
+
 # append rather than overwrite history
 shopt -s histappend
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+
+# Autocorrect typos in path names when using the `cd` command.
 shopt -s cdspell
 
-# Save multi-line commands as one command
+# Save all lines of a multiple-line command in the same history entry
 shopt -s cmdhist
 
 # ################## EXPORT PARAMETERS ##################
