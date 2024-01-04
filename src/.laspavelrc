@@ -278,8 +278,10 @@ alias most10='du -hsx * | sort -rh | head -10'
 alias dud="du -d 1"
 
 # Wine Utils
-alias winbox='wine64 "$HOME/.wine/drive_c/winbox.exe"'
-alias winrar='wine64 "$HOME/.wine/drive_c/Program Files/WinRAR/WinRAR.exe"'
+if which wine64 >/dev/null 2>&1; then
+  alias winbox='wine64 "$HOME/.wine/drive_c/winbox.exe"'
+  alias winrar='wine64 "$HOME/.wine/drive_c/Program Files/WinRAR/WinRAR.exe"'
+fi
 
 # Utils from Internet
 alias weather="curl wttr.in/Dnepr"
@@ -291,13 +293,20 @@ alias ydl="yt-dlp --verbose -S res,ext:mp4:m4a --merge-output-format mp4 --no-mt
 alias py3='docker run -it --rm --hostname py3 -v $(pwd):/data -w /data python:3.9 /bin/bash'
 
 # Kubernetes
-alias k="kubectl"
-alias kx="kubectx"
-alias kn="kubens"
+if which kubectx >/dev/null 2>&1; then
+  alias kx="kubectx"
+fi
 
-# Kubectl autocomplete
-source <(kubectl completion bash)
-complete -F __start_kubectl k
+if which kubens >/dev/null 2>&1; then
+  alias kn="kubens"
+fi
+
+if which kubectl >/dev/null 2>&1; then
+  alias k="kubectl"
+  # Kubectl autocomplete
+  source <(kubectl completion bash)
+  complete -F __start_kubectl k
+fi
 
 # Automatically prepend `cd` to directory names.
 shopt -s autocd
@@ -327,7 +336,8 @@ if [ -f /usr/bin/code ]; then
   alias vv="code $1"
 fi
 
-export KUBECONFIG=$HOME/.kube/config_k3s.yml:$HOME/.kube/kube_config_config_ASPO1.yml
+
+export KUBECONFIG=$HOME/.kube/config_k3s.yml
 # export KUBECONFIG=~/_/Projects/StorePlus/RKE2-Playbooks/aspo1_rke2/plays/kube_config_config-cluster_rancher.yml:~/_/Projects/StorePlus/RKE2-Playbooks/aspo2_rke2/plays/kube_config_config-cluster_rancher.yml:~/_/Projects/StorePlus/RKE2-Playbooks/dev_rke2/plays/kube_config_config-cluster_rancher.yml:~/_/Projects/StorePlus/RKE2-Playbooks/prod_rke2/plays/kube_config_config-cluster_rancher.yml:~/_/Projects/StorePlus/RKE2-Playbooks/prod_rke2_efk/plays/kube_config_config-cluster_rancher.yml:~/_/Projects/StorePlus/RKE2-Playbooks/res_rke2/plays/kube_config_config-cluster_rancher.yml
 
 export LANG=ru_UA.UTF-8
