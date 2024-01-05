@@ -1,1 +1,0 @@
-00 14 * * * laspavel cd /home/laspavel/_/dotfiles/ && ./backup.sh
