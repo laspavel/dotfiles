@@ -107,8 +107,8 @@ function BackupDotFiles () {
     cd $STARTDIR
     git add .
     git commit -a -m "new backup $DATE"
-#    git push origin --all
-#    git push --tags
+    git push origin --all
+    git push --tags
 }
 
 if [ "$1" == "--backup" -o "$1" == "-b" ]; then
