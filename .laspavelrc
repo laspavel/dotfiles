@@ -18,7 +18,8 @@ export PATH
 # ################## FUNCTION ##################
 
 md5() { echo -n "$1" | md5sum; }
-ipinfo() { curl ipinfo.io/$1; echo "";}
+# ipinfo() { curl ipinfo.io/$1; echo "";}
+ipinfo() { curl ifconfig.co/json?ip=$1; echo "";}
 
 pfx2crt() {
   fbname=$(basename "$1" .pfx)
