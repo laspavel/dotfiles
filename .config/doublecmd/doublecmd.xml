@@ -789,10 +789,10 @@
     <Position Save="True">
       <Maximized>True</Maximized>
       <Splitter>49.9739175795514</Splitter>
-      <Left>1984</Left>
-      <Top>355</Top>
+      <Left>130</Left>
+      <Top>304</Top>
       <Width>1717</Width>
-      <Height>493</Height>
+      <Height>456</Height>
       <PixelsPerInch>96</PixelsPerInch>
     </Position>
   </MainWindow>

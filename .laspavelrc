@@ -380,6 +380,6 @@ if [ -d "$HOME/.local/.bash.autocomplete.d" ]; then
   shopt -u nullglob
 fi
 
-# eval "$(starship init bash)"
+#eval "$(starship init bash)"
 
 # ########################################################################
