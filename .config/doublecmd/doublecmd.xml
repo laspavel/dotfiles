@@ -629,7 +629,7 @@
     <LeftMargin>4</LeftMargin>
     <ExtraLineSpan>0</ExtraLineSpan>
     <ImageShowTransparency>False</ImageShowTransparency>
-    <WrapText>False</WrapText>
+    <WrapText>True</WrapText>
     <AutoCopy>True</AutoCopy>
     <SynEditMask>*</SynEditMask>
     <JpegQuality>80</JpegQuality>
@@ -787,12 +787,12 @@
   </ColumnsSets>
   <MainWindow>
     <Position Save="True">
-      <Maximized>True</Maximized>
+      <Maximized>False</Maximized>
       <Splitter>49.9739175795514</Splitter>
-      <Left>130</Left>
-      <Top>304</Top>
+      <Left>90</Left>
+      <Top>347</Top>
       <Width>1717</Width>
-      <Height>419</Height>
+      <Height>345</Height>
       <PixelsPerInch>96</PixelsPerInch>
     </Position>
   </MainWindow>
