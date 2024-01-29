@@ -706,7 +706,7 @@
           <Title>Name</Title>
           <Unique>05C8DC7F-B2E5-4D36-899C-93479D11D467</Unique>
           <FuncString>[DC().GETFILENAMENOEXT{}]</FuncString>
-          <Width>454</Width>
+          <Width>565</Width>
           <Align>0</Align>
           <Font>
             <Name>default</Name>
@@ -792,7 +792,7 @@
       <Left>72</Left>
       <Top>195</Top>
       <Width>1744</Width>
-      <Height>655</Height>
+      <Height>581</Height>
       <PixelsPerInch>96</PixelsPerInch>
     </Position>
   </MainWindow>
