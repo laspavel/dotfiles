@@ -787,12 +787,12 @@
   </ColumnsSets>
   <MainWindow>
     <Position Save="True">
-      <Maximized>True</Maximized>
+      <Maximized>False</Maximized>
       <Splitter>49.9739175795514</Splitter>
-      <Left>-59</Left>
-      <Top>158</Top>
+      <Left>1964</Left>
+      <Top>66</Top>
       <Width>1744</Width>
-      <Height>433</Height>
+      <Height>942</Height>
       <PixelsPerInch>96</PixelsPerInch>
     </Position>
   </MainWindow>
