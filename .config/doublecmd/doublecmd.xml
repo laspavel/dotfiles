@@ -787,7 +787,7 @@
   </ColumnsSets>
   <MainWindow>
     <Position Save="True">
-      <Maximized>False</Maximized>
+      <Maximized>True</Maximized>
       <Splitter>49.9739175795514</Splitter>
       <Left>2009</Left>
       <Top>32</Top>
