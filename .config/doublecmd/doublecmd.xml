@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<doublecmd DCVersion="1.1.7 beta" ConfigVersion="15">
+<doublecmd DCVersion="1.0.0 alpha" ConfigVersion="11">
   <Configuration Save="True" SortOrder="0" TreeType="0">
     <FolderTabs Save="True"/>
+    <UseConfigInProgramDir>False</UseConfigInProgramDir>
   </Configuration>
   <Colors>
     <Foreground>12632256</Foreground>Foreground
@@ -36,6 +37,7 @@
       <Error>255</Error>
       <Success>32768</Success>
     </LogWindow>
+    <FileFilters/>
   </Colors>
   <Plugins>
     <WlxPlugins>
@@ -219,11 +221,10 @@
     </MiddleToolbar>
   </Toolbars>
   <Language>
-    <POFileName>doublecmd.pot</POFileName>
+    <POFileName>doublecmd.en.po</POFileName>
   </Language>
   <Behaviours>
     <GoToRoot>False</GoToRoot>
-    <ShowCurDirTitleBar>False</ShowCurDirTitleBar>
     <ActiveRight>False</ActiveRight>
     <RunInTerminalStayOpenCmd>x-terminal-emulator</RunInTerminalStayOpenCmd>
     <RunInTerminalStayOpenParams>-e sh -c '{command}; echo -n Press ENTER to exit... ; read a'</RunInTerminalStayOpenParams>
@@ -235,18 +236,15 @@
     <LynxLike>True</LynxLike>
     <FileSizeFormat>0</FileSizeFormat>
     <OperationSizeFormat>0</OperationSizeFormat>
-    <HeaderSizeFormat>0</HeaderSizeFormat>
-    <FooterSizeFormat>0</FooterSizeFormat>
+    <HeaderFooterSizeFormat>0</HeaderFooterSizeFormat>
     <FileSizeDigits>1</FileSizeDigits>
-    <HeaderDigits>1</HeaderDigits>
-    <FooterDigits>1</FooterDigits>
+    <HeaderFooterDigits>1</HeaderFooterDigits>
     <OperationSizeDigits>1</OperationSizeDigits>
     <PersonalizedByte>Б</PersonalizedByte>
     <PersonalizedKilo>Кб</PersonalizedKilo>
     <PersonalizedMega>Мб</PersonalizedMega>
     <PersonalizedGiga>Гб</PersonalizedGiga>
     <PersonalizedTera>Тб</PersonalizedTera>
-    <ConfirmQuit>False</ConfirmQuit>
     <MinimizeToTray>False</MinimizeToTray>
     <AlwaysShowTrayIcon>False</AlwaysShowTrayIcon>
     <Mouse>
@@ -263,7 +261,6 @@
     <CustomColumnsChangeAllColumns>False</CustomColumnsChangeAllColumns>
     <BriefViewFileExtAligned>False</BriefViewFileExtAligned>
     <DateTimeFormat>dd.mm.yyyy hh:nn:ss</DateTimeFormat>
-    <ColumnsTitleLikeValues>False</ColumnsTitleLikeValues>
     <CutTextToColumnWidth>True</CutTextToColumnWidth>
     <ExtendCellWidth>False</ExtendCellWidth>
     <ShowSystemFiles>False</ShowSystemFiles>
@@ -424,8 +421,6 @@
     <PanelOfOperationsInBackground>True</PanelOfOperationsInBackground>
     <HorizontalFilePanels>False</HorizontalFilePanels>
     <ShortFormatDriveInfo>False</ShortFormatDriveInfo>
-    <UppercaseDriveLetter>False</UppercaseDriveLetter>
-    <ShowColonAfterDrive>False</ShowColonAfterDrive>
   </Layout>
   <FilesViews>
     <Sorting>
@@ -529,6 +524,52 @@
     <CharacterLimit>32</CharacterLimit>
     <Position>0</Position>
     <ActionOnDoubleClick>2</ActionOnDoubleClick>
+    <OpenedTabs>
+      <Left>
+        <ActiveTab>0</ActiveTab>
+        <Tab>
+          <FileView Type="columns">
+            <History>
+              <Entry Active="True">
+                <FileSource Type="FileSystem"/>
+                <Paths>
+                  <Path Filename="..">/usr/lib64/doublecmd/</Path>
+                </Paths>
+              </Entry>
+            </History>
+            <ColumnsView>
+              <ColumnsSet>Default</ColumnsSet>
+            </ColumnsView>
+          </FileView>
+        </Tab>
+      </Left>
+      <Right>
+        <ActiveTab>0</ActiveTab>
+        <Tab>
+          <FileView Type="columns">
+            <Sortings>
+              <Sorting>
+                <Direction>1</Direction>
+                <Function>12</Function>
+              </Sorting>
+            </Sortings>
+            <History>
+              <Entry>
+                <FileSource Type="FileSystem"/>
+                <Paths>
+                  <Path Filename="..">/usr/lib64/doublecmd/</Path>
+                  <Path Filename="..">/usr/lib64/</Path>
+                  <Path Filename="">/home/laspavel/</Path>
+                </Paths>
+              </Entry>
+            </History>
+            <ColumnsView>
+              <ColumnsSet>Default</ColumnsSet>
+            </ColumnsView>
+          </FileView>
+        </Tab>
+      </Right>
+    </OpenedTabs>
   </Tabs>
   <Log Enabled="False" LogFileWithDateInName="False" Count="0">
     <FileName>%DC_CONFIG_PATH%/doublecmd.log</FileName>
@@ -696,15 +737,15 @@
   <ColumnsSets DefaultTitleHash="540805403">
     <ColumnsSet UseFrameCursor="False">
       <Name>Default</Name>
-      <Unique>5FFD8285-5A65-46C6-8B0E-41DB336381A3</Unique>
       <CustomView>False</CustomView>
       <FileSystem>&lt;General&gt;</FileSystem>
       <PixelsPerInch>96</PixelsPerInch>
-      <CursorBorder Enabled="False"/>
+      <CursorBorder Enabled="False">
+        <Color>-2147483635</Color>
+      </CursorBorder>
       <Columns>
         <Column>
           <Title>Name</Title>
-          <Unique>05C8DC7F-B2E5-4D36-899C-93479D11D467</Unique>
           <FuncString>[DC().GETFILENAMENOEXT{}]</FuncString>
           <Width>565</Width>
           <Align>0</Align>
@@ -714,13 +755,20 @@
             <Style>1</Style>
             <Quality>0</Quality>
           </Font>
+          <TextColor>12632256</TextColor>
+          <Background>8388608</Background>
+          <Background2>8388608</Background2>
+          <MarkColor>65535</MarkColor>
+          <CursorColor>8421504</CursorColor>
+          <CursorText>16777215</CursorText>
+          <InactiveCursorColor>-2147483645</InactiveCursorColor>
+          <InactiveMarkColor>128</InactiveMarkColor>
           <UseInvertedSelection>False</UseInvertedSelection>
           <UseInactiveSelColor>False</UseInactiveSelColor>
           <Overcolor>True</Overcolor>
         </Column>
         <Column>
           <Title>Ext</Title>
-          <Unique>5A6153D1-1116-4855-B29C-3F100F4BF7FB</Unique>
           <FuncString>[DC().GETFILEEXT{}]</FuncString>
           <Width>61</Width>
           <Align>0</Align>
@@ -730,13 +778,20 @@
             <Style>1</Style>
             <Quality>0</Quality>
           </Font>
+          <TextColor>12632256</TextColor>
+          <Background>8388608</Background>
+          <Background2>8388608</Background2>
+          <MarkColor>65535</MarkColor>
+          <CursorColor>8421504</CursorColor>
+          <CursorText>16777215</CursorText>
+          <InactiveCursorColor>-2147483645</InactiveCursorColor>
+          <InactiveMarkColor>128</InactiveMarkColor>
           <UseInvertedSelection>False</UseInvertedSelection>
           <UseInactiveSelColor>False</UseInactiveSelColor>
           <Overcolor>True</Overcolor>
         </Column>
         <Column>
           <Title>Size</Title>
-          <Unique>A9F7841C-9DAB-4A4C-91F5-B3DBE0E2DB7E</Unique>
           <FuncString>[DC().GETFILESIZE{}]</FuncString>
           <Width>106</Width>
           <Align>1</Align>
@@ -746,13 +801,20 @@
             <Style>1</Style>
             <Quality>0</Quality>
           </Font>
+          <TextColor>12632256</TextColor>
+          <Background>8388608</Background>
+          <Background2>8388608</Background2>
+          <MarkColor>65535</MarkColor>
+          <CursorColor>8421504</CursorColor>
+          <CursorText>16777215</CursorText>
+          <InactiveCursorColor>-2147483645</InactiveCursorColor>
+          <InactiveMarkColor>128</InactiveMarkColor>
           <UseInvertedSelection>False</UseInvertedSelection>
           <UseInactiveSelColor>False</UseInactiveSelColor>
           <Overcolor>True</Overcolor>
         </Column>
         <Column>
           <Title>Date</Title>
-          <Unique>CB9166CA-2950-466A-86DF-3741620BC708</Unique>
           <FuncString>[DC().GETFILETIME{}]</FuncString>
           <Width>204</Width>
           <Align>1</Align>
@@ -762,13 +824,20 @@
             <Style>1</Style>
             <Quality>0</Quality>
           </Font>
+          <TextColor>12632256</TextColor>
+          <Background>8388608</Background>
+          <Background2>8388608</Background2>
+          <MarkColor>65535</MarkColor>
+          <CursorColor>8421504</CursorColor>
+          <CursorText>16777215</CursorText>
+          <InactiveCursorColor>-2147483645</InactiveCursorColor>
+          <InactiveMarkColor>128</InactiveMarkColor>
           <UseInvertedSelection>False</UseInvertedSelection>
           <UseInactiveSelColor>False</UseInactiveSelColor>
           <Overcolor>True</Overcolor>
         </Column>
         <Column>
           <Title>Attr</Title>
-          <Unique>8143E774-B046-44A3-8567-04C393D39D35</Unique>
           <FuncString>[DC().GETFILEATTR{}]</FuncString>
           <Width>100</Width>
           <Align>0</Align>
@@ -778,6 +847,14 @@
             <Style>1</Style>
             <Quality>0</Quality>
           </Font>
+          <TextColor>12632256</TextColor>
+          <Background>8388608</Background>
+          <Background2>8388608</Background2>
+          <MarkColor>65535</MarkColor>
+          <CursorColor>8421504</CursorColor>
+          <CursorText>16777215</CursorText>
+          <InactiveCursorColor>-2147483645</InactiveCursorColor>
+          <InactiveMarkColor>128</InactiveMarkColor>
           <UseInvertedSelection>False</UseInvertedSelection>
           <UseInactiveSelColor>False</UseInactiveSelColor>
           <Overcolor>True</Overcolor>
@@ -789,10 +866,10 @@
     <Position Save="True">
       <Maximized>True</Maximized>
       <Splitter>49.9739175795514</Splitter>
-      <Left>2009</Left>
-      <Top>32</Top>
+      <Left>-52</Left>
+      <Top>133</Top>
       <Width>1717</Width>
-      <Height>853</Height>
+      <Height>816</Height>
       <PixelsPerInch>96</PixelsPerInch>
     </Position>
   </MainWindow>
