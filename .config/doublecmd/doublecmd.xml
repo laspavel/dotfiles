@@ -534,6 +534,10 @@
                 <FileSource Type="FileSystem"/>
                 <Paths>
                   <Path Filename="..">/usr/lib64/doublecmd/</Path>
+                  <Path Filename="doublecmd">/usr/lib64/</Path>
+                  <Path Filename="..">/home/laspavel/tmp/</Path>
+                  <Path Filename="Videos">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/Videos/</Path>
                 </Paths>
               </Entry>
             </History>
@@ -554,12 +558,13 @@
               </Sorting>
             </Sortings>
             <History>
-              <Entry>
+              <Entry Active="True">
                 <FileSource Type="FileSystem"/>
                 <Paths>
                   <Path Filename="..">/usr/lib64/doublecmd/</Path>
                   <Path Filename="..">/usr/lib64/</Path>
-                  <Path Filename="">/home/laspavel/</Path>
+                  <Path Filename="tmp">/home/laspavel/</Path>
+                  <Path Filename="Gia Sky - Travel Anywhere.mp4">/home/laspavel/tmp/</Path>
                 </Paths>
               </Entry>
             </History>
@@ -864,12 +869,12 @@
   </ColumnsSets>
   <MainWindow>
     <Position Save="True">
-      <Maximized>True</Maximized>
+      <Maximized>False</Maximized>
       <Splitter>49.9739175795514</Splitter>
-      <Left>-52</Left>
-      <Top>133</Top>
+      <Left>38</Left>
+      <Top>94</Top>
       <Width>1717</Width>
-      <Height>816</Height>
+      <Height>850</Height>
       <PixelsPerInch>96</PixelsPerInch>
     </Position>
   </MainWindow>
