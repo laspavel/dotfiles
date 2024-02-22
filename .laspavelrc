@@ -304,6 +304,9 @@ alias dud="du -d 1"
 if which wine64 >/dev/null 2>&1; then
   alias winbox='wine64 "$HOME/.wine/drive_c/winbox.exe"'
   alias winrar='wine64 "$HOME/.wine/drive_c/Program Files/WinRAR/WinRAR.exe"'
+  alias vpn_change='ssh mikrotik /system script run vpnscript'
+  alias vpn_stop='ssh mikrotik /interface l2tp-client disable VPN1'
+  alias vpn_start='ssh mikrotik /interface l2tp-client enable VPN1'
 fi
 
 # Utils from Internet
