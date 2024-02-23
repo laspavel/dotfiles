@@ -539,10 +539,6 @@
               <Entry Active="True">
                 <FileSource Type="FileSystem"/>
                 <Paths>
-                  <Path Filename="21. БОНУС. Прохождение собеседований на роль Go-разработчика">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/</Path>
-                  <Path Filename="..">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/21. БОНУС. Прохождение собеседований на роль Go-разработчика/</Path>
-                  <Path Filename="01. Программа и цели курса. Введение в Go">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/</Path>
-                  <Path Filename="..">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/01. Программа и цели курса. Введение в Go/</Path>
                   <Path Filename="02. Особенности синтаксиса Go">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/</Path>
                   <Path Filename="..">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/02. Особенности синтаксиса Go/</Path>
                   <Path Filename="03. Алгоритмы в Go">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/</Path>
@@ -589,6 +585,10 @@
                   <Path Filename="..">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/01. Программа и цели курса. Введение в Go/</Path>
                   <Path Filename="01. Программа и цели курса. Введение в Go">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/</Path>
                   <Path Filename="доп. материалы.pdf">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/01. Программа и цели курса. Введение в Go/</Path>
+                  <Path Filename="..">/home/laspavel/_/start/vars/</Path>
+                  <Path Filename="..">/home/laspavel/_/start/</Path>
+                  <Path Filename="..">/home/laspavel/_/</Path>
+                  <Path Filename="_">/home/laspavel/</Path>
                 </Paths>
               </Entry>
             </History>
@@ -604,7 +604,7 @@
           <FileView Type="columns">
             <Sortings>
               <Sorting>
-                <Direction>1</Direction>
+                <Direction>2</Direction>
                 <Function>12</Function>
               </Sorting>
             </Sortings>
@@ -612,31 +612,6 @@
               <Entry Active="True">
                 <FileSource Type="FileSystem"/>
                 <Paths>
-                  <Path Filename="..">/home/laspavel/ISOs/</Path>
-                  <Path Filename="Music">/home/laspavel/</Path>
-                  <Path Filename="..">/home/laspavel/Music/</Path>
-                  <Path Filename="Pictures">/home/laspavel/</Path>
-                  <Path Filename="..">/home/laspavel/Pictures/</Path>
-                  <Path Filename="Public">/home/laspavel/</Path>
-                  <Path Filename="..">/home/laspavel/Public/</Path>
-                  <Path Filename="scripts">/home/laspavel/</Path>
-                  <Path Filename="..">/home/laspavel/scripts/</Path>
-                  <Path Filename="Templates">/home/laspavel/</Path>
-                  <Path Filename="..">/home/laspavel/Templates/</Path>
-                  <Path Filename="tmp">/home/laspavel/</Path>
-                  <Path Filename="..">/home/laspavel/tmp/</Path>
-                  <Path Filename="Videos">/home/laspavel/</Path>
-                  <Path Filename="..">/home/laspavel/Videos/</Path>
-                  <Path Filename="..">/home/laspavel/</Path>
-                  <Path Filename="laspavel">/home/</Path>
-                  <Path Filename="..">/home/laspavel/</Path>
-                  <Path Filename="laspavel">/home/</Path>
-                  <Path Filename="..">/home/laspavel/</Path>
-                  <Path Filename="laspavel">/home/</Path>
-                  <Path Filename="_">/home/laspavel/</Path>
-                  <Path Filename="..">/home/laspavel/_/</Path>
-                  <Path Filename="Desktop">/home/laspavel/</Path>
-                  <Path Filename="..">/home/laspavel/Desktop/</Path>
                   <Path Filename="Documents">/home/laspavel/</Path>
                   <Path Filename="VG">/home/laspavel/Documents/</Path>
                   <Path Filename="..">/home/laspavel/Documents/VG/</Path>
@@ -661,7 +636,32 @@
                   <Path Filename="..">/home/laspavel/Templates/</Path>
                   <Path Filename="Videos">/home/laspavel/</Path>
                   <Path Filename="..">/home/laspavel/Videos/</Path>
-                  <Path Filename="стройплощадка.md">/home/laspavel/</Path>
+                  <Path Filename="Downloads">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/Downloads/</Path>
+                  <Path Filename="Templates">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/Templates/</Path>
+                  <Path Filename="Videos">/home/laspavel/</Path>
+                  <Path Filename="3333">/home/laspavel/Videos/</Path>
+                  <Path Filename="..">/home/laspavel/Videos/3333/</Path>
+                  <Path Filename="..">/home/laspavel/Videos/</Path>
+                  <Path Filename="tmp">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/tmp/</Path>
+                  <Path Filename="Templates">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/Templates/</Path>
+                  <Path Filename="_">/home/laspavel/</Path>
+                  <Path Filename="start">/home/laspavel/_/</Path>
+                  <Path Filename="vars">/home/laspavel/_/start/</Path>
+                  <Path Filename="..">/home/laspavel/_/start/vars/</Path>
+                  <Path Filename="..">/home/laspavel/_/start/</Path>
+                  <Path Filename="..">/home/laspavel/_/</Path>
+                  <Path Filename="tmp">/home/laspavel/</Path>
+                  <Path Filename="AAct">/home/laspavel/tmp/</Path>
+                  <Path Filename="AAct">/home/laspavel/tmp/AAct/</Path>
+                  <Path Filename="AAct v4.3.1 Portable">/home/laspavel/tmp/AAct/AAct/</Path>
+                  <Path Filename="..">/home/laspavel/tmp/AAct/AAct/AAct v4.3.1 Portable/</Path>
+                  <Path Filename="..">/home/laspavel/tmp/AAct/AAct/</Path>
+                  <Path Filename="..">/home/laspavel/tmp/AAct/</Path>
+                  <Path Filename="AAct">/home/laspavel/tmp/</Path>
                 </Paths>
               </Entry>
             </History>
@@ -966,10 +966,10 @@
   </ColumnsSets>
   <MainWindow>
     <Position Save="True">
-      <Maximized>True</Maximized>
+      <Maximized>False</Maximized>
       <Splitter>49.9739175795514</Splitter>
-      <Left>2035</Left>
-      <Top>86</Top>
+      <Left>47</Left>
+      <Top>85</Top>
       <Width>1717</Width>
       <Height>850</Height>
       <PixelsPerInch>96</PixelsPerInch>
