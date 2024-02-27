@@ -588,7 +588,7 @@
                   <Path Filename="..">/home/laspavel/_/start/vars/</Path>
                   <Path Filename="..">/home/laspavel/_/start/</Path>
                   <Path Filename="..">/home/laspavel/_/</Path>
-                  <Path Filename="_">/home/laspavel/</Path>
+                  <Path Filename="Templates">/home/laspavel/</Path>
                 </Paths>
               </Entry>
             </History>
@@ -661,7 +661,7 @@
                   <Path Filename="..">/home/laspavel/tmp/AAct/AAct/AAct v4.3.1 Portable/</Path>
                   <Path Filename="..">/home/laspavel/tmp/AAct/AAct/</Path>
                   <Path Filename="..">/home/laspavel/tmp/AAct/</Path>
-                  <Path Filename="AAct">/home/laspavel/tmp/</Path>
+                  <Path Filename="Гладиатор [2000].mp4">/home/laspavel/tmp/</Path>
                 </Paths>
               </Entry>
             </History>
@@ -968,8 +968,8 @@
     <Position Save="True">
       <Maximized>False</Maximized>
       <Splitter>49.9739175795514</Splitter>
-      <Left>47</Left>
-      <Top>85</Top>
+      <Left>2084</Left>
+      <Top>102</Top>
       <Width>1717</Width>
       <Height>850</Height>
       <PixelsPerInch>96</PixelsPerInch>
