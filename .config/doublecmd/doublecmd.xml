@@ -539,7 +539,6 @@
               <Entry Active="True">
                 <FileSource Type="FileSystem"/>
                 <Paths>
-                  <Path Filename="02. Особенности синтаксиса Go">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/</Path>
                   <Path Filename="..">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/02. Особенности синтаксиса Go/</Path>
                   <Path Filename="03. Алгоритмы в Go">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/</Path>
                   <Path Filename="..">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/03. Алгоритмы в Go/</Path>
@@ -588,7 +587,8 @@
                   <Path Filename="..">/home/laspavel/_/start/vars/</Path>
                   <Path Filename="..">/home/laspavel/_/start/</Path>
                   <Path Filename="..">/home/laspavel/_/</Path>
-                  <Path Filename="Templates">/home/laspavel/</Path>
+                  <Path Filename="Videos">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/Videos/</Path>
                 </Paths>
               </Entry>
             </History>
@@ -612,7 +612,6 @@
               <Entry Active="True">
                 <FileSource Type="FileSystem"/>
                 <Paths>
-                  <Path Filename="Documents">/home/laspavel/</Path>
                   <Path Filename="VG">/home/laspavel/Documents/</Path>
                   <Path Filename="..">/home/laspavel/Documents/VG/</Path>
                   <Path Filename="..">/home/laspavel/Documents/</Path>
@@ -661,7 +660,8 @@
                   <Path Filename="..">/home/laspavel/tmp/AAct/AAct/AAct v4.3.1 Portable/</Path>
                   <Path Filename="..">/home/laspavel/tmp/AAct/AAct/</Path>
                   <Path Filename="..">/home/laspavel/tmp/AAct/</Path>
-                  <Path Filename="Гладиатор [2000].mp4">/home/laspavel/tmp/</Path>
+                  <Path Filename="..">/home/laspavel/tmp/</Path>
+                  <Path Filename="scripts">/home/laspavel/</Path>
                 </Paths>
               </Entry>
             </History>
@@ -968,8 +968,8 @@
     <Position Save="True">
       <Maximized>False</Maximized>
       <Splitter>49.9739175795514</Splitter>
-      <Left>2084</Left>
-      <Top>102</Top>
+      <Left>90</Left>
+      <Top>46</Top>
       <Width>1717</Width>
       <Height>850</Height>
       <PixelsPerInch>96</PixelsPerInch>
