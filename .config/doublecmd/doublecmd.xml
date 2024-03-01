@@ -539,15 +539,6 @@
               <Entry Active="True">
                 <FileSource Type="FileSystem"/>
                 <Paths>
-                  <Path Filename="..">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/02. Особенности синтаксиса Go/</Path>
-                  <Path Filename="03. Алгоритмы в Go">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/</Path>
-                  <Path Filename="..">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/03. Алгоритмы в Go/</Path>
-                  <Path Filename="04. Структуры данных в Go">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/</Path>
-                  <Path Filename="..">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/04. Структуры данных в Go/</Path>
-                  <Path Filename="05. Ввод-вывод">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/</Path>
-                  <Path Filename="..">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/05. Ввод-вывод/</Path>
-                  <Path Filename="06. ООП в Go">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/</Path>
-                  <Path Filename="..">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/06. ООП в Go/</Path>
                   <Path Filename="07. Тестирование в Go">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/</Path>
                   <Path Filename="..">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/07. Тестирование в Go/</Path>
                   <Path Filename="08. Профилирование, отладка, трассировка">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/</Path>
@@ -589,6 +580,15 @@
                   <Path Filename="..">/home/laspavel/_/</Path>
                   <Path Filename="Videos">/home/laspavel/</Path>
                   <Path Filename="..">/home/laspavel/Videos/</Path>
+                  <Path Filename="Downloads">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/Downloads/</Path>
+                  <Path Filename="Videos">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/Videos/</Path>
+                  <Path Filename="Desktop">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/Desktop/</Path>
+                  <Path Filename="Documents">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/Documents/</Path>
+                  <Path Filename="Documents">/home/laspavel/</Path>
                 </Paths>
               </Entry>
             </History>
@@ -612,8 +612,6 @@
               <Entry Active="True">
                 <FileSource Type="FileSystem"/>
                 <Paths>
-                  <Path Filename="VG">/home/laspavel/Documents/</Path>
-                  <Path Filename="..">/home/laspavel/Documents/VG/</Path>
                   <Path Filename="..">/home/laspavel/Documents/</Path>
                   <Path Filename="Downloads">/home/laspavel/</Path>
                   <Path Filename="..">/home/laspavel/Downloads/</Path>
@@ -661,7 +659,9 @@
                   <Path Filename="..">/home/laspavel/tmp/AAct/AAct/</Path>
                   <Path Filename="..">/home/laspavel/tmp/AAct/</Path>
                   <Path Filename="..">/home/laspavel/tmp/</Path>
-                  <Path Filename="scripts">/home/laspavel/</Path>
+                  <Path Filename="Downloads">/home/laspavel/</Path>
+                  <Path Filename="CICD на примере Gitlab CI (2022)">/home/laspavel/Downloads/</Path>
+                  <Path Filename="lesson19.mp4">/home/laspavel/Downloads/CICD на примере Gitlab CI (2022)/</Path>
                 </Paths>
               </Entry>
             </History>
@@ -966,10 +966,10 @@
   </ColumnsSets>
   <MainWindow>
     <Position Save="True">
-      <Maximized>False</Maximized>
+      <Maximized>True</Maximized>
       <Splitter>49.9739175795514</Splitter>
-      <Left>90</Left>
-      <Top>46</Top>
+      <Left>2038</Left>
+      <Top>65</Top>
       <Width>1717</Width>
       <Height>850</Height>
       <PixelsPerInch>96</PixelsPerInch>
