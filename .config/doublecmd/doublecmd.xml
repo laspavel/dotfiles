@@ -539,12 +539,6 @@
               <Entry Active="True">
                 <FileSource Type="FileSystem"/>
                 <Paths>
-                  <Path Filename="..">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/01. Программа и цели курса. Введение в Go/</Path>
-                  <Path Filename="01. Программа и цели курса. Введение в Go">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/</Path>
-                  <Path Filename="доп. материалы.pdf">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/01. Программа и цели курса. Введение в Go/</Path>
-                  <Path Filename="..">/home/laspavel/_/start/vars/</Path>
-                  <Path Filename="..">/home/laspavel/_/start/</Path>
-                  <Path Filename="..">/home/laspavel/_/</Path>
                   <Path Filename="Videos">/home/laspavel/</Path>
                   <Path Filename="..">/home/laspavel/Videos/</Path>
                   <Path Filename="Downloads">/home/laspavel/</Path>
@@ -589,6 +583,12 @@
                   <Path Filename="2">/run/media/laspavel/L1/</Path>
                   <Path Filename="..">/run/media/laspavel/L1/2/</Path>
                   <Path Filename="..">/run/media/laspavel/</Path>
+                  <Path Filename="..">/run/media/</Path>
+                  <Path Filename="..">/run/</Path>
+                  <Path Filename="run">/</Path>
+                  <Path Filename="..">/home/laspavel/Pictures/Screenshots/</Path>
+                  <Path Filename="..">/home/laspavel/Pictures/</Path>
+                  <Path Filename="Stoto - Better Off Alone (Original Mix) [8lRICkZCadA].mp4">/home/laspavel/</Path>
                 </Paths>
               </Entry>
             </History>
@@ -612,31 +612,6 @@
               <Entry Active="True">
                 <FileSource Type="FileSystem"/>
                 <Paths>
-                  <Path Filename="start">/home/laspavel/_/</Path>
-                  <Path Filename="vars">/home/laspavel/_/start/</Path>
-                  <Path Filename="..">/home/laspavel/_/start/vars/</Path>
-                  <Path Filename="..">/home/laspavel/_/start/</Path>
-                  <Path Filename="..">/home/laspavel/_/</Path>
-                  <Path Filename="tmp">/home/laspavel/</Path>
-                  <Path Filename="AAct">/home/laspavel/tmp/</Path>
-                  <Path Filename="AAct">/home/laspavel/tmp/AAct/</Path>
-                  <Path Filename="AAct v4.3.1 Portable">/home/laspavel/tmp/AAct/AAct/</Path>
-                  <Path Filename="..">/home/laspavel/tmp/AAct/AAct/AAct v4.3.1 Portable/</Path>
-                  <Path Filename="..">/home/laspavel/tmp/AAct/AAct/</Path>
-                  <Path Filename="..">/home/laspavel/tmp/AAct/</Path>
-                  <Path Filename="..">/home/laspavel/tmp/</Path>
-                  <Path Filename="Downloads">/home/laspavel/</Path>
-                  <Path Filename="CICD на примере Gitlab CI (2022)">/home/laspavel/Downloads/</Path>
-                  <Path Filename="..">/home/laspavel/Downloads/CICD на примере Gitlab CI (2022)/</Path>
-                  <Path Filename="CICD на примере Gitlab CI (2022)">/home/laspavel/Downloads/</Path>
-                  <Path Filename="..">/home/laspavel/Downloads/CICD на примере Gitlab CI (2022)/</Path>
-                  <Path Filename="CICD на примере Gitlab CI (2022)">/home/laspavel/Downloads/</Path>
-                  <Path Filename="..">/home/laspavel/Downloads/CICD на примере Gitlab CI (2022)/</Path>
-                  <Path Filename="..">/home/laspavel/Downloads/</Path>
-                  <Path Filename="Pictures">/home/laspavel/</Path>
-                  <Path Filename="Screenshots">/home/laspavel/Pictures/</Path>
-                  <Path Filename="..">/home/laspavel/Pictures/Screenshots/</Path>
-                  <Path Filename="..">/home/laspavel/Pictures/</Path>
                   <Path Filename="Downloads">/home/laspavel/</Path>
                   <Path Filename="CICD на примере Gitlab CI (2022)">/home/laspavel/Downloads/</Path>
                   <Path Filename="..">/home/laspavel/Downloads/CICD на примере Gitlab CI (2022)/</Path>
@@ -661,7 +636,32 @@
                   <Path Filename="..">/home/laspavel/tmp/</Path>
                   <Path Filename="_">/home/laspavel/</Path>
                   <Path Filename="..">/home/laspavel/_/</Path>
-                  <Path Filename="_">/home/laspavel/</Path>
+                  <Path Filename="Downloads">/home/laspavel/</Path>
+                  <Path Filename="CICD на примере Gitlab CI (2022)">/home/laspavel/Downloads/</Path>
+                  <Path Filename="..">/home/laspavel/Downloads/CICD на примере Gitlab CI (2022)/</Path>
+                  <Path Filename="..">/home/laspavel/Downloads/</Path>
+                  <Path Filename="Pictures">/home/laspavel/</Path>
+                  <Path Filename="Screenshots">/home/laspavel/Pictures/</Path>
+                  <Path Filename="..">/home/laspavel/Pictures/Screenshots/</Path>
+                  <Path Filename="..">/home/laspavel/Pictures/</Path>
+                  <Path Filename="Videos">/home/laspavel/</Path>
+                  <Path Filename="Посмотреть_и_удалить">/home/laspavel/Videos/</Path>
+                  <Path Filename="..">/home/laspavel/Videos/Посмотреть_и_удалить/</Path>
+                  <Path Filename="..">/home/laspavel/Videos/</Path>
+                  <Path Filename="Documents">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/Documents/</Path>
+                  <Path Filename="Downloads">/home/laspavel/</Path>
+                  <Path Filename="CICD на примере Gitlab CI (2022)">/home/laspavel/Downloads/</Path>
+                  <Path Filename="..">/home/laspavel/Downloads/CICD на примере Gitlab CI (2022)/</Path>
+                  <Path Filename="Telegram Desktop">/home/laspavel/Downloads/</Path>
+                  <Path Filename="..">/home/laspavel/Downloads/Telegram Desktop/</Path>
+                  <Path Filename="..">/home/laspavel/Downloads/</Path>
+                  <Path Filename="ISOs">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/ISOs/</Path>
+                  <Path Filename="Templates">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/Templates/</Path>
+                  <Path Filename="ISOs">/home/laspavel/</Path>
+                  <Path Filename="ubuntu-22.04.4-desktop-amd64.iso">/home/laspavel/ISOs/</Path>
                 </Paths>
               </Entry>
             </History>
