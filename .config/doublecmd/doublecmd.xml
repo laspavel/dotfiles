@@ -539,8 +539,6 @@
               <Entry Active="True">
                 <FileSource Type="FileSystem"/>
                 <Paths>
-                  <Path Filename="Videos">/home/laspavel/</Path>
-                  <Path Filename="..">/home/laspavel/Videos/</Path>
                   <Path Filename="Downloads">/home/laspavel/</Path>
                   <Path Filename="..">/home/laspavel/Downloads/</Path>
                   <Path Filename="Videos">/home/laspavel/</Path>
@@ -588,7 +586,9 @@
                   <Path Filename="run">/</Path>
                   <Path Filename="..">/home/laspavel/Pictures/Screenshots/</Path>
                   <Path Filename="..">/home/laspavel/Pictures/</Path>
-                  <Path Filename="Stoto - Better Off Alone (Original Mix) [8lRICkZCadA].mp4">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/</Path>
+                  <Path Filename="laspavel">/home/</Path>
+                  <Path Filename="..">/home/laspavel/</Path>
                 </Paths>
               </Entry>
             </History>
@@ -612,9 +612,6 @@
               <Entry Active="True">
                 <FileSource Type="FileSystem"/>
                 <Paths>
-                  <Path Filename="Downloads">/home/laspavel/</Path>
-                  <Path Filename="CICD на примере Gitlab CI (2022)">/home/laspavel/Downloads/</Path>
-                  <Path Filename="..">/home/laspavel/Downloads/CICD на примере Gitlab CI (2022)/</Path>
                   <Path Filename="..">/home/laspavel/Downloads/</Path>
                   <Path Filename="Downloads">/home/laspavel/</Path>
                   <Path Filename="..">/home/laspavel/Downloads/</Path>
@@ -661,7 +658,10 @@
                   <Path Filename="Templates">/home/laspavel/</Path>
                   <Path Filename="..">/home/laspavel/Templates/</Path>
                   <Path Filename="ISOs">/home/laspavel/</Path>
-                  <Path Filename="ubuntu-22.04.4-desktop-amd64.iso">/home/laspavel/ISOs/</Path>
+                  <Path Filename="..">/home/laspavel/ISOs/</Path>
+                  <Path Filename="Videos">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/Videos/</Path>
+                  <Path Filename="Videos">/home/laspavel/</Path>
                 </Paths>
               </Entry>
             </History>
