@@ -539,12 +539,6 @@
               <Entry Active="True">
                 <FileSource Type="FileSystem"/>
                 <Paths>
-                  <Path Filename="Downloads">/home/laspavel/</Path>
-                  <Path Filename="..">/home/laspavel/Downloads/</Path>
-                  <Path Filename="Videos">/home/laspavel/</Path>
-                  <Path Filename="..">/home/laspavel/Videos/</Path>
-                  <Path Filename="Desktop">/home/laspavel/</Path>
-                  <Path Filename="..">/home/laspavel/Desktop/</Path>
                   <Path Filename="Documents">/home/laspavel/</Path>
                   <Path Filename="..">/home/laspavel/Documents/</Path>
                   <Path Filename="Videos">/home/laspavel/</Path>
@@ -589,6 +583,12 @@
                   <Path Filename="..">/home/laspavel/</Path>
                   <Path Filename="laspavel">/home/</Path>
                   <Path Filename="..">/home/laspavel/</Path>
+                  <Path Filename="laspavel">/home/</Path>
+                  <Path Filename="tmp">/home/laspavel/</Path>
+                  <Path Filename="1">/home/laspavel/tmp/</Path>
+                  <Path Filename="..">/home/laspavel/tmp/1/</Path>
+                  <Path Filename="1">/home/laspavel/tmp/</Path>
+                  <Path Filename="0000003448621175.pdf">/home/laspavel/tmp/1/</Path>
                 </Paths>
               </Entry>
             </History>
@@ -612,44 +612,6 @@
               <Entry Active="True">
                 <FileSource Type="FileSystem"/>
                 <Paths>
-                  <Path Filename="..">/home/laspavel/Downloads/</Path>
-                  <Path Filename="Downloads">/home/laspavel/</Path>
-                  <Path Filename="..">/home/laspavel/Downloads/</Path>
-                  <Path Filename="Documents">/home/laspavel/</Path>
-                  <Path Filename="..">/home/laspavel/Documents/</Path>
-                  <Path Filename="..">/home/laspavel/</Path>
-                  <Path Filename="laspavel">/home/</Path>
-                  <Path Filename="Downloads">/home/laspavel/</Path>
-                  <Path Filename="CICD на примере Gitlab CI (2022)">/home/laspavel/Downloads/</Path>
-                  <Path Filename="..">/home/laspavel/Downloads/CICD на примере Gitlab CI (2022)/</Path>
-                  <Path Filename="Cовременная разработка на GO (2023)">/home/laspavel/Downloads/</Path>
-                  <Path Filename="..">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/</Path>
-                  <Path Filename="Telegram Desktop">/home/laspavel/Downloads/</Path>
-                  <Path Filename="..">/home/laspavel/Downloads/Telegram Desktop/</Path>
-                  <Path Filename="CICD на примере Gitlab CI (2022)">/home/laspavel/Downloads/</Path>
-                  <Path Filename="..">/home/laspavel/Downloads/CICD на примере Gitlab CI (2022)/</Path>
-                  <Path Filename="..">/home/laspavel/Downloads/</Path>
-                  <Path Filename="tmp">/home/laspavel/</Path>
-                  <Path Filename="..">/home/laspavel/tmp/</Path>
-                  <Path Filename="_">/home/laspavel/</Path>
-                  <Path Filename="..">/home/laspavel/_/</Path>
-                  <Path Filename="Downloads">/home/laspavel/</Path>
-                  <Path Filename="CICD на примере Gitlab CI (2022)">/home/laspavel/Downloads/</Path>
-                  <Path Filename="..">/home/laspavel/Downloads/CICD на примере Gitlab CI (2022)/</Path>
-                  <Path Filename="..">/home/laspavel/Downloads/</Path>
-                  <Path Filename="Pictures">/home/laspavel/</Path>
-                  <Path Filename="Screenshots">/home/laspavel/Pictures/</Path>
-                  <Path Filename="..">/home/laspavel/Pictures/Screenshots/</Path>
-                  <Path Filename="..">/home/laspavel/Pictures/</Path>
-                  <Path Filename="Videos">/home/laspavel/</Path>
-                  <Path Filename="Посмотреть_и_удалить">/home/laspavel/Videos/</Path>
-                  <Path Filename="..">/home/laspavel/Videos/Посмотреть_и_удалить/</Path>
-                  <Path Filename="..">/home/laspavel/Videos/</Path>
-                  <Path Filename="Documents">/home/laspavel/</Path>
-                  <Path Filename="..">/home/laspavel/Documents/</Path>
-                  <Path Filename="Downloads">/home/laspavel/</Path>
-                  <Path Filename="CICD на примере Gitlab CI (2022)">/home/laspavel/Downloads/</Path>
-                  <Path Filename="..">/home/laspavel/Downloads/CICD на примере Gitlab CI (2022)/</Path>
                   <Path Filename="Telegram Desktop">/home/laspavel/Downloads/</Path>
                   <Path Filename="..">/home/laspavel/Downloads/Telegram Desktop/</Path>
                   <Path Filename="..">/home/laspavel/Downloads/</Path>
@@ -661,7 +623,45 @@
                   <Path Filename="..">/home/laspavel/ISOs/</Path>
                   <Path Filename="Videos">/home/laspavel/</Path>
                   <Path Filename="..">/home/laspavel/Videos/</Path>
+                  <Path Filename="Downloads">/home/laspavel/</Path>
+                  <Path Filename="11111">/home/laspavel/Downloads/</Path>
+                  <Path Filename="..">/home/laspavel/Downloads/11111/</Path>
+                  <Path Filename="Cовременная разработка на GO (2023)">/home/laspavel/Downloads/</Path>
+                  <Path Filename="..">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/</Path>
+                  <Path Filename="Cовременная разработка на GO (2023)">/home/laspavel/Downloads/</Path>
+                  <Path Filename="..">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/</Path>
+                  <Path Filename="Telegram Desktop">/home/laspavel/Downloads/</Path>
+                  <Path Filename="..">/home/laspavel/Downloads/Telegram Desktop/</Path>
+                  <Path Filename="Telegram Desktop">/home/laspavel/Downloads/</Path>
+                  <Path Filename="..">/home/laspavel/Downloads/Telegram Desktop/</Path>
+                  <Path Filename="..">/home/laspavel/Downloads/</Path>
+                  <Path Filename="Eng">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/Eng/</Path>
+                  <Path Filename="ISOs">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/ISOs/</Path>
+                  <Path Filename="Music">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/Music/</Path>
+                  <Path Filename="Pictures">/home/laspavel/</Path>
+                  <Path Filename="Screenshots">/home/laspavel/Pictures/</Path>
+                  <Path Filename="..">/home/laspavel/Pictures/Screenshots/</Path>
+                  <Path Filename="..">/home/laspavel/Pictures/</Path>
+                  <Path Filename="Public">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/Public/</Path>
+                  <Path Filename="scripts">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/scripts/</Path>
+                  <Path Filename="Templates">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/Templates/</Path>
+                  <Path Filename="tmp">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/tmp/</Path>
                   <Path Filename="Videos">/home/laspavel/</Path>
+                  <Path Filename="Посмотреть_и_удалить">/home/laspavel/Videos/</Path>
+                  <Path Filename="..">/home/laspavel/Videos/Посмотреть_и_удалить/</Path>
+                  <Path Filename="..">/home/laspavel/Videos/</Path>
+                  <Path Filename="VirtualBox VMs">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/VirtualBox VMs/</Path>
+                  <Path Filename="tmp">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/tmp/</Path>
+                  <Path Filename="Вопросы для соискателей.txt">/home/laspavel/</Path>
                 </Paths>
               </Entry>
             </History>
