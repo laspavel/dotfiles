@@ -661,7 +661,7 @@
                   <Path Filename="..">/home/laspavel/tmp/</Path>
                   <Path Filename="tmp">/home/laspavel/</Path>
                   <Path Filename="..">/home/laspavel/tmp/</Path>
-                  <Path Filename="hple0.mp4">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/</Path>
                 </Paths>
               </Entry>
             </History>
@@ -968,8 +968,8 @@
     <Position Save="True">
       <Maximized>False</Maximized>
       <Splitter>49.9739175795514</Splitter>
-      <Left>1995</Left>
-      <Top>47</Top>
+      <Left>57</Left>
+      <Top>94</Top>
       <Width>1717</Width>
       <Height>813</Height>
       <PixelsPerInch>96</PixelsPerInch>
