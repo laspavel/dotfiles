@@ -539,7 +539,6 @@
               <Entry Active="True">
                 <FileSource Type="FileSystem"/>
                 <Paths>
-                  <Path Filename="..">/home/laspavel/Documents/</Path>
                   <Path Filename="Videos">/home/laspavel/</Path>
                   <Path Filename="3333">/home/laspavel/Videos/</Path>
                   <Path Filename="..">/home/laspavel/Videos/3333/</Path>
@@ -589,6 +588,7 @@
                   <Path Filename="1">/home/laspavel/tmp/</Path>
                   <Path Filename="0000003448621175.pdf">/home/laspavel/tmp/1/</Path>
                   <Path Filename="..">/home/laspavel/tmp/</Path>
+                  <Path Filename="Videos">/home/laspavel/</Path>
                 </Paths>
               </Entry>
             </History>
@@ -612,7 +612,6 @@
               <Entry Active="True">
                 <FileSource Type="FileSystem"/>
                 <Paths>
-                  <Path Filename="..">/home/laspavel/Downloads/</Path>
                   <Path Filename="ISOs">/home/laspavel/</Path>
                   <Path Filename="..">/home/laspavel/ISOs/</Path>
                   <Path Filename="Templates">/home/laspavel/</Path>
@@ -661,7 +660,8 @@
                   <Path Filename="..">/home/laspavel/tmp/</Path>
                   <Path Filename="tmp">/home/laspavel/</Path>
                   <Path Filename="..">/home/laspavel/tmp/</Path>
-                  <Path Filename="..">/home/laspavel/</Path>
+                  <Path Filename="tmp">/home/laspavel/</Path>
+                  <Path Filename="Али Абдааль - Здоровая продуктивность. Как делать то, что важно для нас самих.jpg">/home/laspavel/tmp/</Path>
                 </Paths>
               </Entry>
             </History>
@@ -968,8 +968,8 @@
     <Position Save="True">
       <Maximized>False</Maximized>
       <Splitter>49.9739175795514</Splitter>
-      <Left>57</Left>
-      <Top>94</Top>
+      <Left>51</Left>
+      <Top>52</Top>
       <Width>1717</Width>
       <Height>813</Height>
       <PixelsPerInch>96</PixelsPerInch>

@@ -372,7 +372,7 @@ if [ -f /usr/bin/code ]; then
 fi
 
 
-export KUBECONFIG=$HOME/.kube/config_k3s.yml
+export KUBECONFIG=$HOME/.kube/k3s.yaml
 # export KUBECONFIG=~/_/Projects/StorePlus/RKE2-Playbooks/aspo1_rke2/plays/kube_config_config-cluster_rancher.yml:~/_/Projects/StorePlus/RKE2-Playbooks/aspo2_rke2/plays/kube_config_config-cluster_rancher.yml:~/_/Projects/StorePlus/RKE2-Playbooks/dev_rke2/plays/kube_config_config-cluster_rancher.yml:~/_/Projects/StorePlus/RKE2-Playbooks/prod_rke2/plays/kube_config_config-cluster_rancher.yml:~/_/Projects/StorePlus/RKE2-Playbooks/prod_rke2_efk/plays/kube_config_config-cluster_rancher.yml:~/_/Projects/StorePlus/RKE2-Playbooks/res_rke2/plays/kube_config_config-cluster_rancher.yml
 
 export LANG=ru_UA.UTF-8
