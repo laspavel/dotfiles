@@ -531,7 +531,7 @@
           <FileView Type="columns">
             <Sortings>
               <Sorting>
-                <Direction>1</Direction>
+                <Direction>2</Direction>
                 <Function>12</Function>
               </Sorting>
             </Sortings>
@@ -539,38 +539,6 @@
               <Entry Active="True">
                 <FileSource Type="FileSystem"/>
                 <Paths>
-                  <Path Filename="Videos">/home/laspavel/</Path>
-                  <Path Filename="3333">/home/laspavel/Videos/</Path>
-                  <Path Filename="..">/home/laspavel/Videos/3333/</Path>
-                  <Path Filename="..">/home/laspavel/Videos/</Path>
-                  <Path Filename="Pictures">/home/laspavel/</Path>
-                  <Path Filename="Screenshots">/home/laspavel/Pictures/</Path>
-                  <Path Filename="..">/home/laspavel/Pictures/Screenshots/</Path>
-                  <Path Filename="..">/home/laspavel/Pictures/</Path>
-                  <Path Filename="Documents">/home/laspavel/</Path>
-                  <Path Filename="..">/home/laspavel/Documents/</Path>
-                  <Path Filename="tmp">/home/laspavel/</Path>
-                  <Path Filename="..">/home/laspavel/tmp/</Path>
-                  <Path Filename="Documents">/home/laspavel/</Path>
-                  <Path Filename="..">/home/laspavel/Documents/</Path>
-                  <Path Filename="Desktop">/home/laspavel/</Path>
-                  <Path Filename="..">/home/laspavel/Desktop/</Path>
-                  <Path Filename="Downloads">/home/laspavel/</Path>
-                  <Path Filename="Telegram Desktop">/home/laspavel/Downloads/</Path>
-                  <Path Filename="..">/home/laspavel/Downloads/Telegram Desktop/</Path>
-                  <Path Filename="..">/home/laspavel/Downloads/</Path>
-                  <Path Filename="Videos">/home/laspavel/</Path>
-                  <Path Filename="3333">/home/laspavel/Videos/</Path>
-                  <Path Filename="..">/home/laspavel/Videos/3333/</Path>
-                  <Path Filename="3333">/home/laspavel/Videos/</Path>
-                  <Path Filename="..">/home/laspavel/Videos/3333/</Path>
-                  <Path Filename="Посмотреть_и_удалить">/home/laspavel/Videos/</Path>
-                  <Path Filename="..">/home/laspavel/Videos/Посмотреть_и_удалить/</Path>
-                  <Path Filename="..">/home/laspavel/Videos/</Path>
-                  <Path Filename="Нечто из другого мира - 1 [1988].mp4">/home/laspavel/</Path>
-                  <Path Filename="1">/run/media/laspavel/L1/</Path>
-                  <Path Filename="..">/run/media/laspavel/L1/1/</Path>
-                  <Path Filename="2">/run/media/laspavel/L1/</Path>
                   <Path Filename="..">/run/media/laspavel/L1/2/</Path>
                   <Path Filename="..">/run/media/laspavel/</Path>
                   <Path Filename="..">/run/media/</Path>
@@ -588,7 +556,39 @@
                   <Path Filename="1">/home/laspavel/tmp/</Path>
                   <Path Filename="0000003448621175.pdf">/home/laspavel/tmp/1/</Path>
                   <Path Filename="..">/home/laspavel/tmp/</Path>
-                  <Path Filename="Videos">/home/laspavel/</Path>
+                  <Path Filename="Downloads">/home/laspavel/</Path>
+                  <Path Filename="111">/home/laspavel/Downloads/</Path>
+                  <Path Filename="..">/home/laspavel/Downloads/111/</Path>
+                  <Path Filename="Cовременная разработка на GO (2023)">/home/laspavel/Downloads/</Path>
+                  <Path Filename="..">/home/laspavel/Downloads/Cовременная разработка на GO (2023)/</Path>
+                  <Path Filename="Telegram Desktop">/home/laspavel/Downloads/</Path>
+                  <Path Filename="..">/home/laspavel/Downloads/Telegram Desktop/</Path>
+                  <Path Filename="..">/home/laspavel/Downloads/</Path>
+                  <Path Filename="ISOs">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/ISOs/</Path>
+                  <Path Filename="ISOs">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/ISOs/</Path>
+                  <Path Filename="Downloads">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/Downloads/</Path>
+                  <Path Filename="ISOs">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/ISOs/</Path>
+                  <Path Filename="Templates">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/Templates/</Path>
+                  <Path Filename="VirtualBox VMs">/home/laspavel/</Path>
+                  <Path Filename="GA9">/home/laspavel/VirtualBox VMs/</Path>
+                  <Path Filename="..">/home/laspavel/VirtualBox VMs/GA9/</Path>
+                  <Path Filename="GA9">/home/laspavel/VirtualBox VMs/</Path>
+                  <Path Filename="..">/home/laspavel/VirtualBox VMs/GA9/</Path>
+                  <Path Filename="GA9">/home/laspavel/VirtualBox VMs/</Path>
+                  <Path Filename="..">/home/laspavel/VirtualBox VMs/GA9/</Path>
+                  <Path Filename="GA9">/home/laspavel/VirtualBox VMs/</Path>
+                  <Path Filename="..">/home/laspavel/VirtualBox VMs/GA9/</Path>
+                  <Path Filename="GA9">/home/laspavel/VirtualBox VMs/</Path>
+                  <Path Filename="..">/home/laspavel/VirtualBox VMs/GA9/</Path>
+                  <Path Filename="..">/home/laspavel/VirtualBox VMs/</Path>
+                  <Path Filename="VirtualBox VMs">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/VirtualBox VMs/</Path>
+                  <Path Filename="DJ Artush ft. Seda - Люблю Тебя ❤️️ Love You (Remix) [lQrrqEEzrCk].mp4">/home/laspavel/</Path>
                 </Paths>
               </Entry>
             </History>
@@ -661,7 +661,7 @@
                   <Path Filename="tmp">/home/laspavel/</Path>
                   <Path Filename="..">/home/laspavel/tmp/</Path>
                   <Path Filename="tmp">/home/laspavel/</Path>
-                  <Path Filename="Али Абдааль - Здоровая продуктивность. Как делать то, что важно для нас самих.jpg">/home/laspavel/tmp/</Path>
+                  <Path Filename="..">/home/laspavel/tmp/</Path>
                 </Paths>
               </Entry>
             </History>
