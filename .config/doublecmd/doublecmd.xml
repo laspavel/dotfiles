@@ -536,12 +536,9 @@
               </Sorting>
             </Sortings>
             <History>
-              <Entry Active="True">
+              <Entry>
                 <FileSource Type="FileSystem"/>
                 <Paths>
-                  <Path Filename="..">/run/media/laspavel/L1/2/</Path>
-                  <Path Filename="..">/run/media/laspavel/</Path>
-                  <Path Filename="..">/run/media/</Path>
                   <Path Filename="..">/run/</Path>
                   <Path Filename="run">/</Path>
                   <Path Filename="..">/home/laspavel/Pictures/Screenshots/</Path>
@@ -588,7 +585,10 @@
                   <Path Filename="..">/home/laspavel/VirtualBox VMs/</Path>
                   <Path Filename="VirtualBox VMs">/home/laspavel/</Path>
                   <Path Filename="..">/home/laspavel/VirtualBox VMs/</Path>
-                  <Path Filename="DJ Artush ft. Seda - Люблю Тебя ❤️️ Love You (Remix) [lQrrqEEzrCk].mp4">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/</Path>
+                  <Path Filename="laspavel">/home/</Path>
+                  <Path Filename="..">/home/laspavel/</Path>
+                  <Path Filename="">/home/</Path>
                 </Paths>
               </Entry>
             </History>
