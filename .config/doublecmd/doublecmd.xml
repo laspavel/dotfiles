@@ -536,14 +536,9 @@
               </Sorting>
             </Sortings>
             <History>
-              <Entry>
+              <Entry Active="True">
                 <FileSource Type="FileSystem"/>
                 <Paths>
-                  <Path Filename="..">/run/</Path>
-                  <Path Filename="run">/</Path>
-                  <Path Filename="..">/home/laspavel/Pictures/Screenshots/</Path>
-                  <Path Filename="..">/home/laspavel/Pictures/</Path>
-                  <Path Filename="..">/home/laspavel/</Path>
                   <Path Filename="laspavel">/home/</Path>
                   <Path Filename="..">/home/laspavel/</Path>
                   <Path Filename="laspavel">/home/</Path>
@@ -588,7 +583,12 @@
                   <Path Filename="..">/home/laspavel/</Path>
                   <Path Filename="laspavel">/home/</Path>
                   <Path Filename="..">/home/laspavel/</Path>
-                  <Path Filename="">/home/</Path>
+                  <Path Filename="laspavel">/home/</Path>
+                  <Path Filename="2">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/2/</Path>
+                  <Path Filename="3">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/3/</Path>
+                  <Path Filename="3">/home/laspavel/</Path>
                 </Paths>
               </Entry>
             </History>
@@ -612,11 +612,6 @@
               <Entry Active="True">
                 <FileSource Type="FileSystem"/>
                 <Paths>
-                  <Path Filename="ISOs">/home/laspavel/</Path>
-                  <Path Filename="..">/home/laspavel/ISOs/</Path>
-                  <Path Filename="Templates">/home/laspavel/</Path>
-                  <Path Filename="..">/home/laspavel/Templates/</Path>
-                  <Path Filename="ISOs">/home/laspavel/</Path>
                   <Path Filename="..">/home/laspavel/ISOs/</Path>
                   <Path Filename="Videos">/home/laspavel/</Path>
                   <Path Filename="..">/home/laspavel/Videos/</Path>
@@ -662,6 +657,11 @@
                   <Path Filename="..">/home/laspavel/tmp/</Path>
                   <Path Filename="tmp">/home/laspavel/</Path>
                   <Path Filename="..">/home/laspavel/tmp/</Path>
+                  <Path Filename="tmp">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/tmp/</Path>
+                  <Path Filename="Pictures">/home/laspavel/</Path>
+                  <Path Filename="Screenshots">/home/laspavel/Pictures/</Path>
+                  <Path Filename="Screenshot from 2024-03-25 18-50-17.png">/home/laspavel/Pictures/Screenshots/</Path>
                 </Paths>
               </Entry>
             </History>
