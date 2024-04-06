@@ -539,9 +539,6 @@
               <Entry Active="True">
                 <FileSource Type="FileSystem"/>
                 <Paths>
-                  <Path Filename="..">/home/laspavel/Downloads/Telegram Desktop/</Path>
-                  <Path Filename="..">/home/laspavel/Downloads/</Path>
-                  <Path Filename="ISOs">/home/laspavel/</Path>
                   <Path Filename="..">/home/laspavel/ISOs/</Path>
                   <Path Filename="ISOs">/home/laspavel/</Path>
                   <Path Filename="..">/home/laspavel/ISOs/</Path>
@@ -588,7 +585,10 @@
                   <Path Filename="3">/home/laspavel/</Path>
                   <Path Filename="AD_RBAC_Integration">/home/laspavel/3/</Path>
                   <Path Filename="roles">/home/laspavel/3/AD_RBAC_Integration/</Path>
-                  <Path Filename="RO-Role.yaml">/home/laspavel/3/AD_RBAC_Integration/roles/</Path>
+                  <Path Filename="..">/home/laspavel/3/AD_RBAC_Integration/roles/</Path>
+                  <Path Filename="..">/home/laspavel/3/AD_RBAC_Integration/</Path>
+                  <Path Filename="..">/home/laspavel/3/</Path>
+                  <Path Filename="3">/home/laspavel/</Path>
                 </Paths>
               </Entry>
             </History>
@@ -612,9 +612,6 @@
               <Entry Active="True">
                 <FileSource Type="FileSystem"/>
                 <Paths>
-                  <Path Filename="tmp">/home/laspavel/</Path>
-                  <Path Filename="..">/home/laspavel/tmp/</Path>
-                  <Path Filename="Videos">/home/laspavel/</Path>
                   <Path Filename="Посмотреть_и_удалить">/home/laspavel/Videos/</Path>
                   <Path Filename="..">/home/laspavel/Videos/Посмотреть_и_удалить/</Path>
                   <Path Filename="..">/home/laspavel/Videos/</Path>
@@ -661,7 +658,10 @@
                   <Path Filename="..">/home/laspavel/Pictures/Screenshots/</Path>
                   <Path Filename="..">/home/laspavel/Pictures/</Path>
                   <Path Filename="Downloads">/home/laspavel/</Path>
-                  <Path Filename="Ð_Ð½Ñ_Ñ_Ñ_Ñ_ÐºÑ_Ñ_Ñ_ Ð¿Ð¾ Ð½Ð°Ð»Ð°Ñ_Ñ_Ñ_Ð²Ð°Ð½Ð½Ñ_ nodeAffinity .docx">/home/laspavel/Downloads/</Path>
+                  <Path Filename="..">/home/laspavel/Downloads/</Path>
+                  <Path Filename="tmp">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/tmp/</Path>
+                  <Path Filename="3zafe.mp4">/home/laspavel/</Path>
                 </Paths>
               </Entry>
             </History>
