@@ -588,7 +588,7 @@
                   <Path Filename="..">/home/laspavel/3/AD_RBAC_Integration/roles/</Path>
                   <Path Filename="..">/home/laspavel/3/AD_RBAC_Integration/</Path>
                   <Path Filename="..">/home/laspavel/3/</Path>
-                  <Path Filename="DOMI.K - Som z teba unavená (Official Music) [ze7hJXTHqsw].mp4">/home/laspavel/</Path>
+                  <Path Filename="Равшан и Джамшут все серии.mp4">/home/laspavel/</Path>
                 </Paths>
               </Entry>
             </History>
@@ -661,7 +661,7 @@
                   <Path Filename="..">/home/laspavel/tmp/</Path>
                   <Path Filename="Pictures">/home/laspavel/</Path>
                   <Path Filename="Screenshots">/home/laspavel/Pictures/</Path>
-                  <Path Filename="Screenshot from 2024-04-10 12-53-17.png">/home/laspavel/Pictures/Screenshots/</Path>
+                  <Path Filename="..">/home/laspavel/Pictures/Screenshots/</Path>
                 </Paths>
               </Entry>
             </History>
@@ -966,12 +966,12 @@
   </ColumnsSets>
   <MainWindow>
     <Position Save="True">
-      <Maximized>True</Maximized>
+      <Maximized>False</Maximized>
       <Splitter>49.9739175795514</Splitter>
       <Left>51</Left>
       <Top>52</Top>
       <Width>1717</Width>
-      <Height>739</Height>
+      <Height>702</Height>
       <PixelsPerInch>96</PixelsPerInch>
     </Position>
   </MainWindow>
