@@ -588,7 +588,7 @@
                   <Path Filename="..">/home/laspavel/3/AD_RBAC_Integration/roles/</Path>
                   <Path Filename="..">/home/laspavel/3/AD_RBAC_Integration/</Path>
                   <Path Filename="..">/home/laspavel/3/</Path>
-                  <Path Filename="2024-04-09_09-45-39.mkv">/home/laspavel/</Path>
+                  <Path Filename="kms0r.mp4">/home/laspavel/</Path>
                 </Paths>
               </Entry>
             </History>
@@ -966,7 +966,7 @@
   </ColumnsSets>
   <MainWindow>
     <Position Save="True">
-      <Maximized>False</Maximized>
+      <Maximized>True</Maximized>
       <Splitter>49.9739175795514</Splitter>
       <Left>51</Left>
       <Top>52</Top>
