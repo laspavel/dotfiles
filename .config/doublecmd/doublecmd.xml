@@ -540,8 +540,6 @@
                 <FileSource Type="FileSystem"/>
                 <Paths>
                   <Path Filename="..">/home/laspavel/ISOs/</Path>
-                  <Path Filename="ISOs">/home/laspavel/</Path>
-                  <Path Filename="..">/home/laspavel/ISOs/</Path>
                   <Path Filename="Downloads">/home/laspavel/</Path>
                   <Path Filename="..">/home/laspavel/Downloads/</Path>
                   <Path Filename="ISOs">/home/laspavel/</Path>
@@ -588,7 +586,9 @@
                   <Path Filename="..">/home/laspavel/3/AD_RBAC_Integration/roles/</Path>
                   <Path Filename="..">/home/laspavel/3/AD_RBAC_Integration/</Path>
                   <Path Filename="..">/home/laspavel/3/</Path>
-                  <Path Filename="kms0r.mp4">/home/laspavel/</Path>
+                  <Path Filename="3">/home/laspavel/</Path>
+                  <Path Filename="..">/home/laspavel/3/</Path>
+                  <Path Filename="3">/home/laspavel/</Path>
                 </Paths>
               </Entry>
             </History>
@@ -612,8 +612,6 @@
               <Entry Active="True">
                 <FileSource Type="FileSystem"/>
                 <Paths>
-                  <Path Filename="..">/home/laspavel/Videos/</Path>
-                  <Path Filename="VirtualBox VMs">/home/laspavel/</Path>
                   <Path Filename="..">/home/laspavel/VirtualBox VMs/</Path>
                   <Path Filename="tmp">/home/laspavel/</Path>
                   <Path Filename="..">/home/laspavel/tmp/</Path>
@@ -662,6 +660,8 @@
                   <Path Filename="Pictures">/home/laspavel/</Path>
                   <Path Filename="Screenshots">/home/laspavel/Pictures/</Path>
                   <Path Filename="..">/home/laspavel/Pictures/Screenshots/</Path>
+                  <Path Filename="Videos">/home/laspavel/</Path>
+                  <Path Filename="Nikko Culture - Live In The Moment [dou4vNYegxw].mp4">/home/laspavel/Videos/</Path>
                 </Paths>
               </Entry>
             </History>
