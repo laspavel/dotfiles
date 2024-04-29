@@ -1,6 +1,10 @@
 [legacy]
 menu-accelerator-enabled=false
 
+[legacy/keybindings]
+copy='<Primary><Shift>c'
+paste='<Primary><Shift>v'
+
 [legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
 audible-bell=false
 bold-is-bright=true
