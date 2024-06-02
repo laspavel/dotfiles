@@ -585,6 +585,18 @@
               Value : "$1FFFFFFF|$00800000|$1FFFFFFF|0|1|0|0"
             },
             {
+              Name : "PasDoc-Keyword",
+              Value : "$1FFFFFFF|$1FFFFFFF|$1FFFFFFF|0|1|0|0"
+            },
+            {
+              Name : "PasDoc-Symbol",
+              Value : "$1FFFFFFF|$1FFFFFFF|$1FFFFFFF|0|1|0|0"
+            },
+            {
+              Name : "PasDoc-Unknown",
+              Value : "$1FFFFFFF|$1FFFFFFF|$1FFFFFFF|0|1|0|0"
+            },
+            {
               Name : "Procedure header name",
               Value : "$1FFFFFFF|$1FFFFFFF|$1FFFFFFF|0|1|0|0"
             },
