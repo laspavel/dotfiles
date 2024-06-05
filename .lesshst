@@ -22,3 +22,13 @@
 "delete
 "ignore-failed-read
 "threads
+"boot-load-size
+"nobak
+"volset
+"vol
+"vol-se
+"vols
+"eltorito-boot
+"graft
+"graft-points
+"eltorito-boot
