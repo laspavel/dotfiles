@@ -1,0 +1,17 @@
+hotKeys:
+  F10:
+    shortCut:    F10
+    description: Exit
+    command:     q!
+  shift-0:
+    shortCut:    Shift-0
+    description: Viewing nodes
+    command:     nodes
+  shift-1:
+    shortCut:    Shift-1
+    description: View po
+    command:     po
+  shift-2:
+    shortCut:    Shift-2
+    description: View Deployments
+    command:     deploy
