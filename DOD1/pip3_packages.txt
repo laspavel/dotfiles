@@ -72,6 +72,7 @@ pyparted==3.13.0
 PySocks==1.7.1
 python-augeas==1.1.0
 python-dateutil==2.8.2
+python-dotenv==1.0.1
 python-meh==0.51
 python-pam==2.0.2
 python-string-utils==1.0.0
@@ -79,6 +80,7 @@ python-utils==3.7.0
 pyudev==0.24.1
 pyxdg==0.27
 PyYAML==6.0.1
+pyzabbix==1.3.1
 regex==2024.4.16
 requests==2.31.0
 requests-file==2.0.0
