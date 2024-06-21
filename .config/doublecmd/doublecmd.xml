@@ -797,12 +797,12 @@
   </ColumnsSets>
   <MainWindow>
     <Position Save="True">
-      <Maximized>True</Maximized>
+      <Maximized>False</Maximized>
       <Splitter>49.9739175795514</Splitter>
-      <Left>42</Left>
-      <Top>235</Top>
+      <Left>0</Left>
+      <Top>85</Top>
       <Width>1878</Width>
-      <Height>294</Height>
+      <Height>608</Height>
       <PixelsPerInch>96</PixelsPerInch>
     </Position>
   </MainWindow>
