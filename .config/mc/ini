@@ -90,7 +90,7 @@ shell_directory_timeout=900
 
 [Layout]
 output_lines=0
-left_panel_size=59
+left_panel_size=95
 top_panel_size=12
 message_visible=true
 keybar_visible=true
@@ -173,7 +173,7 @@ ignore_dirs=
 follow_symlinks=false
 
 [Panelize]
+Modified git files=git ls-files --modified
 Find rejects after patching=find . -name \\*.rej -print
 Find *.orig after patching=find . -name \\*.orig -print
-Modified git files=git ls-files --modified
 Find SUID and SGID programs=find . \\( \\( -perm -04000 -a -perm /011 \\) -o \\( -perm -02000 -a -perm /01 \\) \\) -print

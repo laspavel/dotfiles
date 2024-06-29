@@ -78,6 +78,8 @@ function BackupDotFiles () {
     mkdir -p $STARTDIR/.config/doublecmd
     cp -rf ~/.config/doublecmd/colors.json $STARTDIR/.config/doublecmd/colors.json
     cp -rf ~/.config/doublecmd/doublecmd.xml $STARTDIR/.config/doublecmd/doublecmd.xml
+    mkdir -p $STARTDIR/.config/wget
+    cp -rf ~/.config/wget/wget2rc $STARTDIR/.config/wget/wget2rc
     mkdir -p $STARTDIR/.config/htop
     cp -rf ~/.config/htop/htoprc $STARTDIR/.config/htop/htoprc
     cp -rf ~/.config/k9s $STARTDIR/.config
