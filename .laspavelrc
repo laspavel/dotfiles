@@ -6,9 +6,9 @@ if [ -z "${HOME:-}" ]; then
   export HOME=~
 fi
 
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:$HOME/.krew/bin:$PATH" ]]
 then
-  PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+  PATH="$HOME/.local/bin:$HOME/bin:$HOME/.krew/bin:$PATH"
 fi
 export PATH
 
@@ -20,7 +20,6 @@ export PATH
 md5() { echo -n "$1" | md5sum; }
 ipinfo() { curl -sL https://ip.guide/$1; echo "";}
 ipinfo2() { curl ipinfo.io/$1; echo "";}
-
 
 pfx2crt() {
   fbname=$(basename "$1" .pfx)
@@ -51,22 +50,6 @@ parse_git_branch() {
 }
 
 ssh_search() { grep "$1" ~/.ssh/config ~/.ssh/config.d/* -A 7 -B 7;} 
-alias sshhosts="grep -w -i -E 'Host|HostName' ~/.ssh/config ~/.ssh/config.d/* | sed 's/Host //' | sed 's/HostName //'"
-
-## load ssh autocompletion
-_ssh() 
-{
-  local cur prev opts
-  COMPREPLY=()
-  cur="${COMP_WORDS[COMP_CWORD]}"
-  prev="${COMP_WORDS[COMP_CWORD-1]}"
-  opts=$(grep '^Host' ~/.ssh/config ~/.ssh/config.d/* 2>/dev/null | grep -v '[?*]' | cut -d ' ' -f 2-)
-
-  COMPREPLY=( $(compgen -W "$opts" -- ${cur}) )
-  return 0
-}
-
-complete -F _ssh ssh scp
 
 ssh() {
   tmux rename-window "$*"
@@ -299,9 +282,6 @@ alias dud="du -d 1"
 if which wine64 >/dev/null 2>&1; then
   alias winbox='wine64 "$HOME/.wine/drive_c/winbox.exe"'
   alias winrar='wine64 "$HOME/.wine/drive_c/Program Files/WinRAR/WinRAR.exe"'
-  alias vpn_change='ssh mikrotik /system script run vpnscript'
-  alias vpn_stop='ssh mikrotik /interface l2tp-client disable VPN1'
-  alias vpn_start='ssh mikrotik /interface l2tp-client enable VPN1'
 fi
 
 # Utils from Internet
