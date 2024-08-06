@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<doublecmd DCVersion="1.1.12 gamma" ConfigVersion="15">
+<doublecmd DCVersion="1.1.16 gamma" ConfigVersion="15">
   <Configuration Save="True" SortOrder="0" TreeType="0">
     <FolderTabs Save="True"/>
   </Configuration>
@@ -798,11 +798,11 @@
   <MainWindow>
     <Position Save="True">
       <Maximized>False</Maximized>
-      <Splitter>49.9739175795514</Splitter>
-      <Left>110</Left>
-      <Top>113</Top>
+      <Splitter>50</Splitter>
+      <Left>157</Left>
+      <Top>99</Top>
       <Width>1626</Width>
-      <Height>742</Height>
+      <Height>715</Height>
       <PixelsPerInch>96</PixelsPerInch>
     </Position>
   </MainWindow>

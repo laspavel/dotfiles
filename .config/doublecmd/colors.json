@@ -585,18 +585,6 @@
               Value : "$1FFFFFFF|$00800000|$1FFFFFFF|0|1|0|0"
             },
             {
-              Name : "PasDoc-Keyword",
-              Value : "$1FFFFFFF|$1FFFFFFF|$1FFFFFFF|0|1|0|0"
-            },
-            {
-              Name : "PasDoc-Symbol",
-              Value : "$1FFFFFFF|$1FFFFFFF|$1FFFFFFF|0|1|0|0"
-            },
-            {
-              Name : "PasDoc-Unknown",
-              Value : "$1FFFFFFF|$1FFFFFFF|$1FFFFFFF|0|1|0|0"
-            },
-            {
               Name : "Procedure header name",
               Value : "$1FFFFFFF|$1FFFFFFF|$1FFFFFFF|0|1|0|0"
             },
@@ -1229,6 +1217,53 @@
                 {
                   Name : "Address",
                   Attributes : "$00000096,$1FFFFFFF;False:False."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          Name : "Go",
+          Ranges : [
+            {
+              Name : "Root",
+              Attributes : "$80000008,$80000005;False:False.",
+              KeyLists : [
+                {
+                  Name : "Keywords",
+                  Attributes : "$00FF0000,$80000005;False:True."
+                },
+                {
+                  Name : "Types",
+                  Attributes : "$00000080,$80000005;False:True."
+                },
+                {
+                  Name : "Functions",
+                  Attributes : "$00800000,$80000005;False:True."
+                }
+              ],
+              Ranges : [
+                {
+                  Name : "Strings `..`",
+                  Attributes : "$00696969,$80000005;False:True."
+                },
+                {
+                  Name : "Strings \"..\"",
+                  Attributes : "$00696969,$80000005;False:True.",
+                  KeyLists : [
+                    {
+                      Name : "Escape",
+                      Attributes : "$00696969,$80000005;True:True."
+                    }
+                  ]
+                },
+                {
+                  Name : "Remarks //",
+                  Attributes : "$00008000,$80000005;False:True."
+                },
+                {
+                  Name : "Remarks /*..*/",
+                  Attributes : "$00008000,$80000005;False:True."
                 }
               ]
             }
