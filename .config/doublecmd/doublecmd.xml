@@ -617,7 +617,7 @@
   </IgnoreList>
   <DirectoryHotList/>
   <Viewer>
-    <PreviewVisible>True</PreviewVisible>
+    <PreviewVisible>False</PreviewVisible>
     <ImageStretch>False</ImageStretch>
     <ImageStretchLargeOnly>False</ImageStretchLargeOnly>
     <ImageCenter>True</ImageCenter>
@@ -802,12 +802,12 @@
   </ColumnsSets>
   <MainWindow>
     <Position Save="True">
-      <Maximized>True</Maximized>
+      <Maximized>False</Maximized>
       <Splitter>50</Splitter>
       <Left>127</Left>
       <Top>131</Top>
       <Width>1626</Width>
-      <Height>544</Height>
+      <Height>470</Height>
       <PixelsPerInch>96</PixelsPerInch>
     </Position>
   </MainWindow>
