@@ -35,7 +35,7 @@ classic_progressbar=true
 use_netrc=true
 ftpfs_always_use_proxy=false
 ftpfs_use_passive_connections=true
-ftpfs_use_passive_connections_over_proxy=false
+ftpfs_use_passive_connections_over_proxy=true
 ftpfs_use_unix_list_options=true
 ftpfs_first_cd_then_ls=true
 ignore_ftp_chattr_errors=true
@@ -173,7 +173,7 @@ ignore_dirs=
 follow_symlinks=false
 
 [Panelize]
-Modified git files=git ls-files --modified
-Find *.orig after patching=find . -name \\*.orig -print
-Find rejects after patching=find . -name \\*.rej -print
 Find SUID and SGID programs=find . \\( \\( -perm -04000 -a -perm /011 \\) -o \\( -perm -02000 -a -perm /01 \\) \\) -print
+Find *.orig after patching=find . -name \\*.orig -print
+Modified git files=git ls-files --modified
+Find rejects after patching=find . -name \\*.rej -print
