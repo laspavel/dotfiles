@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<doublecmd DCVersion="1.1.16 gamma" ConfigVersion="15">
+<doublecmd DCVersion="1.1.20 gamma" ConfigVersion="15">
   <Configuration Save="True" SortOrder="0" TreeType="0">
     <FolderTabs Save="True"/>
   </Configuration>
@@ -170,7 +170,7 @@
         <Name>FTP</Name>
         <Path>%commander_path%/plugins/wfx/ftp/ftp.wfx</Path>
       </WfxPlugin>
-      <WfxPlugin Enabled="True">
+      <WfxPlugin Enabled="False">
         <Name>Windows Network</Name>
         <Path>%commander_path%/plugins/wfx/samba/samba.wfx</Path>
       </WfxPlugin>
@@ -534,6 +534,7 @@
       <MulRenPathRangeSeparator>- </MulRenPathRangeSeparator>
     </MultiRename>
     <LongNameAlert>True</LongNameAlert>
+    <DefaultDropEffect>True</DefaultDropEffect>
   </FileOperations>
   <Tabs>
     <Options>49937</Options>
@@ -547,7 +548,7 @@
   </Log>
   <History>
     <SearchReplaceHistory Save="True"/>
-    <DirHistory Save="True"/>
+    <DirHistory Save="True" Count="30"/>
     <CmdLineHistory Save="True"/>
     <FileMaskHistory Save="True"/>
     <VolumeSizeHistory Save="True"/>
@@ -674,6 +675,7 @@
       <Unknown>255</Unknown>
     </Colors>
     <DateTimeFormat>yyyy.mm.dd hh:nn:ss</DateTimeFormat>
+    <FilterUnknown>True</FilterUnknown>
   </SyncDirs>
   <InternalAssociations>
     <OfferToAddNewFileType>False</OfferToAddNewFileType>
@@ -807,7 +809,7 @@
       <Left>262</Left>
       <Top>328</Top>
       <Width>1564</Width>
-      <Height>506</Height>
+      <Height>405</Height>
       <PixelsPerInch>96</PixelsPerInch>
     </Position>
   </MainWindow>

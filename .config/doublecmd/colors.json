@@ -5,8 +5,8 @@
       FilePanel : {
         CursorBorderColor : -2147483635,
         ForeColor : 12632256,
-        BackColor : 8388608,
-        BackColor2 : 8388608,
+        BackColor : 9127954,
+        BackColor2 : 9127954,
         MarkColor : 65535,
         CursorColor : 8421504,
         CursorText : 16777215,
@@ -20,7 +20,7 @@
         ThresholdForeColor : 255
       },
       Path : {
-        ActiveColor : -2147483635,
+        ActiveColor : 9127954,
         ActiveFontColor : -2147483634,
         InactiveColor : -2147483633,
         InactiveFontColor : -2147483630
