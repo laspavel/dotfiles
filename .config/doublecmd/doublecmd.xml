@@ -308,7 +308,7 @@
   <Fonts>
     <Main>
       <Name>default</Name>
-      <Size>14</Size>
+      <Size>10</Size>
       <Style>1</Style>
       <Quality>0</Quality>
     </Main>
@@ -804,10 +804,10 @@
   </ColumnsSets>
   <MainWindow>
     <Position Save="True">
-      <Maximized>False</Maximized>
+      <Maximized>True</Maximized>
       <Splitter>50</Splitter>
-      <Left>81</Left>
-      <Top>0</Top>
+      <Left>1981</Left>
+      <Top>32</Top>
       <Width>1717</Width>
       <Height>905</Height>
       <PixelsPerInch>96</PixelsPerInch>
