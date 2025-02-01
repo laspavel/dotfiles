@@ -238,7 +238,8 @@ alias s='stat'
 alias rm='rm -i'
 alias n='nano '
 alias vi='vim'
-alias v='vim'
+alias v='$EDITOR'
+alias e='$EDITOR'
 alias cls='clear'
 alias r='reset'
 alias df='df -h'
@@ -343,7 +344,7 @@ export TMPDIR="${HOME}/tmp"
 # if exists Visual Studio Code use it.
 if [ -f /usr/bin/code ]; then
   export VISUAL="code"
-  alias vv="code $1"
+  alias vv="$VISUAL"
 fi
 
 export KUBECONFIG=$(find -L ~/.kube -type f \( -name '*.yml' -o -name '*.y?ml' \) -print0 | xargs -0 echo | tr ' ' ':')
