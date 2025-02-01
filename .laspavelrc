@@ -332,6 +332,9 @@ shopt -s checkwinsize
 # Autocorrect typos in path names when using the `cd` command.
 shopt -s cdspell
 
+# Autocorrect on directory names to match a glob.
+shopt -s dirspell 2> /dev/null
+
 # Save all lines of a multiple-line command in the same history entry
 shopt -s cmdhist
 
