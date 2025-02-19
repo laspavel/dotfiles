@@ -6,7 +6,7 @@ if [ -z "${HOME:-}" ]; then
   export HOME=~
 fi
 
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:$HOME/.krew/bin:$PATH" ]]
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
 then
   PATH="$HOME/.local/bin:$HOME/bin:$HOME/.krew/bin:$PATH"
 fi
@@ -20,6 +20,7 @@ export PATH
 md5() { echo -n "$1" | md5sum; }
 ipinfo() { curl -sL https://ip.guide/$1; echo "";}
 ipinfo2() { curl ipinfo.io/$1; echo "";}
+ipinfo3() { curl ifconfig.co/json?ip=$1; echo "";}
 
 pfx2crt() {
   fbname=$(basename "$1" .pfx)
@@ -258,6 +259,10 @@ alias listen="lsof -P -i -n"
 alias now='date +%d.%m.%Y%n%T'
 alias week='date +%V'
 alias flushdns='sudo resolvectl flush-caches'
+
+alias sss='sudo nano /Dockers/squid/conf/src.allow.tmp && bash -c "cd /Dockers/squid/ && ./Restart.sh"'
+alias proxy='echo -e "\nexport {http,https,ftp}_proxy=\"http://proxy-aspo.atbmarket.com:8080\"\n"'
+alias itmonitorix='sudo $HOME/_/Py/ITMONITORX/itmonitorix.py'
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec ${SHELL} -l"
