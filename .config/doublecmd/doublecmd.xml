@@ -804,9 +804,9 @@
   </ColumnsSets>
   <MainWindow>
     <Position Save="True">
-      <Maximized>False</Maximized>
+      <Maximized>True</Maximized>
       <Splitter>50</Splitter>
-      <Left>1838</Left>
+      <Left>203</Left>
       <Top>236</Top>
       <Width>1717</Width>
       <Height>236</Height>
