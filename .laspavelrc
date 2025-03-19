@@ -6,7 +6,7 @@ if [ -z "${HOME:-}" ]; then
   export HOME=~
 fi
 
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:$HOME/.krew/bin:$PATH" ]]
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
 then
   PATH="$HOME/.local/bin:$HOME/bin:$HOME/.krew/bin:$PATH"
 fi
@@ -21,36 +21,13 @@ export PATH="$PATH:$(find "$HOME/.local/scripts" -type d | paste -sd ':')"
 md5() { echo -n "$1" | md5sum; }
 ipinfo() { curl -sL https://ip.guide/$1; echo "";}
 ipinfo2() { curl ipinfo.io/$1; echo "";}
-
-pfx2crt() {
-  fbname=$(basename "$1" .pfx)
-  openssl pkcs12 -in $fbname.pfx -clcerts -nokeys -out $fbname.crt
-  openssl pkcs12 -in $fbname.pfx -nocerts -out $fbname-encrypt.key
-  openssl rsa -in $fbname-encrypt.key -out $fbname.key
-  rm -f $fbname-encrypt.key
-}
+ipinfo3() { curl ifconfig.co/json?ip=$1; echo "";}
 
 calcc() { awk "BEGIN{ print $* }" ;}
-
-ssh_genkey() {
-  if [ -z "$1" ]; then
-    SSHF="$HOME/.ssh/temp"
-  else
-    SSHF="$HOME/.ssh/$1"
-  fi
-  ssh-keygen -t rsa -q -b 4096 -C "$2" -f "$SSHF"
-}
-
-ansi2text() {
-  cat $1 |sed s/'^'.*\\]//g > $1.tmp
-  mv $1.tmp $1
-}
 
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
-
-ssh_search() { grep "$1" ~/.ssh/config ~/.ssh/config.d/* -A 7 -B 7;} 
 
 ssh() {
   tmux rename-window "$*"
@@ -68,21 +45,6 @@ man() {
 	LESS_TERMCAP_ue="$(printf '\e[0m')" \
 	LESS_TERMCAP_us="$(printf '\e[1;32m')" \
 	man "$@"
-}
-
-function passgen() {
-  PWD_LEN=$1
-  COUNT=$2
-  if [[ -z "${PWD_LEN}" ]]; then
-    PWD_LEN=15
-  fi
-  if [[ -z "${COUNT}" ]]; then
-    COUNT=5
-  fi
-  for i in $(eval echo "{1..$COUNT}")
-  do
-    head -c 500 /dev/urandom | tr -dc a-z0-9A-Z | head -c ${PWD_LEN}; echo
-  done
 }
 
 # ################## COLOR ##################
