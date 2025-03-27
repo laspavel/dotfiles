@@ -806,8 +806,8 @@
     <Position Save="True">
       <Maximized>False</Maximized>
       <Splitter>50</Splitter>
-      <Left>160</Left>
-      <Top>35</Top>
+      <Left>190</Left>
+      <Top>64</Top>
       <Width>1440</Width>
       <Height>952</Height>
       <PixelsPerInch>96</PixelsPerInch>
