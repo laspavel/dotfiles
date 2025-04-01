@@ -804,10 +804,10 @@
   </ColumnsSets>
   <MainWindow>
     <Position Save="True">
-      <Maximized>False</Maximized>
+      <Maximized>True</Maximized>
       <Splitter>50</Splitter>
-      <Left>188</Left>
-      <Top>118</Top>
+      <Left>2070</Left>
+      <Top>83</Top>
       <Width>1440</Width>
       <Height>888</Height>
       <PixelsPerInch>96</PixelsPerInch>
