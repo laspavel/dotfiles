@@ -17,6 +17,7 @@ cffi==1.17.0
 charset-normalizer==3.3.2
 click==8.1.7
 click-plugins==1.1.1
+colorama==0.4.6
 configobj==5.0.8
 crypt_r==3.13.1
 cryptography==43.0.0
@@ -34,6 +35,7 @@ evdev==1.7.1
 fastbencode==0.2
 fedora-third-party==0.10
 file-magic==0.4.0
+filelock==3.18.0
 fros==1.1
 gssapi==1.7.3
 httplib2==0.21.0
@@ -55,7 +57,9 @@ libdnf5==5.2.8.1
 louis==3.28.0
 lxml==5.2.1
 Mako==1.2.3
+markdown-it-py==3.0.0
 MarkupSafe==2.1.5
+mdurl==0.1.2
 mercurial==6.8.2
 merge3==0.0.13
 mutagen==1.47.0
@@ -80,11 +84,12 @@ pycrypto==2.6.1
 pycryptodomex==3.21.0
 pycups==2.0.4
 pycurl==7.45.3
-pydantic==2.10.6
-pydantic_core==2.27.2
+pydantic==2.9.2
+pydantic_core==2.23.4
 pydbus==0.6.0
 pyenchant==3.2.2
 pygit2==1.17.0
+Pygments==2.19.1
 PyGObject==3.48.2
 pyinotify==0.9.6
 pykickstart==3.58
@@ -94,6 +99,7 @@ pyparted==3.13.0
 PySocks==1.7.1
 python-augeas==1.1.0
 python-dateutil==2.8.2
+python-dotenv==1.0.1
 python-linux-procfs==0.7.3
 python-meh==0.52
 python-pam==2.0.2
@@ -107,6 +113,7 @@ requests-file==2.0.0
 requests-ftp==0.3.1
 requests-gssapi==1.2.3
 resolvelib==1.0.1
+rich==13.7.1
 rpm==4.20.0
 rpmautospec==0.7.3
 rpmautospec-core==0.1.5
@@ -116,6 +123,7 @@ selinux @ file:///builddir/build/BUILD/libselinux-3.7-build/libselinux-3.7/src
 sepolicy @ file:///builddir/build/BUILD/policycoreutils-3.7-build/selinux-3.7/python/sepolicy
 setools==4.5.1
 setuptools==69.2.0
+shodan==1.31.0
 simpleaudio==1.0.4
 simpleline==1.9.0
 six==1.16.0
@@ -123,10 +131,13 @@ sos==4.8.2
 soupsieve==2.6
 systemd-python==235
 Tempita==0.5.2
+tldextract==5.1.3
 typing_extensions==4.12.2
 tzlocal==5.2
 urllib3==1.26.20
 wadllib==1.3.6
 websockets==12.0
+wtfis==0.10.1
 xkbregistry==0.3
+XlsxWriter==3.2.2
 yt-dlp==2025.1.26
