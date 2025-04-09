@@ -140,4 +140,4 @@ websockets==12.0
 wtfis==0.10.1
 xkbregistry==0.3
 XlsxWriter==3.2.2
-yt-dlp==2025.1.26
+yt-dlp==2025.3.31

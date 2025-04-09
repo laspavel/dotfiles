@@ -252,7 +252,7 @@ fi
 alias weather="curl wttr.in/Dnepr"
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
 alias dnsinfo="dig $1 @resolver1.opendns.com"
-alias ydl-mp4="yt-dlp -f \"bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]\" $1"
+alias ydl-mp4="yt-dlp -f \"bestvideo+bestaudio/best\" --merge-output-format mp4 $1"
 alias ydl-mp3="yt-dlp -f \"bestaudio\" --extract-audio --audio-format mp3 $1"
 
 alias teams-reload="killall -9 teams-for-linux && flatpak run com.github.IsmaelMartinez.teams_for_linux > /dev/null 2>&1 &"
