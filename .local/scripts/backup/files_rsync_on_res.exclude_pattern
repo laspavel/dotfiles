@@ -1,0 +1,7 @@
+mnt
+.cache/
+Cache
+Trash/
+IndexedDB/
+google-chrome/Default/
+.ssh/authorized_keys
