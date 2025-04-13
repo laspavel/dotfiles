@@ -83,6 +83,8 @@ function BackupDotFiles () {
     mkdir -p $STARTDIR/.config/htop
     cp -rf ~/.config/htop/htoprc $STARTDIR/.config/htop/htoprc
     cp -rf ~/.config/k9s $STARTDIR/.config
+    mkdir -p $STARTDIR/.local/scripts
+    cp -rf ~/.local/scripts $STARTDIR/.local
     cp -rf ~/.vimrc $STARTDIR
     cp -rf ~/.toprc $STARTDIR
     cp -rf ~/.tigrc $STARTDIR
