@@ -211,7 +211,6 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias mc='mc -x'
-alias www="watch -tn 1 '$1'"
 alias h='history '
 alias free='free -h'
 alias mkdir='mkdir -pv'
@@ -252,8 +251,6 @@ fi
 alias weather="curl wttr.in/Dnepr"
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
 alias dnsinfo="dig $1 @resolver1.opendns.com"
-alias ydl-mp4="yt-dlp -f \"bestvideo+bestaudio/best\" --merge-output-format mp4 $1"
-alias ydl-mp3="yt-dlp -f \"bestaudio\" --extract-audio --audio-format mp3 $1"
 
 #Docker
 alias py3='docker run -it --rm --hostname py3 -v $(pwd):/data -w /data python:3.9 /bin/bash'
