@@ -20,19 +20,22 @@ export PATH="$PATH:$(find "$HOME/.local/scripts" -type d | paste -sd ':')"
 
 md5() { echo -n "$1" | md5sum; }
 ipinfo() { curl -sL https://ip.guide/$1; echo "";}
-ipinfo2() { curl ipinfo.io/$1; echo "";}
-ipinfo3() { curl ifconfig.co/json?ip=$1; echo "";}
+ipinfo2() { curl ifconfig.co/json?ip=$1; echo "";}
 
 calcc() { awk "BEGIN{ print $* }" ;}
 
 parse_git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+  git branch 2>/dev/null | sed -n '/\* /s///p' | sed 's/.*/(&)/'
 }
 
 ssh() {
-  tmux rename-window "$*"
-  command ssh "$@"
-  tmux rename-window "bash"
+  if [[ -n "$TMUX" ]]; then
+    tmux rename-window "$*"
+    command ssh "$@"
+    tmux rename-window "bash"
+  else
+    command ssh "$@"
+  fi
 }
 
 man() {
@@ -174,7 +177,7 @@ fi
 
 # ################## ALIAS ##################
 
-if [ -f /usr/bin/grc ]; then
+if command -v grc >/dev/null; then
   alias cvs="grc --colour=auto cvs"
   alias diff="grc --colour=auto diff"
   alias esperanto="grc --colour=auto esperanto"
@@ -242,7 +245,7 @@ alias most10='du -hsx * | sort -rh | head -10'
 alias dud="du -d 1"
 
 # Wine Utils
-if which wine64 >/dev/null 2>&1; then
+if command -v wine64 >/dev/null; then
   alias winbox='wine64 "$HOME/.wine/drive_c/winbox.exe"'
   alias winrar='wine64 "$HOME/.wine/drive_c/Program Files/WinRAR/WinRAR.exe"'
 fi
@@ -256,26 +259,28 @@ alias dnsinfo="dig $1 @resolver1.opendns.com"
 alias py3='docker run -it --rm --hostname py3 -v $(pwd):/data -w /data python:3.9 /bin/bash'
 
 # Kubernetes
-if which kubectx >/dev/null 2>&1; then
+if command -v kubectx >/dev/null; then 
   alias kx="kubectx"
 fi
 
-if which kubens >/dev/null 2>&1; then
+if command -v kubens >/dev/null; then 
   alias kn="kubens"
 fi
 
-if which kubectl >/dev/null 2>&1; then
+if command -v kubectl >/dev/null; then 
   alias k="kubectl"
   # Kubectl autocomplete
   source <(kubectl completion bash)
   complete -F __start_kubectl k
 fi
+export KUBECONFIG=$(find -L ~/.kube -type f \( -name '*.yml' -o -name '*.y?ml' \) -print0 | xargs -0 echo | tr ' ' ':')
 
-if which terraform >/dev/null 2>&1; then
+# Terraform and vault
+if command -v terraform >/dev/null; then 
   complete -C terraform terraform
 fi
 
-if which vault >/dev/null 2>&1; then
+if command -v vault >/dev/null; then 
   complete -C vault vault
 fi
 
@@ -310,28 +315,30 @@ if [ -f /usr/bin/code ]; then
   alias vv="$VISUAL"
 fi
 
-export KUBECONFIG=$(find -L ~/.kube -type f \( -name '*.yml' -o -name '*.y?ml' \) -print0 | xargs -0 echo | tr ' ' ':')
-export LANG=ru_UA.UTF-8
-export LC_ALL="ru_UA.UTF-8";
-export LC_CTYPE="ru_UA.UTF-8";
-# export LANG=en_US.UTF-8
-# export LC_ALL="en_US.UTF-8";
-# export LC_CTYPE="en_US.UTF-8";
+export LANG=$(locale -a | grep -qi '^ru_UA\.utf-8$' && echo ru_UA.UTF-8 || echo en_US.UTF-8)
+export LC_ALL=$LANG
+export LC_CTYPE=$LANG
+
+# History
 export HISTCONTROL=ignorespace   # leading space hides commands from history
 export HISTFILESIZE=10000        # increase history file size (default is 500)
 export HISTSIZE=30000
 export HISTTIMEFORMAT="[%d.%m.%y %T] "
 export HISTIGNORE="&:[bf]g:c:clear:ls:ll:la:l:cd:pwd:exit:df:history:exit:q:pwd:* --help"
+
+# Save history after each command finishes
+if ! echo "$PROMPT_COMMAND" | grep -q 'history -a'; then
+  export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+fi
+
+#Pagers
 export MANPAGER="less -X"   # Don't clear the screen after quitting a `man` page
 export PAGER="less"
-export PYTHONIOENCODING="UTF-8"  # Make Python use UTF-8 encoding for output to stdin/stdout/stderr.
 export LESS="-M -n -q -i -r"
-export LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;37;41:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.m4a=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.oga=01;36:*.opus=01;36:*.spx=01;36:*.xspf=01;36:*~=00;90:*#=00;90:*.bak=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.swp=00;90:*.tmp=00;90:*.dpkg-dist=00;90:*.dpkg-old=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:"
+export PYTHONIOENCODING="UTF-8"  # Make Python use UTF-8 encoding for output to stdin/stdout/stderr.
 
-# Save and reload history after each command finishes
-if ! echo "$PROMPT_COMMAND" | grep -q history; then
-  export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-fi
+# Color
+export LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;37;41:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.m4a=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.oga=01;36:*.opus=01;36:*.spx=01;36:*.xspf=01;36:*~=00;90:*#=00;90:*.bak=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.swp=00;90:*.tmp=00;90:*.dpkg-dist=00;90:*.dpkg-old=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:"
 
 # Autocomplete
 if [ -d "$HOME/.local/.bash.autocomplete.d" ]; then
