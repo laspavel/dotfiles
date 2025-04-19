@@ -5,7 +5,7 @@
 
 # Загрузка конфигурации терминала
 #
-# Create dump: dconf dump / > dump_gnome
+# Для создания конфигурации: dconf dump /org/... > gnome_settings_....dump
 #
 dconf load -f /org/gnome/terminal/ < gnome_settings_terminal.dump
 dconf load -f /org/gnome/Ptyxis/ < gnome_settings_Ptyxis.dump
@@ -30,12 +30,6 @@ gsettings set org.gnome.software allow-updates false
 gsettings set org.gnome.software download-updates false
 gsettings set org.gnome.software download-updates-notify false
 
-# Настройки клавиатуры
-gsettings set org.gnome.settings-daemon.peripherals.keyboard remember-numlock-state true
-
-# Настройки Gedit кодировок
-gsettings set org.gnome.gedit.preferences.encodings candidate-encodings "['UTF-8', 'WINDOWS-1251', 'KOI8-R', 'CURRENT', 'ISO-8859-15', 'UTF-16']"
-
 # Настройки мыши
 gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'adaptive'
 
@@ -51,20 +45,33 @@ gsettings set org.gnome.desktop.wm.preferences resize-with-right-button true
 # Окна (расположение кнопок)
 gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 
-# GNOME Shell
-gsettings set org.gnome.shell.overrides workspaces-only-on-primary false
-
 # Nautilus: иконки
-gsettings set org.gnome.nautilus.icon-view default-zoom-level 'standard'
+gsettings set org.gnome.nautilus.icon-view default-zoom-level 'medium'
 
-# Nautilus: текстовые файлы
-gsettings set org.gnome.nautilus.preferences executable-text-activation 'ask'
-
-# GTK FileChooser (внимание: нестандартный формат секции)
-gsettings set org.gtk.Settings.FileChooser sort-directories-first true
+# GTK FileChooser
+dconf write /org/gtk/settings/file-chooser/sort-directories-first true
 
 # Nautilus: древовидный режим в списке
 gsettings set org.gnome.nautilus.list-view use-tree-view true
 
 # Включить расширение dash-to-panel
 gsettings set org.gnome.shell enabled-extensions "['dash-to-panel@jderose9.github.com']"
+
+# Внешний вид GNOME (Фон рабочего стола)
+gsettings set org.gnome.desktop.background color-shading-type 'solid'
+gsettings set org.gnome.desktop.background picture-options 'zoom'
+gsettings set org.gnome.desktop.background picture-uri "file://$HOME/.local/share/backgrounds/b04.jpg"
+gsettings set org.gnome.desktop.background picture-uri-dark "file://$HOME/.local/share/backgrounds/b04.jpg"
+gsettings set org.gnome.desktop.background primary-color '#000000000000'
+gsettings set org.gnome.desktop.background secondary-color '#000000000000'
+
+# Внешний вид GNOME (Цветовая схема интерфейса)
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+gsettings set org.gnome.desktop.interface accent-color 'blue'
+
+# Внешний вид GNOME (screensaver)
+gsettings set org.gnome.desktop.screensaver color-shading-type 'solid'
+gsettings set org.gnome.desktop.screensaver picture-options 'zoom'
+gsettings set org.gnome.desktop.screensaver picture-uri "file://$HOME/.local/share/backgrounds/b04.jpg"
+gsettings set org.gnome.desktop.screensaver primary-color '#000000000000'
+gsettings set org.gnome.desktop.screensaver secondary-color '#000000000000'
