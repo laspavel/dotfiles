@@ -75,3 +75,7 @@ gsettings set org.gnome.desktop.screensaver picture-options 'zoom'
 gsettings set org.gnome.desktop.screensaver picture-uri "file://$HOME/.local/share/backgrounds/b04.jpg"
 gsettings set org.gnome.desktop.screensaver primary-color '#000000000000'
 gsettings set org.gnome.desktop.screensaver secondary-color '#000000000000'
+
+# Внешний вид GNOME (Избранное)
+gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'org.remmina.Remmina.desktop', 'doublecmd.desktop', 'google-chrome.desktop', 'code.desktop', 'org.gnome.Ptyxis.desktop']"
+
