@@ -3,6 +3,9 @@
 # Применение настроек GNOME через gsettings и dconf
 # Он должен запускаться внутри пользовательской сессии (с установленным DBUS_SESSION_BUS_ADDRESS и DISPLAY).
 
+# Включить расширение dash-to-panel
+gsettings set org.gnome.shell enabled-extensions "['dash-to-panel@jderose9.github.com']"
+
 # Загрузка конфигурации терминала
 #
 # Для создания конфигурации: dconf dump /org/... > gnome_settings_....dump
@@ -53,9 +56,6 @@ dconf write /org/gtk/settings/file-chooser/sort-directories-first true
 
 # Nautilus: древовидный режим в списке
 gsettings set org.gnome.nautilus.list-view use-tree-view true
-
-# Включить расширение dash-to-panel
-gsettings set org.gnome.shell enabled-extensions "['dash-to-panel@jderose9.github.com']"
 
 # Внешний вид GNOME (Фон рабочего стола)
 gsettings set org.gnome.desktop.background color-shading-type 'solid'
