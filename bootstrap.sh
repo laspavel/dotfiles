@@ -3,7 +3,7 @@
 # To cron: 00 14 * * * laspavel cd /home/laspavel/_/dotfiles/ && ./bootstrap.sh --backup
 
 function RestoreDotFiles() {
-    if which git >/dev/null 2>&1; then
+    if command -v git >/dev/null; then
         # save old global git config
         OLDMASK=$(umask)
         umask 0077
@@ -16,7 +16,7 @@ function RestoreDotFiles() {
         OS='deb_compat'
     fi
 
-    if which rsync >/dev/null 2>&1; then
+    if command -v rsync >/dev/null; then
         echo "Rsync found - OK ! "
     else
         if [ "$OS" == "deb_compat" ]; then
@@ -27,8 +27,8 @@ function RestoreDotFiles() {
             yum -y install rsync
         fi
     fi
-    
-    if which rsync >/dev/null 2>&1; then
+
+    if command -v rsync >/dev/null; then    
         rsync --exclude ".git/" \
             --exclude "bootstrap.sh" \
             --exclude "README.md" \
@@ -49,8 +49,8 @@ function BackupDotFiles () {
     if [ -d /etc/apt/sources.list.d/ ]; then
         OS='deb_compat'
     fi
-
-    if which zip >/dev/null 2>&1; then
+    
+    if command -v zip >/dev/null; then
         echo "ZIP found - OK ! "
     else
         if [ "$OS" == "deb_compat" ]; then
@@ -63,13 +63,13 @@ function BackupDotFiles () {
     fi
 
     #### dconf load /org/gnome/shell/extensions/dash-to-panel/ < dash_to_panel_settings
-    if which dconf >/dev/null 2>&1; then
+    if command -v dconf >/dev/null; then
         dconf dump /org/gnome/shell/extensions/dash-to-panel/ > $STARTDIR/DOD1/dash_to_panel_settings
-        dconf dump /org/gnome/terminal/ > $STARTDIR/DOD1/gnome_terminal_settings
-        dconf dump /org/gnome/Ptyxis/ > $STARTDIR/DOD1/gnome_terminal1_settings
-        dconf dump / > $STARTDIR/DOD1/dump_gnome_settings
+        dconf dump /org/gnome/terminal/ > $STARTDIR/DOD1/gnome_settings_terminal
+        dconf dump /org/gnome/Ptyxis/ > $STARTDIR/DOD1/gnome_settings_Ptyxis
+        dconf dump / > $STARTDIR/DOD1/gnome_settings_all
     fi
-    if which pip3 >/dev/null 2>&1; then
+    if command -v pip3 >/dev/null; then
         pip3 freeze > $STARTDIR/DOD1/pip3_packages.txt
     fi
     
@@ -108,7 +108,7 @@ function BackupDotFiles () {
     zip -P$PASS -9 -q -r -m ./.tmux.zip ./.tmux
     zip -P$PASS -9 -q -r -m ./.bash_history.zip ./.bash_history
     zip -P$PASS -9 -q -r -m ./.python_history.zip ./.python_history
-    zip -P$PASS -9 -q -r -m ./dump_gnome_settings.zip ./dump_gnome_settings
+    zip -P$PASS -9 -q -r -m ./gnome_settings_all.zip ./gnome_settings_all
 
     cd $STARTDIR
     git add .
