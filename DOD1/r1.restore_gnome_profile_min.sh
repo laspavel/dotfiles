@@ -6,8 +6,6 @@
 # Включить расширение dash-to-panel
 gsettings set org.gnome.shell enabled-extensions "['dash-to-panel@jderose9.github.com']"
 
-sleep 3
-
 # Загрузка конфигурации терминала
 #
 # Для создания конфигурации: dconf dump /org/... > gnome_settings_....dump
