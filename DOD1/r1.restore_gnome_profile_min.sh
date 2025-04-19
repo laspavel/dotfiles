@@ -7,11 +7,11 @@
 #
 # Create dump: dconf dump / > dump_gnome
 #
-dconf load -f /org/gnome/terminal/ < gnome_settings_terminal
-dconf load -f /org/gnome/Ptyxis/ < gnome_settings_Ptyxis
+dconf load -f /org/gnome/terminal/ < gnome_settings_terminal.dump
+dconf load -f /org/gnome/Ptyxis/ < gnome_settings_Ptyxis.dump
 
 # Загрузка конфигурации dash-to-panel
-dconf load -f /org/gnome/shell/extensions/dash-to-panel/ < dash_to_panel_settings
+dconf load -f /org/gnome/shell/extensions/dash-to-panel/ < dash_to_panel_settings.dump
 
 # Отключить баннеры уведомлений
 gsettings set org.gnome.desktop.notifications show-banners false

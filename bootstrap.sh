@@ -64,10 +64,10 @@ function BackupDotFiles () {
 
     #### dconf load /org/gnome/shell/extensions/dash-to-panel/ < dash_to_panel_settings
     if command -v dconf >/dev/null; then
-        dconf dump /org/gnome/shell/extensions/dash-to-panel/ > $STARTDIR/DOD1/dash_to_panel_settings
-        dconf dump /org/gnome/terminal/ > $STARTDIR/DOD1/gnome_settings_terminal
-        dconf dump /org/gnome/Ptyxis/ > $STARTDIR/DOD1/gnome_settings_Ptyxis
-        dconf dump / > $STARTDIR/DOD1/gnome_settings_all
+        dconf dump /org/gnome/shell/extensions/dash-to-panel/ > $STARTDIR/DOD1/dash_to_panel_settings.dump
+        dconf dump /org/gnome/terminal/ > $STARTDIR/DOD1/gnome_settings_terminal.dump
+        dconf dump /org/gnome/Ptyxis/ > $STARTDIR/DOD1/gnome_settings_Ptyxis.dump
+        dconf dump / > $STARTDIR/DOD1/gnome_settings_all.dump
     fi
     if command -v pip3 >/dev/null; then
         pip3 freeze > $STARTDIR/DOD1/pip3_packages.txt
@@ -108,7 +108,7 @@ function BackupDotFiles () {
     zip -P$PASS -9 -q -r -m ./.tmux.zip ./.tmux
     zip -P$PASS -9 -q -r -m ./.bash_history.zip ./.bash_history
     zip -P$PASS -9 -q -r -m ./.python_history.zip ./.python_history
-    zip -P$PASS -9 -q -r -m ./gnome_settings_all.zip ./gnome_settings_all
+    zip -P$PASS -9 -q -r -m ./gnome_settings_all.zip ./gnome_settings_all.dump
 
     cd $STARTDIR
     git add .
