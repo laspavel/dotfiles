@@ -66,6 +66,7 @@ function BackupDotFiles () {
     if which dconf >/dev/null 2>&1; then
         dconf dump /org/gnome/shell/extensions/dash-to-panel/ > $STARTDIR/DOD1/dash_to_panel_settings
         dconf dump /org/gnome/terminal/ > $STARTDIR/DOD1/gnome_terminal_settings
+        dconf dump /org/gnome/Ptyxis/ > $STARTDIR/DOD1/gnome_terminal1_settings
         dconf dump / > $STARTDIR/DOD1/dump_gnome_settings
     fi
     if which pip3 >/dev/null 2>&1; then
