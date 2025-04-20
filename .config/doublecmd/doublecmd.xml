@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<doublecmd DCVersion="1.1.22 gamma" ConfigVersion="15">
+<doublecmd DCVersion="1.1.23 gamma" ConfigVersion="15">
   <Configuration Save="True" SortOrder="0" TreeType="0">
     <FolderTabs Save="True"/>
   </Configuration>
@@ -608,7 +608,7 @@
     <DiskSize>16</DiskSize>
     <DiskAlpha>50</DiskAlpha>
     <CustomIcons>0</CustomIcons>
-    <PixelsPerInch>96</PixelsPerInch>
+    <PixelsPerInch>192</PixelsPerInch>
     <ShowButtonGlyphs>0</ShowButtonGlyphs>
     <ShowHiddenDimmed>False</ShowHiddenDimmed>
     <ToolSize>24</ToolSize>
@@ -716,14 +716,14 @@
       <Unique>8803EE4B-9389-4775-A0C2-E56DEC949ACD</Unique>
       <CustomView>False</CustomView>
       <FileSystem>&lt;General&gt;</FileSystem>
-      <PixelsPerInch>96</PixelsPerInch>
+      <PixelsPerInch>192</PixelsPerInch>
       <CursorBorder Enabled="False"/>
       <Columns>
         <Column>
           <Title>Name</Title>
           <Unique>12C387AB-F295-4892-85E3-BA56C6A1F89D</Unique>
           <FuncString>[DC().GETFILENAMENOEXT{}]</FuncString>
-          <Width>648</Width>
+          <Width>1296</Width>
           <Align>0</Align>
           <Font>
             <Name>default</Name>
@@ -739,7 +739,7 @@
           <Title>Ext</Title>
           <Unique>1DA63080-CB99-4460-AF7E-55AE0FB1842D</Unique>
           <FuncString>[DC().GETFILEEXT{}]</FuncString>
-          <Width>61</Width>
+          <Width>122</Width>
           <Align>0</Align>
           <Font>
             <Name>default</Name>
@@ -755,7 +755,7 @@
           <Title>Size</Title>
           <Unique>FD6B634E-69E8-467D-8EA2-2501ECC9EAAD</Unique>
           <FuncString>[DC().GETFILESIZE{}]</FuncString>
-          <Width>106</Width>
+          <Width>212</Width>
           <Align>1</Align>
           <Font>
             <Name>default</Name>
@@ -771,7 +771,7 @@
           <Title>Date</Title>
           <Unique>969DB1E2-19AF-4982-9C41-F12EAA7012DD</Unique>
           <FuncString>[DC().GETFILETIME{}]</FuncString>
-          <Width>204</Width>
+          <Width>408</Width>
           <Align>1</Align>
           <Font>
             <Name>default</Name>
@@ -787,7 +787,7 @@
           <Title>Attr</Title>
           <Unique>D36C3AE9-04D6-4A1B-9608-4CE7D93C483E</Unique>
           <FuncString>[DC().GETFILEATTR{}]</FuncString>
-          <Width>100</Width>
+          <Width>200</Width>
           <Align>0</Align>
           <Font>
             <Name>default</Name>
@@ -808,9 +808,9 @@
       <Splitter>50</Splitter>
       <Left>2017</Left>
       <Top>172</Top>
-      <Width>1440</Width>
-      <Height>302</Height>
-      <PixelsPerInch>96</PixelsPerInch>
+      <Width>2880</Width>
+      <Height>476</Height>
+      <PixelsPerInch>192</PixelsPerInch>
     </Position>
   </MainWindow>
   <MultiRenamePresets>

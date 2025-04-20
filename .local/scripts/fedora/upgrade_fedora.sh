@@ -4,7 +4,7 @@
 
 set -euo pipefail
 
-RELEASEVER=41
+RELEASEVER=42
 LOGFILE="/var/log/system_upgrade_$(date +%F_%T).log"
 
 log() {
