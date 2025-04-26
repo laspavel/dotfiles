@@ -188,6 +188,7 @@ alias reload="exec ${SHELL} -l"
 
 alias ?="calcc $1"
 alias tt="tmux attach -t 0"
+# tmux has-session && exec tmux attach || exec tmux
 
 # Get top process eating memory
 alias psmem="ps auxf | sort -nr -k 4"
