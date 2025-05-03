@@ -46,6 +46,7 @@ HyFetch==1.99.0
 idna==3.10
 input-remapper==2.1.1
 iso639==0.1.4
+jeepney==0.9.0
 Jinja2==3.1.6
 jmespath==1.0.1
 jsonschema==4.23.0
@@ -127,6 +128,7 @@ rpmautospec==0.7.3
 rpmautospec-core==0.1.5
 rpmconf==1.1.11
 s3transfer==0.11.4
+SecretStorage==3.3.3
 selinux @ file:///builddir/build/BUILD/libselinux-3.8-build/libselinux-3.8/src
 sepolicy @ file:///builddir/build/BUILD/policycoreutils-3.8-build/selinux-3.8/python/sepolicy
 setools==4.5.1

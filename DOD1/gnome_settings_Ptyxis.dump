@@ -6,7 +6,7 @@ font-name='Monospace 12'
 profile-uuids=['4e4882c8969669effee3ac8e674aae52']
 restore-window-size=true
 use-system-font=false
-window-size=(uint32 190, uint32 44)
+window-size=(uint32 190, uint32 43)
 
 [Profiles/4e4882c8969669effee3ac8e674aae52]
 bold-is-bright=true
