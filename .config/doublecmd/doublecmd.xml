@@ -723,7 +723,7 @@
           <Title>Name</Title>
           <Unique>12C387AB-F295-4892-85E3-BA56C6A1F89D</Unique>
           <FuncString>[DC().GETFILENAMENOEXT{}]</FuncString>
-          <Width>648</Width>
+          <Width>391</Width>
           <Align>0</Align>
           <Font>
             <Name>default</Name>
@@ -739,7 +739,7 @@
           <Title>Ext</Title>
           <Unique>1DA63080-CB99-4460-AF7E-55AE0FB1842D</Unique>
           <FuncString>[DC().GETFILEEXT{}]</FuncString>
-          <Width>61</Width>
+          <Width>220</Width>
           <Align>0</Align>
           <Font>
             <Name>default</Name>
@@ -804,10 +804,10 @@
   </ColumnsSets>
   <MainWindow>
     <Position Save="True">
-      <Maximized>False</Maximized>
+      <Maximized>True</Maximized>
       <Splitter>50</Splitter>
-      <Left>2160</Left>
-      <Top>168</Top>
+      <Left>270</Left>
+      <Top>173</Top>
       <Width>1440</Width>
       <Height>744</Height>
       <PixelsPerInch>96</PixelsPerInch>
