@@ -806,10 +806,10 @@
     <Position Save="True">
       <Maximized>True</Maximized>
       <Splitter>50</Splitter>
-      <Left>270</Left>
-      <Top>173</Top>
+      <Left>2242</Left>
+      <Top>32</Top>
       <Width>1440</Width>
-      <Height>744</Height>
+      <Height>678</Height>
       <PixelsPerInch>96</PixelsPerInch>
     </Position>
   </MainWindow>
