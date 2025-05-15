@@ -11,6 +11,7 @@ idna==3.10
 Jinja2==3.1.6
 kubernetes==29.0.0
 MarkupSafe==3.0.2
+novaposhta-api-client @ git+https://github.com/semolex/novaposhta-api-client@8dd77ed29e6bb0ef3c7b931f79e33e3d99f55117
 oauthlib==3.2.2
 openpyxl==3.1.5
 openshift==0.13.2
