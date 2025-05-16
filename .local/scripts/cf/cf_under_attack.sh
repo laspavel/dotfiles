@@ -77,11 +77,11 @@ log "Current load: $load / Threshold: $load_threshold"
 
 current_status=$(get_current_status)
 
-if (( $(echo "$load > $load_threshold" | bc -l) )); then
+if awk "BEGIN {exit !($load > $load_threshold)}"; then
   if [[ "$current_status" != "under_attack" ]]; then
     update_cloudflare "under_attack"
     log "Switched to UNDER_ATTACK mode"
-    send_telegram "[ALARM] Cloudflare: Under Attack Mode activated."
+    send_telegram "[ALARM] $(hostname): Cloudflare Under Attack Mode activated."
   else
     log "Already in UNDER_ATTACK mode. No action needed."
   fi
@@ -89,7 +89,7 @@ else
   if [[ "$current_status" == "under_attack" ]]; then
     update_cloudflare "medium"
     log "Switched to MEDIUM security mode"
-    send_telegram "[OK] Cloudflare: Under Attack Mode deactivated."
+    send_telegram "[OK] $(hostname): Cloudflare Under Attack Mode deactivated."
   else
     log "Already in MEDIUM mode. No action needed."
   fi
