@@ -621,7 +621,7 @@
     <PreviewVisible>False</PreviewVisible>
     <ImageStretch>False</ImageStretch>
     <ImageStretchLargeOnly>False</ImageStretchLargeOnly>
-    <ImageCenter>True</ImageCenter>
+    <ImageCenter>False</ImageCenter>
     <CopyMovePath1/>
     <CopyMovePath2/>
     <CopyMovePath3/>
