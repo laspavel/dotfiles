@@ -127,7 +127,7 @@ show_mini_info=true
 kilobyte_si=false
 mix_all_files=false
 show_backups=true
-show_dot_files=true
+show_dot_files=false
 fast_reload=false
 fast_reload_msg_shown=false
 mark_moves_down=true
@@ -174,6 +174,6 @@ follow_symlinks=false
 
 [Panelize]
 Find SUID and SGID programs=find . \\( \\( -perm -04000 -a -perm /011 \\) -o \\( -perm -02000 -a -perm /01 \\) \\) -print
-Find *.orig after patching=find . -name \\*.orig -print
 Find rejects after patching=find . -name \\*.rej -print
 Modified git files=git ls-files --modified
+Find *.orig after patching=find . -name \\*.orig -print
