@@ -280,7 +280,7 @@ export LC_ALL=$LANG
 export LC_CTYPE=$LANG
 
 # History
-export HISTCONTROL=ignorespace   # leading space hides commands from history
+export HISTCONTROL=ignoredups  #:ignorespace
 export HISTFILESIZE=10000        # increase history file size (default is 500)
 export HISTSIZE=30000
 export HISTTIMEFORMAT="[%d.%m.%y %T] "
