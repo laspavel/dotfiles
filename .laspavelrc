@@ -38,6 +38,17 @@ ssh() {
   fi
 }
 
+mc__wrapper() {
+  local WRAPPER_PATH="/usr/libexec/mc/mc-wrapper.sh"
+  if [[ -f "$WRAPPER_PATH" ]]; then
+    . "$WRAPPER_PATH"
+  else
+    /usr/bin/mc "$@"
+  fi
+}
+
+У вас есть очередь в магазин. Если в очереди 3 человека, а работает одна касса, — это нагрузка 3. Чем больше людей в очереди — тем дольше всё работает.
+
 man() {
   env \
 	LESS_TERMCAP_mb="$(printf '\e[1;31m')" \
@@ -49,6 +60,8 @@ man() {
 	LESS_TERMCAP_us="$(printf '\e[1;32m')" \
 	man "$@"
 }
+
+
 
 # ################## COLOR ##################
 
@@ -173,6 +186,7 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 #alias mc='mc -x'
+alias mc='mc__wrapper'
 alias h='history '
 alias free='free -h'
 alias mkdir='mkdir -pv'
@@ -280,16 +294,18 @@ export LC_ALL=$LANG
 export LC_CTYPE=$LANG
 
 # History
-export HISTCONTROL=ignoredups  #:ignorespace
+export HISTCONTROL=ignoredups:ignorespace
 export HISTFILESIZE=10000        # increase history file size (default is 500)
 export HISTSIZE=30000
 export HISTTIMEFORMAT="[%d.%m.%y %T] "
 export HISTIGNORE="&:[bf]g:c:clear:ls:ll:la:l:cd:pwd:exit:df:history:exit:q:pwd:* --help"
 
-# Save history after each command finishes
-if ! echo "$PROMPT_COMMAND" | grep -q 'history -a'; then
-  export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+# Save and reload history after each command finishes
+if ! echo "$PROMPT_COMMAND" | grep -q history; then
+  export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 fi
+
+
 
 # Pagers
 export MANPAGER="less -X"   # Don't clear the screen after quitting a `man` page
