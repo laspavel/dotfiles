@@ -739,7 +739,7 @@
           <Title>Ext</Title>
           <Unique>1DA63080-CB99-4460-AF7E-55AE0FB1842D</Unique>
           <FuncString>[DC().GETFILEEXT{}]</FuncString>
-          <Width>220</Width>
+          <Width>114</Width>
           <Align>0</Align>
           <Font>
             <Name>default</Name>

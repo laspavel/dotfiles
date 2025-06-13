@@ -36,4 +36,4 @@ six==1.17.0
 urllib3==2.4.0
 wcwidth==0.2.13
 websocket-client==1.7.0
-yt-dlp==2025.4.30
+yt-dlp==2025.6.9
