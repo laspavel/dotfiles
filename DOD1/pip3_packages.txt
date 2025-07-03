@@ -1,5 +1,6 @@
 ansible==11.5.0
 ansible-core==2.18.5
+APScheduler==3.11.0
 bcrypt==4.3.0
 cachetools==5.3.3
 certifi==2024.2.2
@@ -17,6 +18,7 @@ Jinja2==3.1.6
 joblib==1.5.1
 kubernetes==29.0.0
 MarkupSafe==3.0.2
+netifaces==0.11.0
 novaposhta-api-client @ git+https://github.com/semolex/novaposhta-api-client@8dd77ed29e6bb0ef3c7b931f79e33e3d99f55117
 numpy==2.3.0
 oauthlib==3.2.2
@@ -26,6 +28,7 @@ packaging==25.0
 pandas==2.0.3
 paramiko==3.5.1
 prompt_toolkit==3.0.51
+pyalsaaudio==0.11.0
 pyasn1==0.5.1
 pyasn1-modules==0.3.0
 pycparser==2.22
@@ -49,6 +52,7 @@ six==1.17.0
 tasklogger==1.2.0
 threadpoolctl==3.6.0
 tzdata==2025.2
+tzlocal==5.3.1
 urllib3==2.4.0
 wcwidth==0.2.13
 websocket-client==1.7.0
