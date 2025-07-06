@@ -1,3 +1,4 @@
+altgraph==0.17.4
 ansible==11.5.0
 ansible-core==2.18.5
 APScheduler==3.11.0
@@ -33,6 +34,8 @@ pyasn1==0.5.1
 pyasn1-modules==0.3.0
 pycparser==2.22
 PyGSP==0.5.1
+pyinstaller==6.14.2
+pyinstaller-hooks-contrib==2025.5
 PyNaCl==1.5.0
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
@@ -48,6 +51,7 @@ rsa==4.9
 scikit-learn==1.7.0
 scipy==1.15.3
 scprep==1.2.3
+setuptools==80.9.0
 six==1.17.0
 tasklogger==1.2.0
 threadpoolctl==3.6.0
