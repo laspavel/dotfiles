@@ -12,6 +12,7 @@ decorator==5.2.1
 Deprecated==1.2.18
 et_xmlfile==2.0.0
 future==1.0.0
+git-filter-repo==2.47.0
 google-auth==2.29.0
 graphtools==1.5.3
 idna==3.10
