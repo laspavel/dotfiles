@@ -1,0 +1,12 @@
+*/mnt
+.cache/
+Cache
+Trash/
+IndexedDB/
+google-chrome/Default/
+.ssh/authorized_keys
+tmp
+pgbager_transfer/reports/*/postgresql*.html
+.smb*
+*.iso
+*.tmp
