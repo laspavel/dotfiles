@@ -14,6 +14,8 @@ TIMEOUT_COMMAND=900
 export RESTIC_PASSWORD_FILE="/home/laspavel/.ssh/id_rsa.pub"
 RESTIC_CMD="/home/laspavel/.local/bin/restic -r ${BACKUP_REPO} -v "
 
+$RESTIC_CMD unlock
+
 # === Add timestamp ===
 timestamp_output() {
   awk '{ print strftime("%Y-%m-%d %H:%M:%S - "), $0; fflush(); }'

@@ -1,5 +1,2 @@
 /home/laspavel/_
 /home/laspavel/Pictures
-/home/laspavel/*.md
-/home/laspavel/*.
-/home/laspavel/*.txt
