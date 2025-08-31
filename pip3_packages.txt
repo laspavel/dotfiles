@@ -1,0 +1,17 @@
+altgraph @ file:///AppleInternal/Library/BuildRoots/39d9dc1a-2111-11f0-be06-226177e5bb69/Library/Caches/com.apple.xbs/Sources/python3/altgraph-0.17.2-py2.py3-none-any.whl
+ansible==8.7.0
+ansible-core==2.15.13
+cffi==1.17.1
+cryptography==45.0.6
+future @ file:///AppleInternal/Library/BuildRoots/39d9dc1a-2111-11f0-be06-226177e5bb69/Library/Caches/com.apple.xbs/Sources/python3/future-0.18.2-py3-none-any.whl
+importlib-resources==5.0.7
+Jinja2==3.1.6
+macholib @ file:///AppleInternal/Library/BuildRoots/39d9dc1a-2111-11f0-be06-226177e5bb69/Library/Caches/com.apple.xbs/Sources/python3/macholib-1.15.2-py2.py3-none-any.whl
+MarkupSafe==3.0.2
+packaging==25.0
+pycparser==2.22
+PyYAML==6.0.2
+resolvelib==1.0.1
+six @ file:///AppleInternal/Library/BuildRoots/39d9dc1a-2111-11f0-be06-226177e5bb69/Library/Caches/com.apple.xbs/Sources/python3/six-1.15.0-py2.py3-none-any.whl
+vboxapi==1.0
+yt-dlp==2025.8.11
