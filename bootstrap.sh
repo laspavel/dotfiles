@@ -121,6 +121,7 @@ BackupDotFiles() {
   copy_if_exists "$HOME/.lesshst"                        "$STARTDIR"
   copy_if_exists "$HOME/.gitconfig"                      "$STARTDIR"
   copy_if_exists "$HOME/.gitignore"                      "$STARTDIR"
+  copy_if_exists "$HOME/.laspavelrc"                     "$STARTDIR"
   copy_if_exists "$HOME/.bashrc"                         "$STARTDIR"
   copy_if_exists "$HOME/.bash_profile"                   "$STARTDIR"
   copy_if_exists "$HOME/.bash_logout"                    "$STARTDIR"

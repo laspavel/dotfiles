@@ -10,7 +10,7 @@ if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
 then
   PATH="$HOME/.local/bin:$HOME/bin:$HOME/.krew/bin:$PATH"
 fi
-export PATH="$PATH:$(find "$HOME/.local/scripts" -type d | paste -sd ':')"
+export PATH="$PATH:$(find "$HOME/.local/scripts" -type d | paste -sd ':' -)"
 # export PATH
 
 # If not running interactively, don't do anything
@@ -216,12 +216,6 @@ alias most10='du -hsx * | sort -rh | head -10'
 # Estimate file space usage to maximum depth
 alias dud="du -d 1"
 
-# Wine Utils
-if command -v wine64 >/dev/null; then
-  alias winbox='wine64 "$HOME/.wine/drive_c/winbox.exe"'
-  alias winrar='wine64 "$HOME/.wine/drive_c/Program Files/WinRAR/WinRAR.exe"'
-fi
-
 # Utils from Internet
 alias weather="curl wttr.in/Dnepr"
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
@@ -302,8 +296,6 @@ export HISTIGNORE="&:[bf]g:c:clear:ls:ll:la:l:cd:pwd:exit:df:history:exit:q:pwd:
 if ! echo "$PROMPT_COMMAND" | grep -q history; then
   export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 fi
-
-
 
 # Pagers
 export MANPAGER="less -X"   # Don't clear the screen after quitting a `man` page
