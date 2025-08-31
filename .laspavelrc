@@ -38,15 +38,6 @@ ssh() {
   fi
 }
 
-mc__wrapper() {
-  local WRAPPER_PATH="/usr/libexec/mc/mc-wrapper.sh"
-  if [[ -f "$WRAPPER_PATH" ]]; then
-    . "$WRAPPER_PATH"
-  else
-    /usr/bin/mc "$@"
-  fi
-}
-
 man() {
   env \
 	LESS_TERMCAP_mb="$(printf '\e[1;31m')" \
@@ -183,8 +174,7 @@ alias du='du -h'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-#alias mc='mc -x'
-alias mc='mc__wrapper'
+alias mc='mc -x'
 alias h='history '
 alias free='free -h'
 alias mkdir='mkdir -pv'
