@@ -52,13 +52,13 @@ copy_if_exists() {
   fi
 }
 
-# Общие флаги rsync для синка скриптов
-scripts_rsync_flags() {
-  if [[ "$RSYNC_DELETE" == "1" ]]; then
-    echo "-a --delete --delete-excluded"
-  else
-    echo "-a"
+rsync_scripts() {
+  local src="$1" dst="$2"
+  local -a flags=("-a")
+  if [[ "${RSYNC_DELETE:-0}" == "1" ]]; then
+    flags+=("--delete" "--delete-excluded")
   fi
+  rsync "${flags[@]}" "$src" "$dst"
 }
 
 # ==========================
@@ -87,7 +87,7 @@ RestoreDotFiles() {
     msg "[Restore] Sync ./local/scripts -> ~/.local/scripts (delete=$RSYNC_DELETE)"
     mkdir -p "$HOME/.local/scripts"
     # shellcheck disable=SC2046
-    rsync $(scripts_rsync_flags) ./local/scripts/ "$HOME/.local/scripts/"
+    rsync_scripts "$HOME/.local/scripts/" "$STARTDIR/.local/scripts/"
   fi
 
   msg "[Restore] Done."
@@ -131,7 +131,7 @@ BackupDotFiles() {
     msg "[Backup] Sync ~/.local/scripts -> ./.local/scripts (delete=$RSYNC_DELETE)"
     mkdir -p "$STARTDIR/.local/scripts"
     # shellcheck disable=SC2046
-    rsync $(scripts_rsync_flags) "$HOME/.local/scripts/" "$STARTDIR/.local/scripts/"
+    rsync_scripts "$HOME/.local/scripts/" "$STARTDIR/.local/scripts/"
   fi
 
   # -------- Extras: pip3 freeze --------
