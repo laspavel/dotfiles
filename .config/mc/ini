@@ -35,7 +35,7 @@ classic_progressbar=true
 use_netrc=true
 ftpfs_always_use_proxy=false
 ftpfs_use_passive_connections=true
-ftpfs_use_passive_connections_over_proxy=true
+ftpfs_use_passive_connections_over_proxy=false
 ftpfs_use_unix_list_options=true
 ftpfs_first_cd_then_ls=true
 ignore_ftp_chattr_errors=true
@@ -62,7 +62,7 @@ editor_group_undo=false
 editor_state_full_filename=false
 editor_ask_filename_before_edit=false
 nice_rotating_dash=true
-shadows=false
+shadows=true
 mcview_remember_file_position=false
 auto_fill_mkdir_name=true
 copymove_persistent_attr=true
@@ -75,7 +75,7 @@ num_history_items_recorded=60
 vfs_timeout=60
 ftpfs_directory_timeout=900
 ftpfs_retry_seconds=30
-fish_directory_timeout=900
+shell_directory_timeout=900
 editor_tab_spacing=8
 editor_word_wrap_line_length=72
 editor_option_save_mode=0
@@ -84,14 +84,12 @@ editor_filesize_threshold=64M
 editor_stop_format_chars=-+*\\,.;:&>
 mcview_eof=
 skin=default
-
 filepos_max_saved_entries=1024
-shell_directory_timeout=900
 
 [Layout]
 output_lines=0
-left_panel_size=95
-top_panel_size=19
+left_panel_size=103
+top_panel_size=0
 message_visible=true
 keybar_visible=true
 xterm_title=true
@@ -115,12 +113,8 @@ clipboard_paste=
 
 [Colors]
 base_color=
-xterm=
-color_terminals=
-
-linux=
-
 xterm-256color=
+color_terminals=
 
 [Panels]
 show_mini_info=true
@@ -132,17 +126,16 @@ fast_reload=false
 fast_reload_msg_shown=false
 mark_moves_down=true
 reverse_files_only=true
-auto_save_setup_panels=true
+auto_save_setup_panels=false
 navigate_with_arrows=false
 panel_scroll_pages=true
 panel_scroll_center=false
 mouse_move_pages=true
 filetype_mode=true
-permission_mode=true
+permission_mode=false
 torben_fj_mode=false
 quick_search_mode=2
 select_flags=6
-
 simple_swap=false
 
 [DiffView]
@@ -156,24 +149,8 @@ diff_ignore_space_change=false
 diff_tab_expansion=false
 diff_ignore_case=false
 
-[FindFile]
-file_case_sens=true
-file_shell_pattern=true
-file_find_recurs=true
-file_skip_hidden=false
-file_all_charsets=false
-content_case_sens=true
-content_regexp=false
-content_first_hit=false
-content_whole_words=false
-content_all_charsets=false
-ignore_dirs_enable=true
-ignore_dirs=
-
-follow_symlinks=false
-
 [Panelize]
-Find SUID and SGID programs=find . \\( \\( -perm -04000 -a -perm /011 \\) -o \\( -perm -02000 -a -perm /01 \\) \\) -print
-Modified git files=git ls-files --modified
-Find *.orig after patching=find . -name \\*.orig -print
-Find rejects after patching=find . -name \\*.rej -print
+Изменённые файлы под контролем git=git ls-files --modified
+Найти корректуры, отвергнутые командой patch=find . -name \\*.rej -print
+Найти оригиналы (*.orig) после команды patch=find . -name \\*.orig -print
+Найти программы с установленными битами SUID/SGID=find . \\( \\( -perm -04000 -a -perm /011 \\) -o \\( -perm -02000 -a -perm /01 \\) \\) -print
