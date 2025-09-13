@@ -50,6 +50,17 @@ man() {
 	man "$@"
 }
 
+tt() {
+  # Имя сессии по умолчанию
+  local session_name="${TMUX_SESSION_NAME:-default1}"
+
+  # Проверяем, есть ли уже сессия с таким именем
+  if tmux has-session -t "$session_name" 2>/dev/null; then
+    tmux attach-session -t "$session_name"
+  else
+    tmux new-session -s "$session_name"
+  fi
+}
 
 
 # ################## COLOR ##################
@@ -175,6 +186,7 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias mc='mc -x'
+alias www="watch -tn 1 '$1'"
 alias h='history '
 alias free='free -h'
 alias mkdir='mkdir -pv'
@@ -189,8 +201,6 @@ alias flushdns='sudo resolvectl flush-caches'
 alias reload="exec ${SHELL} -l"
 
 alias ?="calcc $1"
-alias tt="tmux attach -t 0"
-# tmux has-session && exec tmux attach || exec tmux
 
 # Get top process eating memory
 alias psmem="ps auxf | sort -nr -k 4"
