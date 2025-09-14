@@ -190,7 +190,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias mc='mc -x'
 alias www="watch -tn 1 '$1'"
-alias h='history '
+alias h='history'
 alias free='free -h'
 alias mkdir='mkdir -pv'
 alias urldecode='python -c "import sys, os, urllib as ul; name = ul.unquote_plus(sys.argv[1]); print name; os.rename(sys.argv[1], name)"'
@@ -206,11 +206,9 @@ alias reload="exec ${SHELL} -l"
 alias ?="calcc $1"
 
 # Get top process eating memory
-alias psmem="ps auxf | sort -nr -k 4"
 alias psmem10="ps auxf | sort -nr -k 4 | head -10"
 
 # Get top process eating cpu
-alias pscpu="ps auxf | sort -nr -k 3"
 alias pscpu10="ps auxf | sort -nr -k 3 | head -10"
 
 # Gives you what is using the most space. Both directories and files. Varies on current directory
@@ -281,7 +279,7 @@ export TMPDIR="${HOME}/tmp"
 # if exists Visual Studio Code use it.
 if [ -f /usr/bin/code ]; then
   export VISUAL="code"
-  alias vv="$VISUAL"
+  alias v="$VISUAL"
 fi
 
 export LANG=$(locale -a | grep -qi '^ru_UA\.utf-8$' && echo ru_UA.UTF-8 || echo en_US.UTF-8)
