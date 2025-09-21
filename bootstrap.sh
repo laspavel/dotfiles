@@ -210,9 +210,10 @@ main() {
   done
   [[ "$delete_flag" == "1" ]] && RSYNC_DELETE=1
 
-  case "${cmd:-restore}" in
+  case "${cmd:-help}" in
     backup)  BackupDotFiles ;;
     restore) RestoreDotFiles ;;
+    help)    usage; exit 0 ;;
   esac
 }
 
