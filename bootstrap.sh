@@ -116,6 +116,7 @@ BackupDotFiles() {
   copy_if_exists "$HOME/.wgetrc"                         "$STARTDIR"
   copy_if_exists "$HOME/.curlrc"                         "$STARTDIR"
   copy_if_exists "$HOME/.psqlrc"                         "$STARTDIR"
+  copy_if_exists "$HOME/.tmux.conf"                      "$STARTDIR"
   copy_if_exists "$HOME/.tmux.conf.local"                "$STARTDIR"
   copy_if_exists "$HOME/.nanorc"                         "$STARTDIR"
   copy_if_exists "$HOME/.lesshst"                        "$STARTDIR"
