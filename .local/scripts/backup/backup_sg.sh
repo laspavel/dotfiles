@@ -2,23 +2,29 @@
 
 set -eEuo pipefail
 
-BACKUP_REPO="sftp:opc@sg:/home/opc/D01/hb2"
-FILES_LIST="/home/laspavel/.local/scripts/backup/backup_sg_list.txt"
-EXCLUDE_LIST="/home/laspavel/.local/scripts/backup/backup_sg_exclude.txt"
+BACKUP_REPO="sftp:opc@sg:/home/opc/D01/mb1"
+FILES_LIST="/Users/laspavel/.local/scripts/backup/backup_sg_list.txt"
+EXCLUDE_LIST="/Users/laspavel/.local/scripts/backup/backup_sg_exclude.txt"
 
 LOG_FILE="/tmp/restic.log"
 RETENTION_DAYS=7
 TIMEOUT_BACKUP=60000
 TIMEOUT_COMMAND=900
 
-export RESTIC_PASSWORD_FILE="/home/laspavel/.ssh/id_rsa.pub"
-RESTIC_CMD="/home/laspavel/.local/bin/restic -r ${BACKUP_REPO} -v "
+#export RESTIC_PASSWORD_FILE="/home/laspavel/.ssh/id_rsa.pub"
+#RESTIC_CMD="/home/laspavel/.local/bin/restic -r ${BACKUP_REPO} -v "
+export RESTIC_PASSWORD_FILE="/Users/laspavel/.ssh/id_rsa.pub"
+RESTIC_CMD="/Users/laspavel/.local/bin/restic -r ${BACKUP_REPO} -v "
+
 
 $RESTIC_CMD unlock
 
 # === Add timestamp ===
 timestamp_output() {
-  awk '{ print strftime("%Y-%m-%d %H:%M:%S - "), $0; fflush(); }'
+#  awk '{ print strftime("%Y-%m-%d %H:%M:%S - "), $0; fflush(); }'
+  while IFS= read -r line; do
+    printf '%s - %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$line"
+  done
 }
 
 # === Logging ===
@@ -46,7 +52,8 @@ run_logged "timeout \"$TIMEOUT_BACKUP\" $RESTIC_CMD backup --files-from \"$FILES
 
 sleep 5
 log "--- Step 2: Checking repository integrity (timeout = ${TIMEOUT_COMMAND}s) ---"
-run_logged "timeout \"$TIMEOUT_BACKUP\" $RESTIC_CMD check --read-data"
+# run_logged "timeout \"$TIMEOUT_BACKUP\" $RESTIC_CMD check --read-data"
+timeout "$TIMEOUT_BACKUP" $RESTIC_CMD check  --read-data-subset 20% 2>&1 | timestamp_output >> "$LOG_FILE"
 
 log "--- Step 3: Pruning snapshots older than $RETENTION_DAYS days (timeout = ${TIMEOUT_COMMAND}s) --- "
 run_logged "timeout \"$TIMEOUT_COMMAND\" $RESTIC_CMD forget --keep-within \"${RETENTION_DAYS}d\" --prune"

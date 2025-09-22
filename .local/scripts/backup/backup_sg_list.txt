@@ -1,2 +1,9 @@
-/home/laspavel/_
-/home/laspavel/Pictures
+/Users/laspavel/Desktop/_
+/Users/laspavel/Documents
+/Users/laspavel/Library/Application Support/Code/User
+/Users/laspavel/Library/Keychains
+/Users/laspavel/Library/Preferences/com.googlecode.iterm2.plist
+/Users/laspavel/.docker/config.json
+/Users/laspavel/.colima/default/colima.yaml
+/Users/laspavel/.config
+/Users/laspavel/.ssh
