@@ -2,6 +2,8 @@
 
 # Apply example (.bashrc): source $HOME/.laspavelrc
 
+[[ -r /etc/bashrc_Apple_Terminal ]] && . /etc/bashrc_Apple_Terminal
+
 if [ -z "${HOME:-}" ]; then
   export HOME=~
 fi
