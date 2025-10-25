@@ -134,3 +134,5 @@
 	log = true
 
 
+[safe]
+	directory = /Users/laspavel/Desktop/_/M/armbian
