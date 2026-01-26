@@ -9,6 +9,7 @@ Jinja2==3.1.6
 macholib @ file:///AppleInternal/Library/BuildRoots/4~CDlvugAeMYaHcTWIELyAQ2joHAecmlI0GAlKPsw/Library/Caches/com.apple.xbs/Sources/python3/macholib-1.15.2-py2.py3-none-any.whl
 MarkupSafe==3.0.2
 packaging==25.0
+passlib==1.7.4
 ping3==5.1.5
 pycparser==2.22
 PyYAML==6.0.2
