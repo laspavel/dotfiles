@@ -149,6 +149,21 @@ diff_ignore_space_change=false
 diff_tab_expansion=false
 diff_ignore_case=false
 
+[FindFile]
+file_case_sens=true
+file_shell_pattern=true
+file_find_recurs=true
+follow_symlinks=false
+file_skip_hidden=false
+file_all_charsets=false
+content_case_sens=true
+content_regexp=false
+content_first_hit=false
+content_whole_words=false
+content_all_charsets=false
+ignore_dirs_enable=true
+ignore_dirs=
+
 [Panelize]
 Изменённые файлы под контролем git=git ls-files --modified
 Найти корректуры, отвергнутые командой patch=find . -name \\*.rej -print

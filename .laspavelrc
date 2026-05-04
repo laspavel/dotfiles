@@ -227,23 +227,6 @@ alias dnsinfo="dig $1 @resolver1.opendns.com"
 # Docker
 alias py3='docker run -it --rm --hostname py3 -v $(pwd):/data -w /data python:3.9 /bin/bash'
 
-# Kubernetes
-if command -v kubectx >/dev/null; then 
-  alias kx="kubectx"
-fi
-
-if command -v kubens >/dev/null; then 
-  alias kn="kubens"
-fi
-
-if command -v kubectl >/dev/null; then 
-  alias k="kubectl"
-  # Kubectl autocomplete
-  source <(kubectl completion bash)
-  complete -F __start_kubectl k
-fi
-export KUBECONFIG=$(find -L ~/.kube -type f \( -name '*.yml' -o -name '*.y?ml' \) -print0 | xargs -0 echo | tr ' ' ':')
-
 # Terraform and vault
 if command -v terraform >/dev/null; then 
   complete -C terraform terraform
@@ -324,3 +307,84 @@ fi
 # eval "$(starship init bash)"
 
 # ########################################################################
+
+# Kubernetes
+if command -v kubectl >/dev/null; then 
+  alias k="kubectl"
+  # Kubectl autocomplete
+  source <(kubectl completion bash)
+  complete -F __start_kubectl k
+fi
+export KUBECONFIG=$(find -L ~/.kube -type f \( -name '*.yml' -o -name '*.y?ml' \) -print0 | xargs -0 echo | tr ' ' ':')
+
+if [ -d "$HOME/.kube/clusters" ]; then
+    export KUBECONFIG=$(find "$HOME/.kube/clusters" -maxdepth 1 -mindepth 1 | paste -sd:)
+fi
+
+kx() {
+    # если аргументов нет — показать contexts
+    if [ $# -eq 0 ]; then
+        kubectl config get-contexts
+        return 0
+    fi
+
+    # если передана команда kubectl (например: kx get pods)
+    if kubectl config get-contexts -o name | grep -qx "$1"; then
+        kubectl config use-context "$1"
+        return 0
+    fi
+
+    # fallback — передать всё kubectl
+    kubectl "$@"
+}
+
+
+_kx_autocomplete() {
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    local contexts
+
+    contexts=$(kubectl config get-contexts -o name 2>/dev/null)
+
+    COMPREPLY=($(compgen -W "$contexts" -- "$cur"))
+}
+
+complete -F _kx_autocomplete kx
+
+kn() {
+    if [ $# -eq 0 ]; then
+        kubectl get namespaces
+
+        current_ns=$(kubectl config view --minify \
+            --output 'jsonpath={..namespace}' 2>/dev/null)
+
+        if [ -z "$current_ns" ]; then
+            current_ns="default"
+        fi
+
+        echo
+        echo "Current namespace: $current_ns"
+        echo
+
+        return 0
+    fi
+
+    if kubectl get namespace "$1" >/dev/null 2>&1; then
+        kubectl config set-context --current --namespace="$1"
+        echo "Switched to namespace: $1"
+        return 0
+    fi
+
+    kubectl "$@"
+}
+
+_kn_autocomplete() {
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    local namespaces
+
+    namespaces=$(kubectl get namespaces -o jsonpath='{.items[*].metadata.name}' 2>/dev/null)
+
+    COMPREPLY=($(compgen -W "$namespaces" -- "$cur"))
+}
+
+complete -F _kn_autocomplete kn
+
