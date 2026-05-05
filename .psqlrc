@@ -345,6 +345,8 @@
 \set ECHO none
 -- \set PROMPT1 '%n@%/%R%# %x '
 -- \x auto
+\set ON_ERROR_STOP on
+\set ON_ERROR_ROLLBACK interactive
 
 \pset linestyle 'unicode'
 \pset unicode_border_linestyle single
