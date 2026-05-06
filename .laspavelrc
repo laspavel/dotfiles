@@ -237,7 +237,8 @@ if command -v vault >/dev/null; then
 fi
 
 # Automatically prepend `cd` to directory names.
-shopt -s autocd
+[ "${BASH_VERSINFO[0]}" -ge 4 ] && shopt -s autocd 2>/dev/null
+#shopt -s autocd
 
 # append rather than overwrite history
 shopt -s histappend
@@ -313,7 +314,8 @@ if command -v kubectl >/dev/null; then
   alias k="kubectl"
   # Kubectl autocomplete
   source <(kubectl completion bash)
-  complete -F __start_kubectl k
+  complete -F __start_kubectl kubectl
+  complete -o default -F __start_kubectl k
 fi
 export KUBECONFIG=$(find -L ~/.kube -type f \( -name '*.yml' -o -name '*.y?ml' \) -print0 | xargs -0 echo | tr ' ' ':')
 
