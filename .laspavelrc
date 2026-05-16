@@ -1,60 +1,169 @@
 # ########################### MY CONFIGURATION ###########################
 
-# Apply example (.bashrc): source $HOME/.laspavelrc
+# Apply: source $HOME/.laspavelrc
 
-[[ -r /etc/bashrc_Apple_Terminal ]] && . /etc/bashrc_Apple_Terminal
+# =================== CORE (always, before interactive check) =============
 
 if [ -z "${HOME:-}" ]; then
   export HOME=~
 fi
 
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
-then
-  PATH="$HOME/.local/bin:$HOME/bin:$HOME/.krew/bin:$PATH"
+# Locale 
+if [[ -z "${LANG}" ]]; then
+  export LANG="uk_UA.UTF-8"
 fi
-export PATH="$PATH:$(find "$HOME/.local/scripts" -type d | paste -sd ':' -)"
-# export PATH
+export LC_COLLATE="C"
+unset LC_ALL
+unset LC_CTYPE
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+# PATH — только если не установлен
+if ! [[ "$PATH" =~ "/opt/homebrew/bin:$HOME/.local/bin:$HOME/bin:$HOME/.krew/bin:" ]]; then
+  PATH="/opt/homebrew/bin:$HOME/.local/bin:$HOME/bin:$HOME/.krew/bin:$PATH"
+fi
 
-# ################## FUNCTION ##################
+# Скрипты — добавляем все поддиректории
+if [ -d "$HOME/.local/scripts" ]; then
+  export PATH="$PATH:$(find "$HOME/.local/scripts" -type d 2>/dev/null | paste -sd ':' -)"
+fi
 
-md5() { echo -n "$1" | md5sum; }
-ipinfo() { curl -sL https://ip.guide/$1; echo "";}
-ipinfo2() { curl ifconfig.co/json?ip=$1; echo "";}
+# Apple Terminal locale integration (macOS only)
+[[ -r /etc/bashrc_Apple_Terminal ]] && . /etc/bashrc_Apple_Terminal
 
-calcc() { awk "BEGIN{ print $* }" ;}
+# Только для интерактивных сессий
+if [[ $- != *i* ]]; then
+  return 0 2>/dev/null || exit 0
+fi
+
+# =================== COMPLETION ==========================================
+
+if [ -f /opt/homebrew/etc/profile.d/bash_completion.sh ]; then
+  . /opt/homebrew/etc/profile.d/bash_completion.sh
+fi
+
+# =================== FUNCTIONS ===========================================
+
+# Hash string. Does not override system md5 command.
+md5str() {
+  if [ $# -eq 0 ]; then
+    echo "usage: md5str <string>" >&2
+    return 2
+  fi
+
+  if command -v md5sum >/dev/null 2>&1; then
+    printf '%s' "$1" | md5sum | awk '{print $1}'
+  else
+    printf '%s' "$1" | command md5 -q
+  fi
+}
+
+# Hash file. Does not override system md5 command.
+md5file() {
+  if [ $# -eq 0 ]; then
+    echo "usage: md5file <file>" >&2
+    return 2
+  fi
+
+  if [ ! -f "$1" ]; then
+    echo "md5file: file not found: $1" >&2
+    return 1
+  fi
+
+  if command -v md5sum >/dev/null 2>&1; then
+    md5sum "$1" | awk '{print $1}'
+  else
+    command md5 -q "$1"
+  fi
+}
+
+ipinfo() {
+  command -v curl >/dev/null 2>&1 || { echo "curl not found" >&2; return 127; }
+  curl -fsSL "https://ip.guide/${1}"
+  echo ""
+}
+
+ipinfo2() {
+  command -v curl >/dev/null 2>&1 || { echo "curl not found" >&2; return 127; }
+  curl -fsS "https://ifconfig.co/json${1:+?ip=$1}"
+  echo ""
+}
+
+calcc() { 
+  awk "BEGIN{ print $* }"; 
+}
+
+www() {
+  command -v watch >/dev/null 2>&1 || { echo "watch not found" >&2; return 127; }
+  watch -tn 1 "$@"
+}
+
+dnsinfo() {
+  command -v dig >/dev/null 2>&1 || { echo "dig not found. Install bind-utils/dnsutils." >&2; return 127; }
+  dig "$1" @resolver1.opendns.com
+}
+
+flushdns() {
+  if command -v resolvectl >/dev/null 2>&1; then
+    sudo resolvectl flush-caches
+  else
+    sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder
+  fi
+}
+
+urldecode() {
+  local py
+  py=$(command -v python3 || command -v python)
+  if [ -n "$py" ]; then
+    "$py" -c "import sys, urllib.parse; print(urllib.parse.unquote_plus(sys.argv[1]))" "$1"
+  else
+    echo "urldecode: python not found" >&2
+    return 1
+  fi
+}
+
+# parse_git_branch() {
+#   git branch 2>/dev/null | sed -n '/\* /s///p' | sed 's/.*/(&)/'
+# }
 
 parse_git_branch() {
-  git branch 2>/dev/null | sed -n '/\* /s///p' | sed 's/.*/(&)/'
+  local branch
+  branch="$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)" || return 0
+  printf '(%s)' "$branch"
 }
 
 ssh() {
-  if [[ -n "$TMUX" ]]; then
-    tmux rename-window "$*"
+  if [[ -n "${TMUX:-}" ]] && command -v tmux >/dev/null 2>&1; then
+    local old_name rc target
+    old_name="$(tmux display-message -p '#W' 2>/dev/null)"
+    target="$1"
+
+    [ -n "$target" ] && tmux rename-window "ssh:${target}" 2>/dev/null
+
     command ssh "$@"
-    tmux rename-window "bash"
-  else
-    command ssh "$@"
+    rc=$?
+
+    [ -n "$old_name" ] && tmux rename-window "$old_name" 2>/dev/null
+
+    return "$rc"
   fi
+
+  command ssh "$@"
 }
 
 man() {
   env \
-	LESS_TERMCAP_mb="$(printf '\e[1;31m')" \
-	LESS_TERMCAP_md="$(printf '\e[1;31m')" \
-	LESS_TERMCAP_me="$(printf '\e[0m')" \
-	LESS_TERMCAP_se="$(printf '\e[0m')" \
-	LESS_TERMCAP_so="$(printf '\e[1;44;33m')" \
-	LESS_TERMCAP_ue="$(printf '\e[0m')" \
-	LESS_TERMCAP_us="$(printf '\e[1;32m')" \
-	man "$@"
+    LESS_TERMCAP_mb="$(printf '\e[1;31m')" \
+    LESS_TERMCAP_md="$(printf '\e[1;31m')" \
+    LESS_TERMCAP_me="$(printf '\e[0m')"    \
+    LESS_TERMCAP_se="$(printf '\e[0m')"    \
+    LESS_TERMCAP_so="$(printf '\e[1;44;33m')" \
+    LESS_TERMCAP_ue="$(printf '\e[0m')"    \
+    LESS_TERMCAP_us="$(printf '\e[1;32m')" \
+    command man "$@"
 }
 
 tt() {
+  command -v tmux >/dev/null 2>&1 || { echo "tmux not found" >&2; return 127; }
   local session_name="${TMUX_SESSION_NAME:-default1}"
-
   if tmux has-session -t "$session_name" 2>/dev/null; then
     tmux attach-session -t "$session_name"
   else
@@ -62,124 +171,80 @@ tt() {
   fi
 }
 
+# =================== SHELL OPTIONS =======================================
 
-# ################## COLOR ##################
+if [ -z "${TERM:-}" ] || [ "$TERM" = "dumb" ]; then
+  export TERM="xterm-256color"
+fi
 
-TERM=xterm-256color
+[ "${BASH_VERSINFO[0]}" -ge 4 ] && shopt -s autocd  2>/dev/null
+shopt -s histappend
+shopt -s checkwinsize
+shopt -s cdspell
+shopt -s dirspell 2>/dev/null
+shopt -s cmdhist
 
-# Reset
+# =================== COLORS ==============================================
+
 Color_Off="\[\033[0m\]"
+Black="\[\033[0;30m\]";   Red="\[\033[0;31m\]";     Green="\[\033[0;32m\]"
+Yellow="\[\033[0;33m\]";  Blue="\[\033[0;34m\]";    Magenta="\[\033[0;35m\]"
+Cyan="\[\033[0;36m\]";    White="\[\033[0;37m\]"
 
-# Regular Colors
-Black="\[\033[0;30m\]"
-Red="\[\033[0;31m\]"
-Green="\[\033[0;32m\]"
-Yellow="\[\033[0;33m\]"
-Blue="\[\033[0;34m\]"
-Magenta="\[\033[0;35m\]"
-Cyan="\[\033[0;36m\]"
-White="\[\033[0;37m\]"
+BBlack="\[\033[1;30m\]";  BRed="\[\033[1;31m\]";    BGreen="\[\033[1;32m\]"
+BYellow="\[\033[1;33m\]"; BBlue="\[\033[1;34m\]";   BMagenta="\[\033[1;35m\]"
+BCyan="\[\033[1;36m\]";   BWhite="\[\033[1;37m\]"
 
-# Bold
-BBlack="\[\033[1;30m\]"
-BRed="\[\033[1;31m\]"
-BGreen="\[\033[1;32m\]"
-BYellow="\[\033[1;33m\]"
-BBlue="\[\033[1;34m\]"
-BMagenta="\[\033[1;35m\]"
-BCyan="\[\033[1;36m\]"
-BWhite="\[\033[1;37m\]"
+UBlack="\[\033[4;30m\]";  URed="\[\033[4;31m\]";    UGreen="\[\033[4;32m\]"
+UYellow="\[\033[4;33m\]"; UBlue="\[\033[4;34m\]";   UMagenta="\[\033[4;35m\]"
+UCyan="\[\033[4;36m\]";   UWhite="\[\033[4;37m\]"
 
-# Underline
-UBlack="\[\033[4;30m\]"
-URed="\[\033[4;31m\]"
-UGreen="\[\033[4;32m\]"
-UYellow="\[\033[4;33m\]"
-UBlue="\[\033[4;34m\]"
-UMagenta="\[\033[4;35m\]"
-UCyan="\[\033[4;36m\]"
-UWhite="\[\033[4;37m\]"
+On_Black="\[\033[40m\]";  On_Red="\[\033[41m\]";    On_Green="\[\033[42m\]"
+On_Yellow="\[\033[43m\]"; On_Blue="\[\033[44m\]";   On_Magenta="\[\033[45m\]"
+On_Cyan="\[\033[46m\]";   On_White="\[\033[47m\]"
 
-# Background
-On_Black="\[\033[40m\]"
-On_Red="\[\033[41m\]"
-On_Green="\[\033[42m\]"
-On_Yellow="\[\033[43m\]"
-On_Blue="\[\033[44m\]"
-On_Magenta="\[\033[45m\]"
-On_Cyan="\[\033[46m\]"
-On_White="\[\033[47m\]"
+IBlack="\[\033[0;90m\]";  IRed="\[\033[0;91m\]";    IGreen="\[\033[0;92m\]"
+IYellow="\[\033[0;93m\]"; IBlue="\[\033[0;94m\]";   IMagenta="\[\033[0;95m\]"
+ICyan="\[\033[0;96m\]";   IWhite="\[\033[0;97m\]"
 
-# High Intensity (Bright)
-IBlack="\[\033[0;90m\]"
-IRed="\[\033[0;91m\]"
-IGreen="\[\033[0;92m\]"
-IYellow="\[\033[0;93m\]"
-IBlue="\[\033[0;94m\]"
-IMagenta="\[\033[0;95m\]"
-ICyan="\[\033[0;96m\]"
-IWhite="\[\033[0;97m\]"
+BIBlack="\[\033[1;90m\]"; BIRed="\[\033[1;91m\]";   BIGreen="\[\033[1;92m\]"
+BIYellow="\[\033[1;93m\]";BIBlue="\[\033[1;94m\]";  BIMagenta="\[\033[1;95m\]"
+BICyan="\[\033[1;96m\]";  BIWhite="\[\033[1;97m\]"
 
-# Bold + High Intensity
-BIBlack="\[\033[1;90m\]"
-BIRed="\[\033[1;91m\]"
-BIGreen="\[\033[1;92m\]"
-BIYellow="\[\033[1;93m\]"
-BIBlue="\[\033[1;94m\]"
-BIMagenta="\[\033[1;95m\]"
-BICyan="\[\033[1;96m\]"
-BIWhite="\[\033[1;97m\]"
+On_IBlack="\[\033[0;100m\]"; On_IRed="\[\033[0;101m\]";  On_IGreen="\[\033[0;102m\]"
+On_IYellow="\[\033[0;103m\]";On_IBlue="\[\033[0;104m\]"; On_IMagenta="\[\033[0;105m\]"
+On_ICyan="\[\033[0;106m\]";  On_IWhite="\[\033[0;107m\]"
 
-# High Intensity Backgrounds
-On_IBlack="\[\033[0;100m\]"
-On_IRed="\[\033[0;101m\]"
-On_IGreen="\[\033[0;102m\]"
-On_IYellow="\[\033[0;103m\]"
-On_IBlue="\[\033[0;104m\]"
-On_IMagenta="\[\033[0;105m\]"
-On_ICyan="\[\033[0;106m\]"
-On_IWhite="\[\033[0;107m\]"
-
-# Terminal colors
-PS1="$BBlue\u@\h:$BRed\$(parse_git_branch)$Color_Off$BGreen\w$ $Color_Off"
-
-if [[ $SSH_CLIENT ]]; then
+if [[ -n "${SSH_CLIENT:-}${SSH_TTY:-}" ]]; then
+  PS1="$BRed[SSH]$Color_Off $BBlue\u@\h:$BRed\$(parse_git_branch)$Color_Off$BGreen\w$ $Color_Off"
+else
   PS1="$BBlue\u@\h:$BRed\$(parse_git_branch)$Color_Off$BGreen\w$ $Color_Off"
 fi
 
-# ################## ALIAS ##################
+# =================== ALIASES =============================================
 
 if command -v grc >/dev/null; then
-  alias cvs="grc --colour=auto cvs"
-  alias diff="grc --colour=auto diff"
-  alias esperanto="grc --colour=auto esperanto"
-  alias gcc="grc --colour=auto gcc"
-  alias irclog="grc --colour=auto irclog"
-  alias ldap="grc --colour=auto ldap"
-  alias log="grc --colour=auto log"
-  alias netstat="grc --colour=auto netstat"
-  alias ping="grc --colour=auto ping"
-  alias proftpd="grc --colour=auto proftpd"
-  alias traceroute="grc --colour=auto traceroute"
-  alias wdiff="grc --colour=auto wdiff"
+  for _cmd in cvs diff esperanto gcc irclog ldap log netstat ping proftpd traceroute wdiff; do
+    alias "$_cmd"="grc --colour=auto $_cmd"
+  done
+  unset _cmd
 fi
 
 if command -v gls >/dev/null; then
   alias ls='gls --color=auto'
 fi
 
-#alias ls='ls -G'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias ..='cd ../'
 alias ...='cd ../..'
-alias m='mount '
-alias u='fusermount -u -z'
 alias f='file'
 alias s='stat'
 alias rm='rm -i'
-alias n='nano '
+alias cp='cp -i'
+alias mv='mv -i'
+alias n='nano'
 alias vi='vim'
 alias v='$EDITOR'
 alias e='$EDITOR'
@@ -187,206 +252,144 @@ alias cls='clear'
 alias r='reset'
 alias df='df -h'
 alias du='du -h'
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-alias mc='mc -x'
-alias www="watch -tn 1 '$1'"
 alias h='history'
-alias free='free -h'
 alias mkdir='mkdir -pv'
-alias urldecode='python -c "import sys, os, urllib as ul; name = ul.unquote_plus(sys.argv[1]); print name; os.rename(sys.argv[1], name)"'
-alias port='netstat -tulanp'
 alias listen="lsof -P -i -n"
 alias now='date +%d.%m.%Y%n%T'
 alias week='date +%V'
-alias flushdns='sudo resolvectl flush-caches'
-
-# Reload the shell (i.e. invoke as a login shell)
 alias reload="exec ${SHELL} -l"
-
-alias ?="calcc $1"
-
-# Get top process eating memory
 alias psmem10="ps auxf | sort -nr -k 4 | head -10"
-
-# Get top process eating cpu
 alias pscpu10="ps auxf | sort -nr -k 3 | head -10"
-
-# Gives you what is using the most space. Both directories and files. Varies on current directory
 alias most10='du -hsx * | sort -rh | head -10'
-
-# Estimate file space usage to maximum depth
 alias dud="du -d 1"
-
-# Utils from Internet
 alias weather="curl wttr.in/Dnepr"
-alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
-alias dnsinfo="dig $1 @resolver1.opendns.com"
-
-# Docker
+alias port='ss -tulanp 2>/dev/null || netstat -tulan'
 alias py3='docker run -it --rm --hostname py3 -v $(pwd):/data -w /data python:3.9 /bin/bash'
+alias m='mount'
+alias ?='calcc'
 
-# Terraform and vault
-if command -v terraform >/dev/null; then 
-  complete -C terraform terraform
+# Platform-specific aliases
+if command -v fusermount >/dev/null; then alias u='fusermount -u -z'; fi
+if command -v free       >/dev/null; then alias free='free -h'; fi
+
+if command -v mc >/dev/null 2>&1; then
+    alias mc='mc -x'
 fi
 
-if command -v vault >/dev/null; then 
-  complete -C vault vault
-fi
+# =================== EXPORTS =============================================
 
-# Automatically prepend `cd` to directory names.
-[ "${BASH_VERSINFO[0]}" -ge 4 ] && shopt -s autocd 2>/dev/null
-#shopt -s autocd
-
-# append rather than overwrite history
-shopt -s histappend
-
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
-
-# Autocorrect typos in path names when using the `cd` command.
-shopt -s cdspell
-
-# Autocorrect on directory names to match a glob.
-shopt -s dirspell 2> /dev/null
-
-# Save all lines of a multiple-line command in the same history entry
-shopt -s cmdhist
-
-# ################## EXPORT PARAMETERS ##################
 export EDITOR="vim"
-
-# temporary files directory
-export TMPDIR="${HOME}/tmp"
-
-# if exists Visual Studio Code use it.
-if [ -f /usr/bin/code ]; then
-  export VISUAL="code"
-  alias v="$VISUAL"
-fi
-
-export LANG=$(locale -a | grep -qi '^ru_UA\.utf-8$' && echo ru_UA.UTF-8 || echo en_US.UTF-8)
-export LC_ALL=$LANG
-export LC_CTYPE=$LANG
-
-# History
-export HISTCONTROL=ignoredups:ignorespace
-export HISTFILESIZE=10000        # increase history file size (default is 500)
-export HISTSIZE=30000
-export HISTTIMEFORMAT="[%d.%m.%y %T] "
-export HISTIGNORE="&:[bf]g:c:clear:ls:ll:la:l:cd:pwd:exit:df:history:exit:q:pwd:* --help"
-
-# Save and reload history after each command finishes
-if ! echo "$PROMPT_COMMAND" | grep -q history; then
-  export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-fi
-
-# Pagers
-export MANPAGER="less -X"   # Don't clear the screen after quitting a `man` page
+# export TMPDIR="${HOME}/tmp" && mkdir -p "$TMPDIR"
+export MANPAGER="less -X"
 export PAGER="less"
 export LESS="-M -n -q -i -r"
-export PYTHONIOENCODING="UTF-8"  # Make Python use UTF-8 encoding for output to stdin/stdout/stderr.
+export PYTHONIOENCODING="UTF-8"
 
-# Color
+export HISTCONTROL=ignoredups:ignorespace
+export HISTFILESIZE=10000
+export HISTSIZE=30000
+export HISTTIMEFORMAT="[%d.%m.%y %T] "
+export HISTIGNORE="&:[bf]g:c:clear:ls:ll:la:l:cd:pwd:exit:df:history:q:* --help"
+
 export LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;37;41:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.m4a=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.oga=01;36:*.opus=01;36:*.spx=01;36:*.xspf=01;36:*~=00;90:*#=00;90:*.bak=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.swp=00;90:*.tmp=00;90:*.dpkg-dist=00;90:*.dpkg-old=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:"
 
-#export CLICOLOR=1
-#export LSCOLORS="exfxcxdxbxegedabagacad"
+# =================== PROMPT COMMAND =====================================
 
-# Autocomplete
+_prompt_history() {
+  history -a; 
+  history -n
+}
+case ";${PROMPT_COMMAND:-};" in
+  *";_prompt_history;"*) ;;
+  *) PROMPT_COMMAND="_prompt_history${PROMPT_COMMAND:+; $PROMPT_COMMAND}" ;;
+esac
+
+# =================== AUTOCOMPLETE =======================================
+
 if [ -d "$HOME/.local/.bash.autocomplete.d" ]; then
   shopt -s nullglob
-  for src in "$HOME/.local/.bash.autocomplete.d/"*; do
-    . "$src"
-  done
+  for src in "$HOME/.local/.bash.autocomplete.d/"*; do . "$src"; done
   shopt -u nullglob
 fi
 
-# eval "$(starship init bash)"
+if command -v terraform >/dev/null 2>&1; then complete -C terraform terraform; fi
+if command -v vault     >/dev/null 2>&1; then complete -C vault vault; fi
 
-# ########################################################################
-
-# Kubernetes
-if command -v kubectl >/dev/null; then 
-  alias k="kubectl"
-  # Kubectl autocomplete
-  source <(kubectl completion bash)
-  complete -F __start_kubectl kubectl
-  complete -o default -F __start_kubectl k
-fi
-export KUBECONFIG=$(find -L ~/.kube -type f \( -name '*.yml' -o -name '*.y?ml' \) -print0 | xargs -0 echo | tr ' ' ':')
+# =================== KUBERNETES =========================================
+_kubeconfigs=""
 
 if [ -d "$HOME/.kube/clusters" ]; then
-    export KUBECONFIG=$(find "$HOME/.kube/clusters" -maxdepth 1 -mindepth 1 | paste -sd:)
+  _kubeconfigs="$(find "$HOME/.kube/clusters" -maxdepth 1 -type f 2>/dev/null | paste -sd ':' -)"
+elif [ -d "$HOME/.kube" ]; then
+  _kubeconfigs="$(find -L "$HOME/.kube" -type f \( -name 'config' -o -name '*.yml' -o -name '*.yaml' \) 2>/dev/null | paste -sd ':' -)"
+fi
+
+if [ -n "$_kubeconfigs" ]; then
+  export KUBECONFIG="$_kubeconfigs"
+fi
+
+unset _kubeconfigs
+
+if command -v kubectl >/dev/null 2>&1; then
+  alias k="kubectl"
+  source <(kubectl completion bash) 2>/dev/null
+
+  if declare -F __start_kubectl >/dev/null 2>&1; then
+    complete -F __start_kubectl kubectl
+    complete -o default -F __start_kubectl k
+  fi
 fi
 
 kx() {
-    # если аргументов нет — показать contexts
-    if [ $# -eq 0 ]; then
-        kubectl config get-contexts
-        return 0
-    fi
+  command -v kubectl >/dev/null 2>&1 || { echo "kubectl not found" >&2; return 127; }
 
-    # если передана команда kubectl (например: kx get pods)
-    if kubectl config get-contexts -o name | grep -qx "$1"; then
-        kubectl config use-context "$1"
-        return 0
-    fi
+  if [ $# -eq 0 ]; then
+    kubectl config get-contexts
+    return 0
+  fi
 
-    # fallback — передать всё kubectl
-    kubectl "$@"
+  if kubectl config get-contexts -o name 2>/dev/null | grep -Fxq -- "$1"; then
+    kubectl config use-context "$1"
+    return 0
+  fi
+
+  kubectl "$@"
 }
-
 
 _kx_autocomplete() {
-    local cur="${COMP_WORDS[COMP_CWORD]}"
-    local contexts
-
-    contexts=$(kubectl config get-contexts -o name 2>/dev/null)
-
-    COMPREPLY=($(compgen -W "$contexts" -- "$cur"))
+  command -v kubectl >/dev/null 2>&1 || return 0
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  COMPREPLY=($(compgen -W "$(kubectl config get-contexts -o name 2>/dev/null)" -- "$cur"))
 }
-
 complete -F _kx_autocomplete kx
 
 kn() {
-    if [ $# -eq 0 ]; then
-        kubectl get namespaces
+  command -v kubectl >/dev/null 2>&1 || { echo "kubectl not found" >&2; return 127; }
 
-        current_ns=$(kubectl config view --minify \
-            --output 'jsonpath={..namespace}' 2>/dev/null)
+  if [ $# -eq 0 ]; then
+    kubectl get namespaces
+    local current_ns
+    current_ns=$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)
+    echo -e "\nCurrent namespace: ${current_ns:-default}\n"
+    return 0
+  fi
 
-        if [ -z "$current_ns" ]; then
-            current_ns="default"
-        fi
+  if kubectl get namespace "$1" --request-timeout=3s >/dev/null 2>&1; then
+    kubectl config set-context --current --namespace="$1"
+    echo "Switched to namespace: $1"
+    return 0
+  fi
 
-        echo
-        echo "Current namespace: $current_ns"
-        echo
-
-        return 0
-    fi
-
-    if kubectl get namespace "$1" >/dev/null 2>&1; then
-        kubectl config set-context --current --namespace="$1"
-        echo "Switched to namespace: $1"
-        return 0
-    fi
-
-    kubectl "$@"
+  kubectl "$@"
 }
 
 _kn_autocomplete() {
-    local cur="${COMP_WORDS[COMP_CWORD]}"
-    local namespaces
-
-    namespaces=$(kubectl get namespaces -o jsonpath='{.items[*].metadata.name}' 2>/dev/null)
-
-    COMPREPLY=($(compgen -W "$namespaces" -- "$cur"))
+  command -v kubectl >/dev/null 2>&1 || return 0
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  local ns
+  ns="$(kubectl get namespaces --request-timeout=2s -o jsonpath='{.items[*].metadata.name}' 2>/dev/null)"
+  COMPREPLY=($(compgen -W "$ns" -- "$cur"))
 }
-
 complete -F _kn_autocomplete kn
 
+# ########################################################################
