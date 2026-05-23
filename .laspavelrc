@@ -216,7 +216,7 @@ On_IYellow="\[\033[0;103m\]";On_IBlue="\[\033[0;104m\]"; On_IMagenta="\[\033[0;1
 On_ICyan="\[\033[0;106m\]";  On_IWhite="\[\033[0;107m\]"
 
 if [[ -n "${SSH_CLIENT:-}${SSH_TTY:-}" ]]; then
-  PS1="$BRed[SSH]$Color_Off $BBlue\u@\h:$BRed\$(parse_git_branch)$Color_Off$BGreen\w$ $Color_Off"
+  PS1="$BGreen[SSH]$Color_Off $BBlue\u@\h:$BRed\$(parse_git_branch)$Color_Off$BGreen\w$ $Color_Off"
 else
   PS1="$BBlue\u@\h:$BRed\$(parse_git_branch)$Color_Off$BGreen\w$ $Color_Off"
 fi
