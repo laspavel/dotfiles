@@ -68,6 +68,6 @@ color cyan "^[[:space:]]*##.*"
 # Trailing whitespace
 color ,green "[[:space:]]+$"
 
-include /usr/share/nano/*.nanorc
+#include /usr/share/nano/*.nanorc
 
 #############################
